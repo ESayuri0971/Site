@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -407,6 +407,8 @@
   </style>
 </head>
 <body class="selection:bg-cyber-miku selection:text-black antialiased text-slate-200">
+  <!-- Barra de Progresso de Leitura Superior no Estilo Forma -->
+  <div class="page-progress" id="page-progress" aria-hidden="true"></div>
 
   <!-- Barra de Notificação Superior com Contador de Lançamento -->
   <aside aria-label="Aviso de Lançamento" class="relative z-50 bg-gradient-to-r from-cyan-950 via-slate-900 to-fuchsia-950 border-b border-cyan-500/30 text-xs py-2 px-4">
@@ -736,24 +738,24 @@
         </div>
       </div>
 
-      <!-- Abas de Filtros de Categoria -->
+      <!-- Abas de Filtros de Categoria no Estilo Forma Pill -->
       <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar text-xs font-medium border-b border-white/10">
-        <button onclick="window.vocalStore.filterCategory('todos')" class="filter-tab active px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold transition-all shadow-md" data-category="todos">
+        <button onclick="window.vocalStore.filterCategory('todos')" class="filter-tab active pill copper text-xs font-bold transition-all shadow-md" data-category="todos">
           Todos os Voicebanks (<span id="count-todos">8</span>)
         </button>
-        <button onclick="window.vocalStore.filterCategory('crypton')" class="filter-tab px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all border border-white/10" data-category="crypton">
+        <button onclick="window.vocalStore.filterCategory('crypton')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="crypton">
           Lendários Crypton (01-03)
         </button>
-        <button onclick="window.vocalStore.filterCategory('ai')" class="filter-tab px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all border border-white/10" data-category="ai">
+        <button onclick="window.vocalStore.filterCategory('ai')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="ai">
           Motores de IA de Ponta
         </button>
-        <button onclick="window.vocalStore.filterCategory('rock')" class="filter-tab px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all border border-white/10" data-category="rock">
+        <button onclick="window.vocalStore.filterCategory('rock')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="rock">
           Rock & Alta Energia
         </button>
-        <button onclick="window.vocalStore.filterCategory('mellow')" class="filter-tab px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all border border-white/10" data-category="mellow">
+        <button onclick="window.vocalStore.filterCategory('mellow')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="mellow">
           Vozes Suaves & Jazz
         </button>
-        <button onclick="window.vocalStore.filterCategory('bilingual')" class="filter-tab px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all border border-white/10" data-category="bilingual">
+        <button onclick="window.vocalStore.filterCategory('bilingual')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="bilingual">
           Bilíngues (JP / EN)
         </button>
       </div>
@@ -795,7 +797,7 @@
       </div>
 
       <!-- Painel Principal do Mini-Studio -->
-      <div class="cyber-panel rounded-3xl p-6 sm:p-8 border-cyan-500/30 shadow-2xl relative overflow-hidden">
+      <div data-reveal class="cyber-panel rounded-3xl p-6 sm:p-8 border-cyan-500/30 shadow-2xl relative overflow-hidden">
         
         <!-- Controles Superiores: Seletor de Personagem Ativo & Vogal Fonética -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-6 border-b border-white/10 items-center">
@@ -1098,7 +1100,7 @@
       </div>
 
       <!-- Tabela Comparativa Estilizada -->
-      <div class="cyber-panel rounded-2xl overflow-hidden border-white/10 shadow-xl">
+      <div data-reveal class="cyber-panel rounded-2xl overflow-hidden border-white/10 shadow-xl">
         <div class="overflow-x-auto">
           <table class="w-full text-left text-xs font-mono">
             <thead class="bg-black/60 text-slate-300 border-b border-white/10 uppercase tracking-wider text-[11px]">
@@ -1174,7 +1176,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Depoimento 1 -->
-        <div class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-cyan-400/40 transition-all flex flex-col justify-between">
+        <div data-reveal data-reveal-delay="1" class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-cyan-400/40 transition-all flex flex-col justify-between">
           <div class="space-y-4">
             <div class="flex items-center gap-1 text-amber-400">
               ★★★★★
@@ -1195,7 +1197,7 @@
         </div>
 
         <!-- Depoimento 2 -->
-        <div class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-pink-400/40 transition-all flex flex-col justify-between">
+        <div data-reveal data-reveal-delay="2" class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-pink-400/40 transition-all flex flex-col justify-between">
           <div class="space-y-4">
             <div class="flex items-center gap-1 text-amber-400">
               ★★★★★
@@ -1216,7 +1218,7 @@
         </div>
 
         <!-- Depoimento 3 -->
-        <div class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-purple-400/40 transition-all flex flex-col justify-between">
+        <div data-reveal data-reveal-delay="3" class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-purple-400/40 transition-all flex flex-col justify-between">
           <div class="space-y-4">
             <div class="flex items-center gap-1 text-amber-400">
               ★★★★★
@@ -1246,7 +1248,7 @@
     <div class="absolute inset-0 bg-gradient-to-r from-cyan-950/40 via-slate-900 to-fuchsia-950/40 pointer-events-none"></div>
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-      <div class="cyber-panel rounded-3xl p-8 sm:p-12 border-cyan-400/40 glow-border-miku">
+      <div data-reveal class="cyber-panel rounded-3xl p-8 sm:p-12 border-cyan-400/40 glow-border-miku">
         
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-400/20 text-cyber-miku border border-cyan-400/40 text-xs font-mono font-bold mb-4">
           ★ ACESSO ANTECIPADO EXCLUSIVO
@@ -1284,7 +1286,7 @@
   </section>
 
   <!-- RODAPÉ DA LOJA (ESTILO CRYPTON / YAMAHA) -->
-  <footer class="bg-black border-t border-white/10 pt-16 pb-28 text-slate-400 text-xs font-mono">
+  <footer data-reveal class="bg-black border-t border-white/10 pt-16 pb-28 text-slate-400 text-xs font-mono">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
         
@@ -2084,7 +2086,7 @@
           const total = document.documentElement.scrollHeight - window.innerHeight;
           if (progressBar) {
             const p = Math.max(0, Math.min(1, scrollY / Math.max(1, total)));
-            progressBar.style.transform = scaleX(${p});
+            progressBar.style.transform = 'scaleX(' + p + ')';
           }
           if (headerEl) {
             if (scrollY > 30) {
@@ -2234,9 +2236,9 @@
         this.currentFilter = cat;
         document.querySelectorAll('.filter-tab').forEach(btn => {
           if (btn.dataset.category === cat) {
-            btn.className = 'filter-tab active px-4 py-2 rounded-xl bg-cyan-500 text-slate-950 font-bold transition-all shadow-md';
+            btn.className = 'filter-tab active pill copper text-xs font-bold transition-all shadow-md';
           } else {
-            btn.className = 'filter-tab px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-all border border-white/10';
+            btn.className = 'filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10';
           }
         });
         this.renderCatalog();
