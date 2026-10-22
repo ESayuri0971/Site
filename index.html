@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090a0b">
+  <meta name="description" content="SINTAXE — Formação avançada em Engenharia de Software, Design Systems e Desenvolvimento Full Stack com IA.">
+  <title>SINTAXE — A Arte da Engenharia de Software</title>
+
+  <!-- Google Fonts: DM Sans & Instrument Serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forma: {
+              bg: '#090a0b',
+              surface: '#121315',
+              elevated: '#191918',
+              ink: '#f1f2f3',
+              muted: '#929399',
+              subtle: '#71727b',
+              line: 'rgba(255, 255, 255, 0.08)',
+              'line-strong': 'rgba(255, 255, 255, 0.14)',
+              copper: {
+                DEFAULT: '#e8ab7e',
+                light: '#f2c49f',
+                dark: '#d88e56'
+              }
+            }
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', 'system-ui', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
+          },
+          transitionTimingFunction: {
+            editorial: 'cubic-bezier(0.22, 1, 0.36, 1)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --bg: #090a0b;
+      --panel: #121315;
+      --ink: #f1f2f3;
+      --muted: #929399;
+      --copper: #e8ab7e;
+      --line: rgba(255, 255, 255, 0.08);
+      --font: 'DM Sans', sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    ::selection {
+      background: var(--copper);
+      color: #111;
+    }
+
+    /* Scroll Reveal Animation */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s var(--ease), transform 0.85s var(--ease);
+      will-change: opacity, transform;
+    }
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-reveal-delay="1"] { transition-delay: 0.12s; }
+    [data-reveal-delay="2"] { transition-delay: 0.24s; }
+    [data-reveal-delay="3"] { transition-delay: 0.36s; }
+
+    /* Hero Heading Animation */
+    .hero-title-line {
+      display: block;
+      overflow: hidden;
+      padding: 0 4px 6px;
+    }
+    .hero-title-line > span {
+      display: block;
+      animation: heroTitleReveal 1.3s var(--ease) both;
+    }
+    .hero-title-line:nth-child(2) > span {
+      animation-delay: 0.15s;
+    }
+    @keyframes heroTitleReveal {
+      from {
+        transform: translateY(115%);
+        filter: blur(10px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+      }
+    }
+
+    /* Card Glow Spotlight */
+    .glow-card {
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+    }
+    .glow-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: radial-gradient(350px circle at var(--mouse-x, -500px) var(--mouse-y, -500px), rgba(232, 171, 126, 0.45), transparent 70%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.35s ease;
+    }
+    .glow-card:hover::before {
+      opacity: 1;
+    }
+
+    /* 3D Tilt Card */
+    .tilt-card {
+      transform-style: preserve-3d;
+      transition: transform 0.25s var(--ease), border-color 0.3s ease;
+    }
+
+    /* Estilos do Modal de Comandos */
+    dialog::backdrop {
+      background: rgba(9, 10, 11, 0.88);
+      backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+<body class="selection:bg-[#e8ab7e] selection:text-[#111]">
+
+  <!-- Top Progress Bar -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] bg-[#e8ab7e] z-50 transition-all duration-100" style="width: 0%"></div>
+
+  <!-- ================= 1. NAVEGAÇÃO (HEADER) ================= -->
+  <header class="fixed top-0 left-0 w-full z-40 bg-[#090a0b]/80 backdrop-blur-xl border-b border-white/[0.08] transition-all" id="navbar">
+    <div class="max-w-[1180px] w-[calc(100%-48px)] mx-auto h-[72px] flex items-center justify-between">
+      <!-- Logo da Formação -->
+      <a href="#" class="inline-flex items-center gap-2.5 text-2xl font-semibold tracking-[-1.2px] text-[#f1f2f3]">
+        <svg class="w-6 h-6 text-[#e8ab7e]" fill="currentColor" viewBox="0 0 30 30">
+          <path d="M3 4h26L22 11H3zm0 10h19l-7 7H3zm0 10h11l-5 5H3z"/>
+        </svg>
+        <span>sintaxe<span class="text-[#e8ab7e]">.</span></span>
+      </a>
+
+      <!-- Links Principais -->
+      <nav class="hidden md:flex items-center gap-7 text-xs text-[#929399]">
+        <a href="#metodologia" class="hover:text-white transition-colors">Metodologia</a>
+        <a href="#grade" class="hover:text-white transition-colors">Grade Curricular</a>
+        <a href="#projetos" class="hover:text-white transition-colors">Projetos Reais</a>
+        <a href="#inscricao" class="hover:text-white transition-colors">Trilhas</a>
+        <a href="#faq" class="hover:text-white transition-colors">Dúvidas</a>
+      </nav>
+
+      <!-- Ações do Header -->
+      <div class="flex items-center gap-3.5">
+        <button id="btn-open-cmd" class="hidden sm:inline-flex items-center gap-2 text-[11px] text-[#929399] hover:text-white transition-colors">
+          <span>Navegar</span>
+          <kbd class="px-1.5 py-0.5 rounded border border-white/20 bg-white/[0.05] text-[10px] font-mono">⌘ K</kbd>
+        </button>
+
+        <a href="#inscricao" class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold text-[#2a1e16] bg-gradient-to-br from-[#f2c49f] to-[#d88e56] hover:brightness-105 shadow-[0_2px_15px_rgba(221,133,71,0.2)] transition-all">
+          <span>Acessar Formação</span>
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M6 18 18 6M6 6h12v12" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= 2. HERO SECTION COM PROMPT COMPOSER & CANVAS ================= -->
+  <section class="relative min-h-[900px] pt-40 pb-24 overflow-hidden text-center bg-[#090a0b]" id="inicio">
+    <!-- Grid Arquitetural Sutil no Fundo -->
+    <div class="absolute inset-x-8 sm:inset-x-16 inset-y-0 border-x border-white/[0.03] pointer-events-none bg-[linear-gradient(90deg,transparent_calc(50%-0.5px),rgba(255,255,255,0.02)_50%,transparent_calc(50%+0.5px))] z-0"></div>
+
+    <!-- Canvas de Partículas 3D (Escultura Viva em Cobre) -->
+    <canvas id="sculpture" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-80"></canvas>
+
+    <!-- Halo Radial de Iluminação de Fundo -->
+    <div class="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_50%_40%,rgba(232,171,126,0.12),transparent_65%)] z-0"></div>
+
+    <div class="relative z-10 max-w-[1180px] w-[calc(100%-48px)] mx-auto">
+      <!-- Eyebrow Badge com Animação -->
+      <div class="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full text-[10px] text-[#a4a5aa] bg-[#18191a]/90 backdrop-blur-md border border-white/10 mb-8 shadow-sm" data-reveal>
+        <span class="w-2 h-2 rounded-full bg-[#e8ab7e] animate-pulse"></span>
+        <span class="font-mono text-[#e8b58e] font-semibold tracking-wider">TURMA 2026</span>
+        <span class="text-white/30">|</span>
+        <span>Engenharia de Software, Design Systems & IA</span>
+      </div>
+
+      <!-- Título Principal com Revelação Staggered -->
+      <h1 class="text-[clamp(52px,7.8vw,108px)] font-normal tracking-[-0.065em] leading-[0.98] text-[#f1f2f3] max-w-[980px] mx-auto">
+        <span class="hero-title-line"><span>Aprenda a programar com</span></span>
+        <span class="hero-title-line"><span><em class="font-serif italic text-[#e8ab7e] tracking-[-0.035em]">clareza e maestria.</em></span></span>
+      </h1>
+
+      <p class="mt-6 text-sm sm:text-base text-[#929399] max-w-[540px] mx-auto leading-relaxed" data-reveal data-reveal-delay="1">
+        Vá muito além de copiar tutoriais. Desenvolva raciocínio de arquiteto, construa projetos de nível sênior e domine o desenvolvimento moderno potencializado por inteligência artificial.
+      </p>
+
+      <!-- Prompt Explorer Interativo (Hero Input com Glow) -->
+      <div class="glow-card mt-10 max-w-[580px] mx-auto p-4 rounded-2xl bg-gradient-to-br from-[#1b1c1e]/90 to-[#121315]/95 border border-white/15 shadow-[0_12px_60px_rgba(0,0,0,0.7),inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-2xl text-left" data-reveal data-reveal-delay="2">
+        <label for="course-search" class="text-[10px] uppercase font-mono tracking-widest text-[#71727b] block mb-2">
+          Consulte o que você deseja aprender:
+        </label>
+        <div class="relative">
+          <input 
+            type="text" 
+            id="course-search" 
+            placeholder="Ex: Como criar uma API em Go? Como dominar React e Design System?" 
+            class="w-full bg-transparent border-0 outline-none text-[13px] text-[#f1f2f3] placeholder-[#71727b] pb-2 font-sans">
+        </div>
+
+        <div class="flex items-center justify-between pt-3 mt-2 border-t border-white/[0.08]">
+          <div class="flex items-center gap-2 text-[10px] text-[#929399]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#e8ab7e]"></span>
+            <span>Currículo Atualizado 2026</span>
+          </div>
+
+          <button id="btn-consultar" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold text-[#2a1e16] bg-gradient-to-br from-[#f2c49f] to-[#d88e56] hover:brightness-105 shadow-[0_2px_15px_rgba(221,133,71,0.2)] transition-all">
+            <span>Ver Trilha</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path d="M5 12h14m-5-5 5 5-5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Resposta dinâmica do explorer -->
+        <div id="search-feedback" class="hidden mt-3 p-3 rounded-lg bg-[#202125] border border-white/10 text-xs text-[#c5bbae]">
+          <p id="search-feedback-text"></p>
+        </div>
+      </div>
+
+      <!-- Chips de Atalhos -->
+      <div class="flex flex-wrap items-center justify-center gap-2 mt-4 text-[10px]">
+        <button class="chip-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#101113]/80 border border-white/10 text-[#81838b] hover:text-[#e8ab7e] hover:border-white/25 transition-all" data-query="Full Stack Moderno (TypeScript, React, Node)">
+          <span>✦</span> Full Stack Moderno
+        </button>
+        <button class="chip-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#101113]/80 border border-white/10 text-[#81838b] hover:text-[#e8ab7e] hover:border-white/25 transition-all" data-query="Inteligência Artificial & Agentes Autônomos">
+          <span>✳</span> IA & Agentes Autônomos
+        </button>
+        <button class="chip-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#101113]/80 border border-white/10 text-[#81838b] hover:text-[#e8ab7e] hover:border-white/25 transition-all" data-query="Design Systems & Interface Engineering">
+          <span>◇</span> Design Systems & UI
+        </button>
+        <button class="chip-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#101113]/80 border border-white/10 text-[#81838b] hover:text-[#e8ab7e] hover:border-white/25 transition-all" data-query="Arquitetura de Microsserviços e Cloud">
+          <span>⚡</span> Arquitetura Cloud
+        </button>
+      </div>
+
+      <!-- Coordenadas Inferiores -->
+      <div class="mt-16 flex items-center justify-between text-[10px] font-mono tracking-widest text-[#71727b] uppercase border-t border-white/[0.06] pt-6 max-w-[800px] mx-auto">
+        <div class="flex items-center gap-2">
+          <span class="text-[#e8ab7e]">01</span>
+          <span>// FUNDAMENTOS ATÉ PRODUÇÃO</span>
+        </div>
+        <div>MÉTODO PRÁTICO & COMPROVADO</div>
+        <div class="flex items-center gap-2">
+          <span>∞</span>
+          <span class="text-[#e8ab7e]">COMUNIDADE VITALÍCIA</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3. FAIXA DE QUALIDADES (TRUST STRIP) ================= -->
+  <div class="border-y border-white/[0.08] bg-[#0c0d0e] py-7">
+    <div class="max-w-[1180px] w-[calc(100%-48px)] mx-auto flex flex-wrap items-center justify-between gap-6">
+      <p class="text-[9px] uppercase tracking-[0.14em] font-mono text-[#6f7179] max-w-[140px] leading-relaxed">
+        DO PRIMEIRO COMMIT<br>AO CÓDIGO EM ESCALA
+      </p>
+
+      <div class="flex items-center gap-2.5 text-xs text-[#a8a9b0]">
+        <svg class="w-4 h-4 text-[#e8ab7e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z" stroke-width="1.3"/>
+        </svg>
+        <span>Código Limpo & Padrões Sólidos</span>
+      </div>
+
+      <div class="flex items-center gap-2.5 text-xs text-[#a8a9b0]">
+        <svg class="w-4 h-4 text-[#81838d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="13" rx="2" stroke-width="1.3"/>
+          <path d="M12 17v4m-4 0h8" stroke-width="1.3"/>
+        </svg>
+        <span>Code Reviews 1:1 com Seniores</span>
+      </div>
+
+      <div class="flex items-center gap-2.5 text-xs text-[#a8a9b0]">
+        <svg class="w-4 h-4 text-[#81838d]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <rect x="4" y="4" width="6" height="6" rx="1" stroke-width="1.3"/>
+          <rect x="14" y="4" width="6" height="6" rx="1" stroke-width="1.3"/>
+          <rect x="4" y="14" width="6" height="6" rx="1" stroke-width="1.3"/>
+          <rect x="14" y="14" width="6" height="6" rx="1" stroke-width="1.3"/>
+        </svg>
+        <span>Projetos Reais de Portfólio</span>
+      </div>
+
+      <div class="flex items-center gap-2.5 text-xs text-[#b5a597]">
+        <svg class="w-4 h-4 text-[#e8ab7e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 21" stroke-width="1.3"/>
+        </svg>
+        <span>IA como Co-Piloto de Engenharia</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= 4. METODOLOGIA (STORY STEPS) ================= -->
+  <section class="py-24 border-b border-white/[0.08] bg-[#090a0b]" id="metodologia">
+    <div class="max-w-[1180px] w-[calc(100%-48px)] mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+        <div>
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-semibold text-[#929399]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#e8ab7e]"></span>
+            O Método Sintaxe
+          </div>
+          <h2 class="text-[clamp(36px,4.4vw,56px)] font-normal tracking-[-0.055em] leading-[1.03] text-[#f1f2f3] mt-4">
+            Construído para quem quer ir além<br>
+            <em class="font-serif italic text-[#e8ab7e]">do código trivial.</em>
+          </h2>
+        </div>
+        <p class="text-xs text-[#929399] max-w-[320px] leading-relaxed">
+          Nossa metodologia une fundamentos da ciência da computação às práticas mais exigidas pelas melhores empresas de tecnologia do mundo.
+        </p>
+      </div>
+
+      <!-- Três Etapas da Jornada com Glow e Reveal -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Passo 1 -->
+        <div class="glow-card p-8 rounded-2xl bg-[#121315] border border-white/[0.08] hover:border-white/25 transition-all" data-reveal data-reveal-delay="1">
+          <span class="text-xs font-mono text-[#e8ab7e] font-semibold block mb-4">FASE 01 / FUNDAMENTOS SÓLIDOS</span>
+          <h3 class="text-xl font-normal text-[#f1f2f3] tracking-tight mb-3">Pensamento Computacional & Algoritmos</h3>
+          <p class="text-xs text-[#929399] leading-relaxed mb-6">
+            Domine estruturas de dados, tipagem estrita com TypeScript, arquitetura limpa, e o raciocínio analítico para resolver qualquer problema complexo.
+          </p>
+          <ul class="text-[11px] text-[#c5bbae] space-y-2 border-t border-white/[0.08] pt-4">
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> TypeScript Avançado & Tipagem</li>
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> Estruturas de Dados & Otimização</li>
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> Clean Code & SOLID na prática</li>
+          </ul>
+        </div>
+
+        <!-- Passo 2 -->
+        <div class="glow-card p-8 rounded-2xl bg-[#121315] border border-[#d4af7e]/40 bg-gradient-to-b from-[#1b1c1e] to-[#121315] transition-all shadow-xl" data-reveal data-reveal-delay="2">
+          <span class="text-xs font-mono text-[#e8ab7e] font-semibold block mb-4">FASE 02 / ENGENHARIA MODERNA</span>
+          <h3 class="text-xl font-normal text-[#f1f2f3] tracking-tight mb-3">Full Stack, APIs & Design Systems</h3>
+          <p class="text-xs text-[#929399] leading-relaxed mb-6">
+            Crie interfaces refinadas com React, Tailwind e padrões de design tokens, conectadas a backends de alta performance com Node.js, Go e PostgreSQL.
+          </p>
+          <ul class="text-[11px] text-[#c5bbae] space-y-2 border-t border-white/[0.08] pt-4">
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> React 19, Server Actions & Next.js</li>
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> Arquitetura de APIs REST & GraphQL</li>
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> Design Systems & Tokens Visuais</li>
+          </ul>
+        </div>
+
+        <!-- Passo 3 -->
+        <div class="glow-card p-8 rounded-2xl bg-[#121315] border border-white/[0.08] hover:border-white/25 transition-all" data-reveal data-reveal-delay="3">
+          <span class="text-xs font-mono text-[#e8ab7e] font-semibold block mb-4">FASE 03 / ESCALA & PRODUÇÃO</span>
+          <h3 class="text-xl font-normal text-[#f1f2f3] tracking-tight mb-3">Cloud, CI/CD & Automação com IA</h3>
+          <p class="text-xs text-[#929399] leading-relaxed mb-6">
+            Aprenda a orquestrar deploys em nuvem (Docker, AWS, Vercel), construir agentes inteligentes e utilizar IA no seu dia a dia para multiplicar sua produtividade.
+          </p>
+          <ul class="text-[11px] text-[#c5bbae] space-y-2 border-t border-white/[0.08] pt-4">
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> Containers com Docker & Cloud Deploy</li>
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> Criação de Agentes com LLMs & MCP</li>
+            <li class="flex items-center gap-2"><span class="text-[#e8ab7e]">✦</span> Pipelines Automatizadas de Teste</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. VITRINE DE PROJETOS CONSTRUÍDOS ================= -->
+  <section class="max-w-[1180px] w-[calc(100%-48px)] mx-auto py-24" id="projetos">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14" data-reveal>
+      <div>
+        <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-semibold text-[#929399]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#e8ab7e]"></span>
+          Portfólio de Nível Profissional
+        </div>
+        <h2 class="text-[clamp(36px,4.2vw,56px)] font-normal tracking-[-0.055em] leading-[1.03] text-[#f1f2f3] mt-4">
+          Projetos que colocam você<br>
+          <em class="font-serif italic text-[#e8ab7e]">na frente no mercado.</em>
+        </h2>
+      </div>
+      <p class="text-xs text-[#929399] max-w-[280px] leading-relaxed">
+        Chega de projetos de "lista de tarefas". Aqui você cria produtos completos, com design impecável e código de produção.
+      </p>
+    </div>
+
+    <!-- 3 Cards em Destaque no Estilo Showcase com 3D Tilt -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Projeto 1 -->
+      <article class="tilt-card group cursor-pointer" data-reveal data-reveal-delay="1">
+        <div class="relative w-full aspect-[1.25] rounded-xl overflow-hidden border border-white/10 group-hover:border-white/30 group-hover:-translate-y-2 transition-all duration-500 bg-[#e4e6d9] text-[#25322e] p-6 flex flex-col justify-between">
+          <div class="flex justify-between items-center text-[10px] font-mono">
+            <span class="font-bold tracking-tight">NEXUS CLOUD</span>
+            <span class="opacity-70">Projeto 01 ↗</span>
+          </div>
+          <div>
+            <span class="text-[7px] tracking-wider uppercase font-mono block opacity-80 mb-2">INFRAESTRUTURA & MICROSSERVIÇOS</span>
+            <h4 class="font-serif text-3xl font-normal tracking-tight leading-tight">Plataforma Serverless<br><em>distribuída.</em></h4>
+          </div>
+          <div class="flex justify-between items-center text-[9px] opacity-70 border-t border-black/10 pt-3">
+            <span>GO · DOCKER · POSTGRES</span>
+            <span>VER CÓDIGO ↗</span>
+          </div>
+        </div>
+        <div class="flex justify-between items-center mt-3 text-xs">
+          <div>
+            <h3 class="font-medium text-[#f1f2f3]">Nexus Cloud <span class="text-[10px] text-[#71727b]">01</span></h3>
+            <p class="text-[10px] text-[#929399] mt-0.5">Sistemas distribuídos em tempo real</p>
+          </div>
+          <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-[#929399] group-hover:text-white transition-colors">↗</span>
+        </div>
+      </article>
+
+      <!-- Projeto 2 -->
+      <article class="tilt-card group cursor-pointer" data-reveal data-reveal-delay="2">
+        <div class="relative w-full aspect-[1.25] rounded-xl overflow-hidden border border-white/10 group-hover:border-white/30 group-hover:-translate-y-2 transition-all duration-500 bg-[#141d1c] text-[#ddf1dd] p-6 flex flex-col justify-between">
+          <div class="flex justify-between items-center text-[10px] font-mono">
+            <span class="font-bold tracking-tight">SEREIN AI</span>
+            <span class="opacity-70">Projeto 02 ↗</span>
+          </div>
+          <div>
+            <span class="text-[7px] tracking-wider uppercase font-mono block text-[#c0e8b0]/70 mb-2">INTEGRAÇÃO COM LLMs & RAG</span>
+            <h4 class="text-2xl font-medium tracking-tight leading-tight">Agente inteligente<br>autônomo.</h4>
+          </div>
+          <div class="flex justify-between items-center text-[9px] opacity-70 border-t border-white/10 pt-3">
+            <span>PYTHON · FASTAPI · TYPESCRIPT</span>
+            <span>VER CÓDIGO ↗</span>
+          </div>
+        </div>
+        <div class="flex justify-between items-center mt-3 text-xs">
+          <div>
+            <h3 class="font-medium text-[#f1f2f3]">Serein AI <span class="text-[10px] text-[#71727b]">02</span></h3>
+            <p class="text-[10px] text-[#929399] mt-0.5">Agente com memória vetorial e streaming</p>
+          </div>
+          <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-[#929399] group-hover:text-white transition-colors">↗</span>
+        </div>
+      </article>
+
+      <!-- Projeto 3 -->
+      <article class="tilt-card group cursor-pointer" data-reveal data-reveal-delay="3">
+        <div class="relative w-full aspect-[1.25] rounded-xl overflow-hidden border border-white/10 group-hover:border-white/30 group-hover:-translate-y-2 transition-all duration-500 bg-[#a5b5d2] text-[#1d2941] p-6 flex flex-col justify-between">
+          <div class="flex justify-between items-center text-[10px] font-mono">
+            <span class="font-bold tracking-tight">OFFSCRIPT UI</span>
+            <span class="opacity-70">Projeto 03 ↗</span>
+          </div>
+          <div>
+            <span class="text-[7px] tracking-wider uppercase font-mono block opacity-80 mb-2">DESIGN SYSTEM MODULAR</span>
+            <h4 class="text-3xl font-semibold tracking-[-0.04em] leading-tight">Biblioteca de<br>componentes.</h4>
+          </div>
+          <div class="flex justify-between items-center text-[9px] opacity-70 border-t border-black/10 pt-3">
+            <span>REACT · TAILWIND · ACCESSIBILITY</span>
+            <span>VER CÓDIGO ↗</span>
+          </div>
+        </div>
+        <div class="flex justify-between items-center mt-3 text-xs">
+          <div>
+            <h3 class="font-medium text-[#f1f2f3]">Offscript UI <span class="text-[10px] text-[#71727b]">03</span></h3>
+            <p class="text-[10px] text-[#929399] mt-0.5">Design System acessível e documentado</p>
+          </div>
+          <span class="w-6 h-6 rounded-full border border-white/10 flex items-center justify-center text-[#929399] group-hover:text-white transition-colors">↗</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 6. MANIFESTO EDITORIAL ================= -->
+  <section class="border-t border-white/[0.08] py-28 bg-[#0c0d0e]" data-reveal>
+    <div class="max-w-[1180px] w-[calc(100%-48px)] mx-auto grid grid-cols-1 md:grid-cols-[1fr_2.5fr] gap-8">
+      <div class="text-[10px] uppercase tracking-[0.18em] font-semibold text-[#929399] flex items-center gap-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#e8ab7e]"></span>
+        Nossa Filosofia
+      </div>
+      <blockquote class="text-[clamp(28px,3.8vw,52px)] font-normal tracking-[-0.04em] leading-[1.2] text-[#f1f2f3]">
+        Programar não é apenas memorizar comandos ou acumular frameworks. É o ato de dar forma a ideias com clareza, beleza e <em class="font-serif italic text-[#e8ab7e]">intenção inabalável.</em>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ================= 7. GRADE CURRICULAR DETALHADA ================= -->
+  <section class="max-w-[1180px] w-[calc(100%-48px)] mx-auto py-24" id="grade">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14">
+      <div>
+        <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-semibold text-[#929399]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#e8ab7e]"></span>
+          Ementa Completa
+        </div>
+        <h2 class="text-[clamp(36px,4.2vw,56px)] font-normal tracking-[-0.055em] leading-[1.03] text-[#f1f2f3] mt-4">
+          6 Módulos Práticos.<br>
+          <em class="font-serif italic text-[#e8ab7e]">Zero conteúdo supérfluo.</em>
+        </h2>
+      </div>
+      <p class="text-xs text-[#929399] max-w-[280px] leading-relaxed">
+        Mais de 120 horas de conteúdo em vídeo de alta definição, código-fonte de cada aula e desafios guiados.
+      </p>
+    </div>
+
+    <!-- Grid com os Módulos (com Glow e Reveal) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="glow-card p-6 rounded-xl bg-[#121315] border border-white/[0.08] hover:border-white/20 transition-all" data-reveal data-reveal-delay="1">
+        <span class="text-[10px] font-mono text-[#e8ab7e] font-semibold block mb-2">MÓDULO 01</span>
+        <h3 class="text-base font-normal text-[#f1f2f3] mb-2">Arquitetura de Código & TypeScript</h3>
+        <p class="text-xs text-[#929399] leading-relaxed">
+          Tipos avançados, generics, validação de schemas em runtime com Zod e padrões de organização modular.
+        </p>
+      </div>
+
+      <div class="glow-card p-6 rounded-xl bg-[#121315] border border-white/[0.08] hover:border-white/20 transition-all" data-reveal data-reveal-delay="2">
+        <span class="text-[10px] font-mono text-[#e8ab7e] font-semibold block mb-2">MÓDULO 02</span>
+        <h3 class="text-base font-normal text-[#f1f2f3] mb-2">Engenharia de Frontend & React 19</h3>
+        <p class="text-xs text-[#929399] leading-relaxed">
+          Componentização performática, Server Components, gerenciamento de estado previsível e animações com Framer Motion.
+        </p>
+      </div>
+
+      <div class="glow-card p-6 rounded-xl bg-[#121315] border border-white/[0.08] hover:border-white/20 transition-all" data-reveal data-reveal-delay="3">
+        <span class="text-[10px] font-mono text-[#e8ab7e] font-semibold block mb-2">MÓDULO 03</span>
+        <h3 class="text-base font-normal text-[#f1f2f3] mb-2">Design Systems & Tokens Visuais</h3>
+        <p class="text-xs text-[#929399] leading-relaxed">
+          Criação de tokens com Tailwind CSS, acessibilidade (ARIA), componentes reutilizáveis e documentação viva.
+        </p>
+      </div>
+
+      <div class="glow-card p-6 rounded-xl bg-[#121315] border border-white/[0.08] hover:border-white/20 transition-all" data-reveal data-reveal-delay="1">
+        <span class="text-[10px] font-mono text-[#e8ab7e] font-semibold block mb-2">MÓDULO 04</span>
+        <h3 class="text-base font-normal text-[#f1f2f3] mb-2">Back-end em Escala & Bancos de Dados</h3>
+        <p class="text-xs text-[#929399] leading-relaxed">
+          APIs RESTful e GraphQL, PostgreSQL, modelagem relacional, Prisma ORM, autenticação segura com JWT e OAuth.
+        </p>
+      </div>
+
+      <div class="glow-card p-6 rounded-xl bg-[#121315] border border-white/[0.08] hover:border-white/20 transition-all" data-reveal data-reveal-delay="2">
+        <span class="text-[10px] font-mono text-[#e8ab7e] font-semibold block mb-2">MÓDULO 05</span>
+        <h3 class="text-base font-normal text-[#f1f2f3] mb-2">Automação com IA & Agentes LLM</h3>
+        <p class="text-xs text-[#929399] leading-relaxed">
+          Engenharia de prompts para código, agentes autônomos com Model Context Protocol (MCP), busca vetorial e RAG.
+        </p>
+      </div>
+
+      <div class="glow-card p-6 rounded-xl bg-[#121315] border border-white/[0.08] hover:border-white/20 transition-all" data-reveal data-reveal-delay="3">
+        <span class="text-[10px] font-mono text-[#e8ab7e] font-semibold block mb-2">MÓDULO 06</span>
+        <h3 class="text-base font-normal text-[#f1f2f3] mb-2">DevOps, Nuvem & Carreira Internacional</h3>
+        <p class="text-xs text-[#929399] leading-relaxed">
+          Deploy automatizado com GitHub Actions, Docker, estratégias para entrevistas técnicas e preparação para vagas remotas no exterior.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. TRILHAS DE APRENDIZADO & INSCRIÇÃO ================= -->
+  <section class="border-t border-white/[0.08] py-24 bg-[#090a0b]" id="inscricao">
+    <div class="max-w-[1180px] w-[calc(100%-48px)] mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14" data-reveal>
+        <div>
+          <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-semibold text-[#929399]">
+            <span class="w-1.5 h-1.5 rounded-full bg-[#e8ab7e]"></span>
+            Acesso Livre & Gratuito
+          </div>
+          <h2 class="text-[clamp(36px,4.2vw,56px)] font-normal tracking-[-0.055em] leading-[1.03] text-[#f1f2f3] mt-4">
+            Trilhas de Aprendizado.<br>
+            <em class="font-serif italic text-[#e8ab7e]">Acesso irrestrito a todo o conteúdo.</em>
+          </h2>
+        </div>
+        <p class="text-xs text-[#929399] max-w-[320px] leading-relaxed">
+          Escolha a trilha alinhada aos seus objetivos de carreira e comece a estudar imediatamente com código aberto e comunidade ativa.
+        </p>
+      </div>
+
+      <!-- Grid com 3 Trilhas (com Glow e Reveal) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <!-- Trilha 1: Frontend Moderno -->
+        <article class="glow-card p-7 rounded-xl border border-white/[0.08] bg-[#121315] flex flex-col justify-between hover:border-white/20 transition-all" data-reveal data-reveal-delay="1">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-base font-normal text-[#f1f2f3]">Frontend & UI</h3>
+              <span class="text-[9px] px-2 py-0.5 rounded-full border border-white/10 text-[#929399] font-mono">Trilha 01</span>
+            </div>
+            <p class="text-xs text-[#929399] mt-2">Para quem deseja criar interfaces de alto padrão estético.</p>
+            <div class="my-6 py-3 px-4 rounded-lg bg-white/[0.03] border border-white/[0.05]">
+              <span class="text-xs font-mono text-[#e8ab7e] font-semibold block">40 Horas · 12 Desafios</span>
+              <span class="text-[11px] text-[#71727b]">TypeScript, React 19 & Tailwind</span>
+            </div>
+            <button onclick="showToast('Inscrição na Trilha Frontend confirmada!')" class="w-full py-2.5 rounded-lg text-xs font-medium text-[#f1f2f3] bg-white/[0.05] border border-white/10 hover:bg-white/10 transition-all">
+              Iniciar Trilha Frontend ↗
+            </button>
+            <ul class="mt-7 pt-6 border-t border-white/[0.08] space-y-3 text-xs text-[#b7b3a8]">
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Arquitetura de Componentes React</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Design Systems com Tailwind CSS</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Acessibilidade e SEO técnico</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Animações fluidas com microinterações</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Trilha 2: Full Stack & IA (Destaque Principal) -->
+        <article class="glow-card relative p-7 rounded-xl border border-[#d4af7e]/60 bg-gradient-to-br from-[#2e2921] to-[#1c1b17] flex flex-col justify-between shadow-xl" data-reveal data-reveal-delay="2">
+          <!-- Linha Luminosa no Topo -->
+          <div class="absolute -top-[1px] left-1/4 w-1/2 h-[1px] bg-gradient-to-r from-transparent via-[#ffe2b7] to-transparent shadow-[0_0_20px_#f8cb79]"></div>
+
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-base font-normal text-[#f1f2f3]">Full Stack & IA</h3>
+              <span class="text-[9px] px-2.5 py-1 rounded-full border border-[#c9a77b]/40 text-[#d6b88f] bg-[#c2a77c]/10 font-semibold">
+                Mais Completa
+              </span>
+            </div>
+            <p class="text-xs text-[#949084] mt-2">A formação integral de engenharia do front-end à IA.</p>
+            <div class="my-6 py-3 px-4 rounded-lg bg-black/30 border border-white/[0.08]">
+              <span class="text-xs font-mono text-[#e8ab7e] font-semibold block">120 Horas · 28 Desafios</span>
+              <span class="text-[11px] text-[#929399]">Full Stack Completo + Agentes LLM</span>
+            </div>
+            <button onclick="showToast('Inscrição na Formação Completa confirmada!')" class="w-full py-2.5 rounded-lg text-xs font-semibold text-[#2a1e16] bg-gradient-to-br from-[#f2c49f] to-[#d88e56] hover:brightness-105 shadow-[0_2px_15px_rgba(221,133,71,0.2)] transition-all">
+              Começar Formação Completa ↗
+            </button>
+            <ul class="mt-7 pt-6 border-t border-white/[0.08] space-y-3 text-xs text-[#b7b3a8]">
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Tudo da Trilha Frontend</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Back-end de alta performance com Node & Go</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Modelagem de Bancos com PostgreSQL</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Agentes Autônomos com LLMs e MCP</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Code Reviews semanais na comunidade</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Trilha 3: Sistemas & Cloud -->
+        <article class="glow-card p-7 rounded-xl border border-white/[0.08] bg-[#121315] flex flex-col justify-between hover:border-white/20 transition-all" data-reveal data-reveal-delay="3">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <h3 class="text-base font-normal text-[#f1f2f3]">Cloud & Sistemas</h3>
+              <span class="text-[9px] px-2 py-0.5 rounded-full border border-white/10 text-[#929399] font-mono">Trilha 03</span>
+            </div>
+            <p class="text-xs text-[#929399] mt-2">Para quem deseja focar em escalabilidade e infraestrutura.</p>
+            <div class="my-6 py-3 px-4 rounded-lg bg-white/[0.03] border border-white/[0.05]">
+              <span class="text-xs font-mono text-[#e8ab7e] font-semibold block">50 Horas · 15 Desafios</span>
+              <span class="text-[11px] text-[#71727b]">Docker, CI/CD, Nuvem & Microsserviços</span>
+            </div>
+            <button onclick="showToast('Inscrição na Trilha Cloud confirmada!')" class="w-full py-2.5 rounded-lg text-xs font-medium text-[#f1f2f3] bg-white/[0.05] border border-white/10 hover:bg-white/10 transition-all">
+              Iniciar Trilha Cloud ↗
+            </button>
+            <ul class="mt-7 pt-6 border-t border-white/[0.08] space-y-3 text-xs text-[#b7b3a8]">
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Conteinerização com Docker e Compose</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Deploy e orquestração em nuvem</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Pipelines de CI/CD com GitHub Actions</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Monitoramento, logs e resiliência</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+              <span class="text-[11px] text-[#71727b]">Docker, CI/CD, Nuvem & Microsserviços</span>
+            </div>
+            <button class="w-full py-2.5 rounded-lg text-xs font-medium text-[#f1f2f3] bg-white/[0.05] border border-white/10 hover:bg-white/10 transition-all">
+              Iniciar Trilha Cloud ↗
+            </button>
+            <ul class="mt-7 pt-6 border-t border-white/[0.08] space-y-3 text-xs text-[#b7b3a8]">
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Conteinerização com Docker e Compose</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Deploy e orquestração em nuvem</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Pipelines de CI/CD com GitHub Actions</li>
+              <li class="flex items-center gap-2.5"><span class="text-[#e8ab7e]">✦</span> Monitoramento, logs e resiliência</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <p class="text-center text-[10px] text-[#71727b] mt-8 font-mono">
+        // FORMAÇÃO DE CÓDIGO ABERTO · CONTEÚDO 100% LIVRE E ACESSÍVEL A TODOS
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= 9. PERGUNTAS FREQUENTES (FAQ) ================= -->
+  <section class="max-w-[1180px] w-[calc(100%-48px)] mx-auto py-24 border-t border-white/[0.08]" id="faq">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_1.5fr] gap-12 md:gap-20">
+      <div>
+        <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-semibold text-[#929399]">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#e8ab7e]"></span>
+          Tire Suas Dúvidas
+        </div>
+        <h2 class="text-[clamp(36px,4.2vw,56px)] font-normal tracking-[-0.055em] leading-[1.03] text-[#f1f2f3] mt-4">
+          Respostas diretas<br>
+          <em class="font-serif italic text-[#e8ab7e]">para suas perguntas.</em>
+        </h2>
+        <p class="text-xs text-[#929399] mt-4 leading-relaxed">
+          Tudo o que você precisa saber sobre pré-requisitos, formato das aulas e ritmo de estudo.
+        </p>
+      </div>
+
+      <!-- Accordion -->
+      <div class="divide-y divide-white/[0.08]">
+        <details class="group py-5">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-sm text-[#f1f2f3] hover:text-[#e8ab7e] transition-colors">
+            <span>Preciso de conhecimento prévio para começar?</span>
+            <span class="text-xl text-[#929399] transition-transform duration-300 group-open:rotate-45 font-light">+</span>
+          </summary>
+          <p class="pt-3 pr-8 text-xs leading-relaxed text-[#929399]">
+            Não. A Formação Sintaxe inicia desde os alicerces fundamentais da lógica de programação e arquitetura de computadores, avançando de forma progressiva até tópicos de alta complexidade.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-sm text-[#f1f2f3] hover:text-[#e8ab7e] transition-colors">
+            <span>Quanto tempo de dedicação semanal é recomendado?</span>
+            <span class="text-xl text-[#929399] transition-transform duration-300 group-open:rotate-45 font-light">+</span>
+          </summary>
+          <p class="pt-3 pr-8 text-xs leading-relaxed text-[#929399]">
+            Recomendamos entre 5 a 8 horas por semana para assistir às aulas e praticar os projetos guiados. Você tem acesso ilimitado e pode avançar no seu próprio ritmo.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-sm text-[#f1f2f3] hover:text-[#e8ab7e] transition-colors">
+            <span>Como funcionam os Code Reviews dos projetos?</span>
+            <span class="text-xl text-[#929399] transition-transform duration-300 group-open:rotate-45 font-light">+</span>
+          </summary>
+          <p class="pt-3 pr-8 text-xs leading-relaxed text-[#929399]">
+            Você envia seu repositório no GitHub através da nossa plataforma e um engenheiro sênior analisa linha por linha, comentando sobre boas práticas, segurança, performance e arquitetura.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex justify-between items-center cursor-pointer list-none text-sm text-[#f1f2f3] hover:text-[#e8ab7e] transition-colors">
+            <span>O curso oferece certificado reconhecido?</span>
+            <span class="text-xl text-[#929399] transition-transform duration-300 group-open:rotate-45 font-light">+</span>
+          </summary>
+          <p class="pt-3 pr-8 text-xs leading-relaxed text-[#929399]">
+            Sim! Ao concluir os projetos obrigatórios e avaliações práticas, você recebe um certificado digital autenticado com carga horária de 120 horas e validação pública.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 10. FINAL CTA COM ANÉIS CONCÊNTRICOS ================= -->
+  <section class="relative py-28 overflow-hidden text-center border-t border-white/[0.08] bg-[#090a0b]">
+    <!-- Anéis concêntricos com radiação de calor em cobre -->
+    <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[720px] h-[720px] rounded-full border border-[#d6aa79]/15 shadow-[0_0_0_45px_rgba(214,170,121,0.02),0_0_0_90px_rgba(214,170,121,0.01)] bg-[radial-gradient(ellipse_at_center,rgba(186,134,67,0.12),transparent_65%)] pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-[1180px] w-[calc(100%-48px)] mx-auto">
+      <div class="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.18em] font-semibold text-[#929399] mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#e8ab7e]"></span>
+        Dê o Próximo Passo na Sua Carreira
+      </div>
+
+      <h2 class="text-[clamp(48px,6.5vw,92px)] font-normal tracking-[-0.055em] leading-tight text-[#f1f2f3]">
+        Construa um futuro<br>
+        <em class="font-serif italic text-[#e8ab7e]">inconfundivelmente seu.</em>
+      </h2>
+
+      <p class="mt-6 text-sm text-[#929399] max-w-[380px] mx-auto leading-relaxed">
+        Não adie mais o seu potencial. Junte-se a centenas de engenheiros que já transformaram a forma como criam software.
+      </p>
+
+      <div class="mt-9">
+        <a href="#inscricao" class="inline-flex items-center gap-3 px-8 py-3.5 rounded-full text-xs font-semibold text-[#2a1e16] bg-gradient-to-br from-[#f2c49f] to-[#d88e56] hover:brightness-105 shadow-[0_4px_25px_rgba(221,133,71,0.25)] transition-all">
+          <span>Começar Meus Estudos Gratuitamente</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path d="M5 12h14m-5-5 5 5-5 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 11. RODAPÉ EDITORIAL ================= -->
+  <footer class="border-t border-white/[0.08] pt-12 pb-8 overflow-hidden bg-[#090a0b]">
+    <div class="max-w-[1180px] w-[calc(100%-48px)] mx-auto">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-6 pb-10">
+        <a href="#" class="inline-flex items-center gap-2 text-xl font-semibold tracking-[-1.2px] text-[#f1f2f3]">
+          <svg class="w-5 h-5 text-[#e8ab7e]" fill="currentColor" viewBox="0 0 30 30">
+            <path d="M3 4h26L22 11H3zm0 10h19l-7 7H3zm0 10h11l-5 5H3z"/>
+          </svg>
+          sintaxe.
+        </a>
+
+        <div class="flex items-center gap-7 text-[11px] text-[#9e9b91]">
+          <a href="#metodologia" class="hover:text-white transition-colors">Metodologia</a>
+          <a href="#grade" class="hover:text-white transition-colors">Grade</a>
+          <a href="#projetos" class="hover:text-white transition-colors">Projetos</a>
+          <a href="#inscricao" class="hover:text-white transition-colors">Trilhas</a>
+          <a href="#faq" class="hover:text-white transition-colors">Dúvidas</a>
+        </div>
+      </div>
+
+      <!-- Marca d'água Tipográfica Gigante -->
+      <div class="text-[clamp(100px,24vw,340px)] font-bold text-[#141518] tracking-[-0.08em] leading-[0.8] text-center select-none -my-4 pointer-events-none">
+        sintaxe
+      </div>
+
+      <!-- Rodapé Inferior -->
+      <div class="border-t border-white/[0.05] pt-6 flex flex-col sm:flex-row items-center justify-between text-[10px] text-[#6f6d64] gap-3">
+        <span>© 2026 Sintaxe Tecnologia & Educação. Conteúdo 100% aberto.</span>
+        <span class="inline-flex items-center gap-2">
+          <span class="w-1.5 h-1.5 rounded-full bg-[#a2ae84]"></span>
+          Acesso Livre · Comunidade Aberta
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= 12. DIALOG DE COMANDOS RÁPIDOS (CMD + K) ================= -->
+  <dialog id="command-modal" class="p-0 rounded-2xl bg-[#141518] border border-white/20 text-[#f1f2f3] max-w-lg w-[calc(100%-32px)] shadow-2xl">
+    <div class="p-4 border-b border-white/10 flex items-center justify-between">
+      <div class="flex items-center gap-2 text-xs font-mono text-[#e8ab7e]">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z" stroke-width="1.3"/>
+        </svg>
+        <span>NAVEGAÇÃO RÁPIDA</span>
+      </div>
+      <button id="btn-close-cmd" class="text-xs px-2 py-0.5 rounded bg-white/10 text-zinc-400 hover:text-white">ESC</button>
+    </div>
+    <div class="p-3 divide-y divide-white/[0.05] text-xs">
+      <a href="#metodologia" class="cmd-link flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors">
+        <span>Conhecer a Metodologia de Ensino</span>
+        <span class="text-[#71727b]">01</span>
+      </a>
+      <a href="#grade" class="cmd-link flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors">
+        <span>Ver a Grade Curricular dos 6 Módulos</span>
+        <span class="text-[#71727b]">02</span>
+      </a>
+      <a href="#projetos" class="cmd-link flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors">
+        <span>Explorar os Projetos de Portfólio</span>
+        <span class="text-[#71727b]">03</span>
+      </a>
+      <a href="#inscricao" class="cmd-link flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors">
+        <span>Escolher Trilha de Aprendizado</span>
+        <span class="text-[#71727b]">04</span>
+      </a>
+      <a href="#faq" class="cmd-link flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors">
+        <span>Perguntas Frequentes</span>
+        <span class="text-[#71727b]">05</span>
+      </a>
+    </div>
+    <div class="p-3 bg-[#0c0d0f] border-t border-white/10 text-[10px] text-zinc-500 text-center font-mono">
+      Pressione ESC para fechar ou clique em um item
+    </div>
+  </dialog>
+
+  <!-- ================= SCRIPTS DE INTERATIVIDADE E ANIMAÇÕES ================= -->
+  <script>
+    // 1. Barra de Progresso no Scroll & Navbar Scrolled State
+    const navbar = document.getElementById('navbar');
+    const scrollBar = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      scrollBar.style.width = scrolled + '%';
+      if (winScroll > 30) {
+        navbar.classList.add('bg-[#090a0b]/95', 'border-white/15', 'shadow-lg');
+      } else {
+        navbar.classList.remove('bg-[#090a0b]/95', 'border-white/15', 'shadow-lg');
+      }
+    }, { passive: true });
+
+    // 2. Scroll Reveal com Intersection Observer
+    function initScrollReveal() {
+      const reveals = document.querySelectorAll('[data-reveal]');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => observer.observe(el));
+      } else {
+        reveals.forEach(el => el.classList.add('is-visible'));
+      }
+    }
+    initScrollReveal();
+
+    // 3. Card Spotlight Glow & 3D Tilt Interativo
+    function initCardInteractions() {
+      // Glow Spotlight nos cartões
+      document.querySelectorAll('.glow-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+      });
+
+      // 3D Tilt nos cards de projeto
+      document.querySelectorAll('.tilt-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          const rotateX = -(y / (rect.height / 2)) * 7;
+          const rotateY = (x / (rect.width / 2)) * 7;
+          card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px)';
+        });
+      });
+    }
+    initCardInteractions();
+
+    // 4. Floating Toast Notification
+    function showToast(message) {
+      let toast = document.getElementById('toast-notification');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast-notification';
+        toast.className = 'fixed bottom-6 right-6 z-50 px-4 py-3 rounded-xl bg-[#1b1c1e]/95 border border-white/20 text-xs text-[#f1f2f3] shadow-2xl backdrop-blur-xl flex items-center gap-3 transition-all duration-300 transform translate-y-12 opacity-0';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<span class="w-2 h-2 rounded-full bg-[#e8ab7e] animate-ping"></span><span>${message}</span>`;
+      toast.classList.remove('translate-y-12', 'opacity-0');
+      setTimeout(() => {
+        toast.classList.add('translate-y-12', 'opacity-0');
+      }, 3400);
+    }
+
+    // 5. Canvas 3D Particle Sculpture (Escultura Viva em Cobre de Alta Visibilidade)
+    function initSculptureCanvas() {
+      const canvas = document.getElementById('sculpture');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+
+      let width = 0, height = 0, dpr = 1;
+      let mouseX = 0, mouseY = 0, targetMouseX = 0, targetMouseY = 0;
+      let isVisible = true, animFrame = 0, clock = 0;
+
+      // Gerar nuvem de partículas em casca esférica 3D
+      const count = window.innerWidth < 768 ? 700 : 1400;
+      const points = [];
+      for (let i = 0; i < count; i++) {
+        const phi = Math.acos(-1 + (2 * i) / count);
+        const theta = Math.sqrt(count * Math.PI) * phi;
+        const radius = 0.75 + 0.25 * Math.sin(i * 1.618);
+        points.push({
+          x: Math.cos(theta) * Math.sin(phi) * radius,
+          y: Math.sin(theta) * Math.sin(phi) * radius,
+          z: Math.cos(phi) * radius,
+          seed: Math.random(),
+          size: i % 10 === 0 ? 2.4 : i % 4 === 0 ? 1.6 : 0.9
+        });
+      }
+
+      function resize() {
+        width = canvas.offsetWidth || window.innerWidth;
+        height = canvas.offsetHeight || 900;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(width * dpr);
+        canvas.height = Math.round(height * dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+      resize();
+      window.addEventListener('resize', resize, { passive: true });
+
+      window.addEventListener('mousemove', (e) => {
+        targetMouseX = (e.clientX / window.innerWidth - 0.5) * 0.8;
+        targetMouseY = (e.clientY / window.innerHeight - 0.5) * 0.8;
+      }, { passive: true });
+
+      function render() {
+        if (!isVisible || document.hidden) {
+          animFrame = 0;
+          return;
+        }
+        clock += 0.007;
+        ctx.clearRect(0, 0, width, height);
+
+        mouseX += (targetMouseX - mouseX) * 0.05;
+        mouseY += (targetMouseY - mouseY) * 0.05;
+
+        const scrollOffset = window.scrollY * 0.0009;
+        const angleY = clock * 0.45 + mouseX + scrollOffset;
+        const angleX = clock * 0.3 + mouseY;
+        const cosY = Math.cos(angleY), sinY = Math.sin(angleY);
+        const cosX = Math.cos(angleX), sinX = Math.sin(angleX);
+
+        const centerX = width * (window.innerWidth < 768 ? 0.5 : 0.65);
+        const centerY = height * 0.48;
+        const scale = Math.min(width, height) * (window.innerWidth < 768 ? 0.44 : 0.40);
+
+        // Halo suave no centro
+        const radialGlow = ctx.createRadialGradient(centerX, centerY, 10, centerX, centerY, scale * 1.3);
+        radialGlow.addColorStop(0, 'rgba(232, 171, 126, 0.09)');
+        radialGlow.addColorStop(1, 'rgba(232, 171, 126, 0)');
+        ctx.fillStyle = radialGlow;
+        ctx.fillRect(0, 0, width, height);
+
+        // Renderizar pontos com projeção 3D
+        for (let i = 0; i < points.length; i++) {
+          const pt = points[i];
+
+          // Rotação Y
+          let x1 = pt.x * cosY - pt.z * sinY;
+          let z1 = pt.z * cosY + pt.x * sinY;
+
+          // Rotação X
+          let y1 = pt.y * cosX - z1 * sinX;
+          let z2 = z1 * cosX + pt.y * sinX;
+
+          // Projeção de perspectiva
+          const fov = 2.4;
+          const perspective = fov / (fov + z2 * 0.55);
+          const px = centerX + x1 * scale * perspective;
+          const py = centerY + y1 * scale * perspective;
+
+          const alpha = Math.max(0.12, Math.min(0.95, (0.5 + (1 - z2) * 0.4) * perspective));
+
+          ctx.beginPath();
+          ctx.arc(px, py, pt.size * perspective, 0, Math.PI * 2);
+
+          if (i % 5 === 0) {
+            ctx.fillStyle = `rgba(238, 190, 145, ${alpha})`;
+          } else {
+            ctx.fillStyle = `rgba(195, 202, 218, ${alpha * 0.75})`;
+          }
+          ctx.fill();
+
+          // Conectar pontos próximos para criar linhas de constelação
+          if (i % 22 === 0 && perspective > 0.85) {
+            ctx.strokeStyle = `rgba(232, 171, 126, ${alpha * 0.28})`;
+            ctx.lineWidth = 0.75;
+            ctx.beginPath();
+            ctx.moveTo(px, py);
+            ctx.lineTo(px + (x1 * 32 * perspective), py + (y1 * 32 * perspective));
+            ctx.stroke();
+          }
+        }
+
+        animFrame = requestAnimationFrame(render);
+      }
+
+      if ('IntersectionObserver' in window) {
+        const heroSection = document.getElementById('inicio');
+        const obs = new IntersectionObserver((entries) => {
+          const nowVisible = entries[0].isIntersecting;
+          if (nowVisible && !isVisible) {
+            isVisible = true;
+            if (!animFrame) animFrame = requestAnimationFrame(render);
+          } else if (!nowVisible) {
+            isVisible = false;
+          }
+        });
+        if (heroSection) obs.observe(heroSection);
+      }
+      animFrame = requestAnimationFrame(render);
+    }
+    initSculptureCanvas();
+
+    // 6. Consulta Interativa do Hero Explorer
+    const inputSearch = document.getElementById('course-search');
+    const btnConsultar = document.getElementById('btn-consultar');
+    const feedbackBox = document.getElementById('search-feedback');
+    const feedbackText = document.getElementById('search-feedback-text');
+
+    function searchCourse(query) {
+      if (!query || query.trim() === '') return;
+      feedbackBox.classList.remove('hidden');
+      feedbackText.innerHTML = `<strong>Trilha recomendada para "${query}":</strong> Encontrado no <em>Módulo 02 & 05</em> (Engenharia de Software e Práticas com IA). <a href="#grade" class="underline text-[#e8ab7e] ml-2">Ver detalhes da grade ↗</a>`;
+      showToast(`Consulta realizada para: "${query}"`);
+    }
+
+    btnConsultar.addEventListener('click', () => searchCourse(inputSearch.value));
+    inputSearch.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') searchCourse(inputSearch.value);
+    });
+
+    // Chips clicáveis
+    document.querySelectorAll('.chip-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const query = btn.getAttribute('data-query');
+        inputSearch.value = query;
+        searchCourse(query);
+      });
+    });
+
+    // 7. Modal de Comandos (Cmd + K)
+    const cmdModal = document.getElementById('command-modal');
+    const btnOpenCmd = document.getElementById('btn-open-cmd');
+    const btnCloseCmd = document.getElementById('btn-close-cmd');
+
+    function openCmd() { cmdModal.showModal(); }
+    function closeCmd() { cmdModal.close(); }
+
+    btnOpenCmd?.addEventListener('click', openCmd);
+    btnCloseCmd?.addEventListener('click', closeCmd);
+
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        cmdModal.open ? closeCmd() : openCmd();
+      }
+    });
+
+    document.querySelectorAll('.cmd-link').forEach(link => {
+      link.addEventListener('click', closeCmd);
+    });
+  </script>
+</body>
+</html>
