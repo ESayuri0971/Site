@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOCAL//VAULT — Design System Catalog</title>
+
+  <!-- Fontes Google do Projeto Original -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;700;900&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind CSS CDN com o tema original -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              bg: '#070a12',
+              card: '#0c111d',
+              cardHover: '#121929',
+              border: '#1b2438',
+              miku: '#00f0d6',
+              rin: '#ffb703',
+              luka: '#ff2a85',
+              teto: '#ff0055',
+              ia: '#c084fc',
+              gumi: '#84cc16',
+              kaito: '#2563eb',
+              flower: '#9333ea',
+              cyanGlow: 'rgba(0, 240, 214, 0.25)',
+              pinkGlow: 'rgba(255, 42, 133, 0.25)'
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            display: ['Space Grotesk', 'sans-serif'],
+            cyber: ['Orbitron', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            jp: ['Noto Sans JP', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #070a12;
+      color: #e2e8f0;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #080c14;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+      border: 1px solid #00f0d633;
+    }
+  </style>
+</head>
+<body class="selection:bg-cyber-miku selection:text-black antialiased text-slate-200">
+
+  <!-- Header reutilizado da Navbar Original -->
+  <header class="h-20 shrink-0 bg-cyber-bg/95 backdrop-blur-xl border-b border-white/10 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-4">
+      
+      <!-- Logotipo Original com badge de Design System -->
+      <a href="#overview" class="flex items-center gap-3 group">
+        <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 via-teal-500 to-fuchsia-500 p-0.5 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-all">
+          <div class="w-full h-full bg-cyber-bg rounded-[10px] flex items-center justify-center relative overflow-hidden">
+            <span class="font-cyber font-black text-transparent bg-clip-text bg-gradient-to-tr from-cyan-300 to-fuchsia-400 text-lg">01</span>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-cyber font-black tracking-wider text-lg text-white group-hover:text-cyber-miku transition-colors">VOCAL<span class="text-cyber-miku">//</span>VAULT</span>
+            <span class="text-[9px] font-mono font-bold px-2 py-0.5 bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 rounded uppercase tracking-wider">Design System</span>
+          </div>
+          <p class="text-[10px] text-slate-400 font-jp tracking-wider">デザインシステム・カタログ</p>
+        </div>
+      </a>
+
+      <!-- Menu Central de Navegação do Catálogo: Overview | Components -->
+      <nav class="flex items-center gap-1.5 bg-white/5 border border-white/10 p-1 rounded-full text-xs font-medium">
+        <!-- Overview Link -->
+        <a href="#overview" id="tab-overview" class="px-5 py-2 rounded-full font-mono text-xs font-bold transition-all flex items-center gap-2 bg-gradient-to-r from-cyber-miku via-teal-400 to-emerald-400 text-slate-950 shadow-lg shadow-cyan-400/20">
+          <i data-lucide="layout-template" class="w-4 h-4"></i>
+          Overview
+        </a>
+
+        <!-- Components Link (Desabilitado até aprovação do Overview) -->
+        <div class="relative group">
+          <button id="tab-components" disabled aria-disabled="true" class="px-5 py-2 rounded-full font-mono text-xs font-medium text-slate-500 opacity-50 cursor-not-allowed flex items-center gap-2 select-none">
+            <i data-lucide="boxes" class="w-4 h-4"></i>
+            Components
+            <span class="text-[9px] px-1.5 py-0.5 rounded bg-white/5 text-slate-400 border border-white/10 font-sans">Bloqueado</span>
+          </button>
+          
+          <!-- Tooltip informativo -->
+          <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 hidden group-hover:block w-48 p-2 bg-slate-900 border border-white/10 rounded-lg text-[10px] text-slate-300 font-mono shadow-xl z-50 text-center pointer-events-none">
+            Aba liberada após validação e aprovação do Overview na Fase 1.
+          </div>
+        </div>
+      </nav>
+
+      <!-- Indicador de Status da Fase -->
+      <div class="hidden sm:flex items-center gap-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-cyan-950/60 border border-cyan-400/30 text-xs font-mono text-cyan-300">
+          <span class="w-2 h-2 rounded-full bg-cyber-miku animate-pulse"></span>
+          <span>Fase 1: Overview</span>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Área Principal do Catálogo: Iframe Borderless do Overview -->
+  <main class="flex-1 w-full relative overflow-hidden bg-cyber-bg">
+    <!-- Visualização do Overview -->
+    <div id="view-overview" class="w-full h-full">
+      <iframe 
+        id="overview-iframe"
+        src="assets/overview/index.html" 
+        class="w-full h-full border-0 block"
+        title="Visualização do Overview do Design System"
+        loading="eager"
+      ></iframe>
+    </div>
+
+    <!-- Visualização de Components (Reservada para a Fase 2) -->
+    <div id="view-components" class="w-full h-full hidden p-8 overflow-y-auto font-mono text-center">
+      <div class="max-w-md mx-auto mt-20 p-6 rounded-2xl bg-white/5 border border-white/10">
+        <i data-lucide="lock" class="w-8 h-8 mx-auto text-cyan-400 mb-3"></i>
+        <h3 class="text-lg font-bold text-white mb-2">Components em Fase de Aprovação</h3>
+        <p class="text-xs text-slate-400 leading-relaxed">
+          Esta visão será construída na Fase 2 a partir do Overview aprovado.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Inicialização dos ícones Lucide
+    lucide.createIcons();
+
+    // Roteamento por hash (#overview e #components)
+    function handleHashChange() {
+      const hash = window.location.hash || '#overview';
+      const overviewTab = document.getElementById('tab-overview');
+      const componentsTab = document.getElementById('tab-components');
+      const overviewView = document.getElementById('view-overview');
+      const componentsView = document.getElementById('view-components');
+
+      if (hash === '#components' && !componentsTab.disabled) {
+        overviewView.classList.add('hidden');
+        componentsView.classList.remove('hidden');
+      } else {
+        // Padrão: #overview
+        if (window.location.hash !== '#overview') {
+          history.replaceState(null, '', '#overview');
+        }
+        overviewView.classList.remove('hidden');
+        componentsView.classList.add('hidden');
+      }
+    }
+
+    window.addEventListener('hashchange', handleHashChange);
+    window.addEventListener('DOMContentLoaded', handleHashChange);
+  </script>
+</body>
+</html>
