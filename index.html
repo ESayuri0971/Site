@@ -1672,6 +1672,7 @@ input[type=range] {
     const VOCAL_CHARACTERS = [
       {
         id: 'miku',
+        image: 'assets/miku-transparent.png',
         code: 'CV01',
         name: 'Hatsune Miku V6 AI',
         jpName: '初音ミク',
@@ -1697,6 +1698,7 @@ input[type=range] {
       },
       {
         id: 'rin-len',
+        image: 'assets/rin-len.png',
         code: 'CV02',
         name: 'Kagamine Rin & Len V4X',
         jpName: '鏡音リン・レン',
@@ -1722,6 +1724,7 @@ input[type=range] {
       },
       {
         id: 'luka',
+        image: 'assets/luka.png',
         code: 'CV03',
         name: 'Megurine Luka V4X',
         jpName: '巡音ルカ',
@@ -1747,6 +1750,7 @@ input[type=range] {
       },
       {
         id: 'teto',
+        image: 'assets/teto.png',
         code: 'SV-01',
         name: 'Kasane Teto AI',
         jpName: '重音テト',
@@ -1772,6 +1776,7 @@ input[type=range] {
       },
       {
         id: 'ia',
+        image: 'assets/ia.png',
         code: '1ST-01',
         name: 'IA - ARIA ON THE PLANETES',
         jpName: 'イア',
@@ -1797,6 +1802,7 @@ input[type=range] {
       },
       {
         id: 'gumi',
+        image: 'assets/gumi.png',
         code: 'MEG-01',
         name: 'Megpoid GUMI V6 AI',
         jpName: 'メグッポイド GUMI',
@@ -1822,6 +1828,7 @@ input[type=range] {
       },
       {
         id: 'kaito',
+        image: 'assets/kaito.png',
         code: 'CR-01M',
         name: 'KAITO V3 Complete',
         jpName: 'カイト',
@@ -1847,6 +1854,7 @@ input[type=range] {
       },
       {
         id: 'vflower',
+        image: 'assets/vflower.png',
         code: 'FL-01',
         name: 'vFlower V4 Rock Specialist',
         jpName: 'ブイフラワ',
@@ -2123,9 +2131,17 @@ input[type=range] {
                 </span>
               </div>
 
-              <div class="relative h-28 rounded-xl bg-gradient-to-b from-slate-900 to-black p-3 mb-4 flex items-center justify-center overflow-hidden border border-white/5">
-                <div class="absolute inset-0 opacity-20 pointer-events-none" style="background: radial-gradient(circle at center, ${c.color} 0%, transparent 70%);"></div>
-                <div class="text-center space-y-1 relative z-10">
+              <div class="relative h-28 rounded-xl bg-gradient-to-b from-slate-900 to-black p-2 mb-4 flex items-center justify-center overflow-hidden border border-white/5">
+                <div class="absolute inset-0 opacity-25 pointer-events-none" style="background: radial-gradient(circle at center, ${c.color} 0%, transparent 75%);"></div>
+                <img 
+                  src="${c.image}" 
+                  alt="${c.name}" 
+                  class="w-full h-full object-contain object-center relative z-10 transition-transform duration-300 group-hover:scale-105" 
+                  style="filter: drop-shadow(0 4px 12px rgba(0,0,0,0.6));"
+                  loading="lazy" 
+                  onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+                >
+                <div class="hidden text-center space-y-1 relative z-10">
                   <div class="font-bold text-2xl tracking-widest text-white/90 group-hover:scale-105 transition-transform duration-300 font-mono">
                     ${c.code}
                   </div>
@@ -2134,7 +2150,7 @@ input[type=range] {
 
                 <button 
                   onclick="window.vocalStore.togglePreview('${c.id}')"
-                  class="absolute bottom-2.5 right-2.5 w-9 h-9 rounded-full flex items-center justify-center transition-all ${isPlayingThis ? 'bg-copper text-slate-950 scale-105' : 'bg-white/10 hover:bg-white/20 text-white'}"
+                  class="absolute bottom-2.5 right-2.5 w-9 h-9 rounded-full flex items-center justify-center transition-all z-20 ${isPlayingThis ? 'bg-copper text-slate-950 scale-105 shadow-lg shadow-copper/20' : 'bg-black/50 hover:bg-white/20 text-white backdrop-blur-sm'}"
                   title="Ouvir Demo"
                 >
                   <i data-lucide="${isPlayingThis ? 'pause' : 'play'}" class="w-4 h-4 fill-current"></i>
