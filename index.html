@@ -1644,6 +1644,197 @@
       font-family: ui-monospace, monospace;
       font-weight: 600;
     }
+
+    /* ===== FORMA INTERACTIVE STUDIO MODAL (EXATO FORMA AI) ===== */
+    .studio-dialog {
+      width: min(1080px, calc(100% - 32px));
+      height: min(720px, calc(100dvh - 54px));
+      max-height: none;
+      max-width: none;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #141517;
+      color: var(--ink);
+      box-shadow: 0 30px 100px rgba(0,0,0,0.85);
+      overflow: hidden;
+    }
+    .studio-dialog::backdrop {
+      background: rgba(9, 10, 11, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .studio-dialog[open] {
+      display: flex;
+      flex-direction: column;
+      animation: modalIn .35s var(--ease);
+    }
+    .studio-header {
+      height: 60px;
+      min-height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      border-bottom: 1px solid var(--line);
+      background: #111214;
+    }
+    .studio-header > div {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .studio-label {
+      font-size: 9px;
+      color: var(--muted);
+      padding-left: 14px;
+      border-left: 1px solid var(--line);
+      font-family: ui-monospace, monospace;
+      letter-spacing: .06em;
+    }
+    .studio-export {
+      background: linear-gradient(135deg, #f2c49f, #d88e56);
+      color: #2a1e16;
+      border: 0;
+      border-radius: 6px;
+      padding: 8px 14px;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .studio-export:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 18px rgba(221, 133, 71, 0.25);
+    }
+    .studio-layout {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      min-height: 0;
+      flex: 1;
+    }
+    .studio-controls {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--line);
+      overflow-y: auto;
+      gap: 14px;
+      background: #121315;
+    }
+    .studio-controls label {
+      font-size: 9px;
+      color: var(--muted);
+      display: grid;
+      gap: 6px;
+      font-family: ui-monospace, monospace;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .studio-controls textarea {
+      width: 100%;
+      height: 75px;
+      resize: vertical;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: #18191c;
+      color: var(--ink);
+      padding: 10px;
+      font-size: 12px;
+      line-height: 1.6;
+      font-family: var(--font);
+    }
+    .studio-controls textarea:focus, .studio-controls select:focus {
+      outline: none;
+      border-color: var(--copper);
+    }
+    .studio-controls select {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      background: #18191c;
+      color: var(--ink);
+      font-size: 11px;
+      font-family: var(--font);
+    }
+    .studio-status {
+      font-size: 10px;
+      line-height: 1.6;
+      color: var(--muted);
+      min-height: 32px;
+      font-family: ui-monospace, monospace;
+    }
+    .studio-explainer {
+      font-size: 9px;
+      color: #6a6c75;
+      line-height: 1.7;
+      margin-top: auto;
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+    .studio-preview {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #0d0e10;
+      min-width: 0;
+      overflow: hidden;
+    }
+    .preview-toolbar {
+      height: 40px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      font-size: 9px;
+      color: var(--muted);
+      gap: 8px;
+      border-bottom: 1px solid var(--line);
+      background: #111214;
+    }
+    .generation-overlay {
+      position: absolute;
+      inset: 40px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(9, 10, 11, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 10;
+      text-align: center;
+    }
+    .generation-overlay p {
+      font: 26px var(--serif);
+      font-style: italic;
+      margin: 18px 0 6px;
+      color: #f2e2d0;
+    }
+    .loading-orbit {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(231, 182, 145, 0.25);
+      border-radius: 50%;
+      border-top-color: var(--copper);
+      animation: spin 1.2s linear infinite;
+      margin: auto;
+    }
+    /* 3D tilt transição suave */
+    .cyber-panel, .featured-product, [data-tilt-card] {
+      transition: transform .25s var(--ease), border-color .3s;
+      will-change: transform;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @media (max-width: 820px) {
+      .studio-layout { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+      .studio-controls { border-right: 0; border-bottom: 1px solid var(--line); max-height: 220px; }
+      .studio-dialog { width: calc(100% - 16px); height: calc(100dvh - 24px); }
+    }
   </style>
 </head>
 <body class="selection:bg-copper selection:text-black antialiased text-slate-200">
@@ -1765,7 +1956,7 @@
         </p>
 
         <!-- Composer Interativo do Forma -->
-        <form class="composer hero-fade-3" id="prompt-form" onsubmit="event.preventDefault(); window.location.href='#catalogo';">
+        <form class="composer hero-fade-3" id="prompt-form" onsubmit="event.preventDefault(); window.openVoiceStudio(document.getElementById('prompt').value, 'pop', document.getElementById('hero-style').value);">
           <label class="sr-only" for="prompt" hidden>Descreva o timbre vocal ou estilo que deseja sintetizar</label>
           <textarea id="prompt" aria-label="Descreva o timbre vocal" maxlength="600" placeholder="Uma voz pop cristalina e ágil para refrões com alta presença…" rows="2" required></textarea>
           <div class="composer-bottom">
@@ -1776,7 +1967,7 @@
               <label for="hero-style" hidden>Motor vocal</label>
               <select id="hero-style" aria-label="Motor vocal">
                 <option value="crypton">Piapro Studio NT</option>
-                <option value="synthv">Synthesizer V AI</option>
+                <option value="synthv" selected>Synthesizer V AI</option>
                 <option value="vocaloid6">VOCALOID6 AI</option>
                 <option value="acoustic">Acústico / Natural</option>
               </select>
@@ -1789,15 +1980,15 @@
 
         <!-- Prompt Ideas Chips -->
         <div class="prompt-ideas hero-fade-3" aria-label="Experimente um timbre pré-configurado">
-          <button type="button" onclick="document.getElementById('prompt').value='Hatsune Miku V6 AI — Pop vibrante com harmônicos brilhantes'; window.vocalStore.filterCategory('crypton'); window.location.href='#catalogo';">
+          <button type="button" onclick="window.triggerPromptIdea('Hatsune Miku V6 AI — Pop vibrante com harmônicos brilhantes', 'pop', 'crypton')">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
             Pop Enérgico (Miku)
           </button>
-          <button type="button" onclick="document.getElementById('prompt').value='Kasane Teto AI — Rock alternativo, overdrive e potência'; window.vocalStore.filterCategory('rock'); window.location.href='#catalogo';">
+          <button type="button" onclick="window.triggerPromptIdea('Kasane Teto AI — Rock alternativo, overdrive e potência', 'rock', 'synthv')">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
             Rock & Potência (Teto)
           </button>
-          <button type="button" onclick="document.getElementById('prompt').value='Megurine Luka V4X — Balada acústica, jazz e tons suaves'; window.vocalStore.filterCategory('mellow'); window.location.href='#catalogo';">
+          <button type="button" onclick="window.triggerPromptIdea('Megurine Luka V4X — Balada acústica, jazz e tons suaves', 'ballad', 'crypton')">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 8h14l1 13H4L5 8Zm3 0V6a4 4 0 0 1 8 0v2"/></svg>
             Jazz & Suavidade (Luka)
           </button>
