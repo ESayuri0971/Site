@@ -341,12 +341,12 @@
       opacity: 1;
       transform: none;
     }
-    .js [data-reveal-delay='1'] { transition-delay: .08s; }
-    .js [data-reveal-delay='2'] { transition-delay: .16s; }
-    .js [data-reveal-delay='3'] { transition-delay: .24s; }
-    .js [data-reveal-delay='4'] { transition-delay: .32s; }
-    .js [data-reveal-delay='5'] { transition-delay: .40s; }
-    .js [data-reveal-delay='6'] { transition-delay: .48s; }
+    .js [data-reveal-delay='1'] { transition-delay: .1s; }
+    .js [data-reveal-delay='2'] { transition-delay: .2s; }
+    .js [data-reveal-delay='3'] { transition-delay: .3s; }
+    .js [data-reveal-delay='4'] { transition-delay: .4s; }
+    .js [data-reveal-delay='5'] { transition-delay: .5s; }
+    .js [data-reveal-delay='6'] { transition-delay: .6s; }
 
     /* Hero Typography Mask & Entrance */
     .hero-title .line {
@@ -453,13 +453,10 @@
     /* Canvas 3D Sculpture Hero (exato Forma 02) */
     #sculpture {
       position: absolute;
-      inset: 80px 0 0 0;
+      inset: 0;
       width: 100%;
       height: 100%;
-      max-height: 770px;
-      opacity: .7;
-      mask-image: linear-gradient(90deg, transparent 0%, #000 35%, #000 100%);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 35%, #000 100%);
+      opacity: .85;
       pointer-events: none;
       z-index: 0;
       display: block;
@@ -467,7 +464,7 @@
     .hero-stage {
       position: absolute;
       inset: 0;
-      overflow: visible;
+      overflow: hidden;
       pointer-events: none;
       z-index: 0;
     }
@@ -476,7 +473,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 1;
-      background: linear-gradient(180deg, #090a0b 0%, transparent 28%, transparent 75%, #090a0b 100%);
+      background: radial-gradient(circle at 75% 45%, rgba(231,182,145,0.06) 0%, transparent 60%), linear-gradient(180deg, #090a0b 0%, transparent 25%, transparent 75%, #090a0b 100%);
     }
 
     /* Split text word-by-word reveal */
@@ -538,7 +535,7 @@
     .bg-white\/5, .bg-white\/10 { background: rgba(255,255,255,.04) !important; }
     .bg-black\/30, .bg-black\/40, .bg-black\/50 { background: rgba(0,0,0,.25) !important; }
     .bg-slate-950 { background: #090a0b !important; }
-    [class*="bg-cyber-card"] { background: var(--panel) !important; }
+    [class*="bg-[#121315]"] { background: var(--panel) !important; }
 
     /* Bordas */
     .border-white\/10, .border-white\/15, .border-white\/20 { border-color: var(--line) !important; }
@@ -1264,6 +1261,354 @@
     .motion-paused * {
       animation-play-state: paused !important;
     }
+
+    /* ===== FORMA V2 — TRANSITIONS & POLISH ===== */
+
+    /* Smooth scroll global */
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    /* Stagger reveal — cards do catálogo aparecem em cascata */
+    [data-reveal][data-reveal-delay] {
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+
+    /* Links da nav — underline animado tipo Forma */
+    nav a {
+      position: relative !important;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--copper);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .35s var(--ease);
+    }
+    nav a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Seções — fade-in mais elegante no scroll */
+    section[data-reveal] {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1.1s var(--ease), transform 1.1s var(--ease);
+    }
+    section[data-reveal].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Cards do catálogo — hover lift sutil estilo Forma */
+    .cyber-panel {
+      transform: translateY(0);
+      will-change: transform;
+    }
+    .cyber-panel:hover {
+      transform: translateY(-4px) !important;
+      border-color: rgba(255,255,255,.18) !important;
+      transition: transform .45s var(--ease), border-color .3s !important;
+    }
+
+    /* Separadores de seção — linha decorativa Forma */
+    section + section {
+      border-top: 1px solid var(--line);
+    }
+
+    /* Indicador de scroll no hero — pulso suave */
+    .hero-bottom a span {
+      animation: scrollPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: .5; transform: translateY(0); }
+      50% { opacity: 1; transform: translateY(3px); }
+    }
+
+    /* Composer focus — glow copper mais pronunciado */
+    .composer:focus-within textarea::placeholder { color: #62636b; }
+
+    /* Featured product — hover sutil */
+    .featured-product {
+      transition: border-color .35s var(--ease), box-shadow .4s;
+    }
+    .featured-product:hover {
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 8px 40px rgba(0,0,0,.35);
+    }
+
+    /* Botão pill — micro-interação ao hover */
+    .pill {
+      transition: all .25s var(--ease);
+    }
+    .pill:hover {
+      transform: translateY(-1px);
+    }
+    .pill:active {
+      transform: translateY(0) scale(.98);
+    }
+
+    /* Footer links — transição smooth */
+    footer a {
+      transition: color .25s var(--ease) !important;
+    }
+
+    /* Page progress — animação mais suave */
+    .page-progress {
+      transition: transform .12s ease-out !important;
+    }
+
+    /* Announcement pill — entrada animada */
+    .announcement {
+      animation: fadeUp .8s var(--ease) both;
+      animation-delay: .2s;
+    }
+
+    /* h1 lines — entrada escalonada */
+    .hero h1 .line {
+      display: block;
+      overflow: hidden;
+    }
+    .hero h1 .line > span {
+      display: block;
+      animation: heroType 1.2s var(--ease) both;
+    }
+    .hero h1 .line:nth-child(2) > span {
+      animation-delay: .15s;
+    }
+    @keyframes heroType {
+      from { opacity: 0; transform: translateY(100%); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Hero fade classes — stagger */
+    .hero-fade-1 { animation: fadeUp .9s var(--ease) both; animation-delay: .1s; }
+    .hero-fade-2 { animation: fadeUp .9s var(--ease) both; animation-delay: .4s; }
+    .hero-fade-3 { animation: fadeUp .9s var(--ease) both; animation-delay: .65s; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Eyebrow — entrada com square bullet */
+    .eyebrow {
+      opacity: 0;
+      animation: eyebrowIn .7s var(--ease) .3s both;
+    }
+    @keyframes eyebrowIn {
+      from { opacity: 0; transform: translateX(-8px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Qualities strip items — fade in sequencial */
+    .qualities-strip > div > span {
+      opacity: 0;
+      animation: fadeUp .6s var(--ease) both;
+    }
+    .qualities-strip > div > span:nth-child(1) { animation-delay: .1s; }
+    .qualities-strip > div > span:nth-child(2) { animation-delay: .2s; }
+    .qualities-strip > div > span:nth-child(3) { animation-delay: .3s; }
+    .qualities-strip > div > span:nth-child(4) { animation-delay: .4s; }
+    .qualities-strip > div > span:nth-child(5) { animation-delay: .5s; }
+
+    /* Manifesto — parallax sutil */
+    .manifesto {
+      position: relative;
+      overflow: hidden;
+    }
+    .manifesto::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(180deg, var(--bg), transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .manifesto::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: linear-gradient(0deg, var(--bg), transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Transições entre seções — gradiente de dissolução */
+    #catalogo { position: relative; }
+    #catalogo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 80px;
+      background: linear-gradient(180deg, var(--bg), transparent);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Command dialog — entrada mais suave */
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(-12px) scale(.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Orb label — pulsação sutil */
+    .orb-label::before {
+      animation: orbPulse 3s ease-in-out infinite;
+    }
+    @keyframes orbPulse {
+      0%, 100% { opacity: .6; }
+      50% { opacity: 1; }
+    }
+
+    /* Quick trigger — micro animação */
+    .quick-trigger {
+      transition: all .25s var(--ease) !important;
+    }
+    .quick-trigger:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Filter tabs — transição suave */
+    .filter-tab {
+      transition: all .3s var(--ease) !important;
+    }
+
+    /* Coordenadas no hero-bottom — typing cursor */
+    .coordinates::after {
+      content: '|';
+      animation: blink 1.2s step-end infinite;
+      margin-left: 2px;
+      color: var(--copper);
+      font-weight: 300;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ===== FORMA V2 — EXTRA POLISH ===== */
+
+    /* Table comparativa — hover row mais Forma */
+    table tbody tr {
+      transition: background .2s;
+    }
+    table tbody tr:hover {
+      background: rgba(255,255,255,.03) !important;
+    }
+    table thead {
+      background: rgba(0,0,0,.4) !important;
+    }
+
+    /* CTA section — glow radial copper sutil no fundo */
+    section:last-of-type {
+      position: relative;
+    }
+    section:last-of-type::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 400px;
+      background: radial-gradient(ellipse at center, rgba(231,182,145,.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Newsletter input — estilo Forma */
+    #newsletter-email {
+      background: rgba(0,0,0,.4) !important;
+      border: 1px solid var(--line) !important;
+      border-radius: 8px !important;
+      font-family: var(--font) !important;
+      font-size: 13px !important;
+      padding: 12px 16px !important;
+      color: var(--ink) !important;
+      transition: border-color .25s, box-shadow .25s !important;
+    }
+    #newsletter-email:focus {
+      border-color: var(--copper) !important;
+      box-shadow: 0 0 0 3px rgba(231,182,145,.08) !important;
+      outline: none !important;
+    }
+    #newsletter-email::placeholder {
+      color: var(--muted) !important;
+    }
+
+    /* Footer — transição suave com copper hover */
+    footer ul a {
+      color: var(--muted) !important;
+      transition: color .2s var(--ease) !important;
+    }
+    footer ul a:hover {
+      color: var(--copper) !important;
+    }
+
+    /* Footer h4 — peso mais Forma */
+    footer h4 {
+      font-family: var(--font) !important;
+      font-weight: 500 !important;
+      font-size: 11px !important;
+      letter-spacing: .08em !important;
+      color: var(--ink) !important;
+    }
+
+    /* Footer bottom divider — mais sutil */
+    footer .border-b { border-color: rgba(255,255,255,.06) !important; }
+
+    /* Catalog search input — hover glow */
+    #search-input {
+      transition: border-color .25s, box-shadow .25s !important;
+    }
+    #search-input:focus {
+      border-color: var(--copper) !important;
+      box-shadow: 0 0 0 3px rgba(231,182,145,.06) !important;
+    }
+
+    /* Comunidade reviews — hover cards */
+    #comunidade .cyber-panel {
+      transition: transform .4s var(--ease), border-color .3s, box-shadow .4s !important;
+    }
+    #comunidade .cyber-panel:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,.3) !important;
+    }
+
+    /* Comparativo cards/panels */
+    #comparativo .cyber-panel {
+      transition: border-color .3s !important;
+    }
+    #comparativo .cyber-panel:hover {
+      border-color: rgba(255,255,255,.15) !important;
+    }
+
+    /* Mini-studio hover */
+    #mini-studio .cyber-panel {
+      transition: transform .4s var(--ease), border-color .3s !important;
+    }
+    #mini-studio .cyber-panel:hover {
+      transform: translateY(-2px) !important;
+      border-color: rgba(255,255,255,.15) !important;
+    }
+
+    /* Smooth scroll anchor offset (nav height) */
+    :target {
+      scroll-margin-top: 80px;
+    }
     .announcement {
       display: inline-flex;
       align-items: center;
@@ -1361,7 +1706,7 @@
 
         <!-- Seletor de Moeda -->
         <div class="relative hidden sm:block">
-          <select id="currency-selector" onchange="window.vocalStore.changeCurrency(this.value)" class="bg-cyber-card border border-white/15 text-xs text-slate-300 font-mono py-1.5 px-3 rounded-lg focus:outline-none focus:border-cyber-miku transition-colors cursor-pointer">
+          <select id="currency-selector" onchange="window.vocalStore.changeCurrency(this.value)" class="bg-[#121315] border border-white/15 text-xs text-slate-300 font-mono py-1.5 px-3 rounded-lg focus:outline-none focus:border-white/20 transition-colors cursor-pointer">
             <option value="BRL" selected>BRL (R$)</option>
             <option value="USD">USD ($)</option>
             <option value="JPY">JPY (¥)</option>
@@ -1369,7 +1714,7 @@
         </div>
 
         <!-- Botão Abrir Busca Rápida -->
-        <button onclick="document.getElementById('search-input').focus(); window.location.href='#catalogo'" class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:border-cyber-miku transition-colors" title="Buscar Voicebanks">
+        <button onclick="document.getElementById('search-input').focus(); window.location.href='#catalogo'" class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:border-white/20 transition-colors" title="Buscar Voicebanks">
           <i data-lucide="search" class="w-4 h-4"></i>
         </button>
 
@@ -1377,7 +1722,7 @@
         <button onclick="window.vocalStore.toggleCart(true)" class="relative flex items-center gap-2.5 bg-white/5 border border-white/10 hover:border-white/20 py-2 px-3.5 rounded-lg text-white font-medium text-xs transition-all">
           <div class="relative">
             <i data-lucide="shopping-bag" class="w-4 h-4 text-copper"></i>
-            <span id="cart-badge" class="absolute -top-2 -right-2 bg-cyber-teto text-white font-mono font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+            <span id="cart-badge" class="absolute -top-2 -right-2 bg-copper text-white font-mono font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
           </div>
           <span class="hidden md:inline font-mono" id="cart-total-header">R$ 0</span>
         </button>
@@ -1396,78 +1741,141 @@
     </div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="max-w-2xl space-y-6 text-left">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         
-        <!-- Announcement Pill (Estilo Forma) -->
-        <a href="#catalogo" class="announcement hero-fade-1">
-          <span>FORMA / 06</span> Síntese neural vocal em tempo real <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
-        </a>
+        <!-- Coluna Esquerda: Typography & Composer Forma -->
+        <div class="lg:col-span-7 space-y-6 text-left">
+          
+          <!-- Announcement Pill (Estilo Forma) -->
+          <a href="#catalogo" class="announcement hero-fade-1">
+            <span>FORMA / 06</span> Síntese neural vocal em tempo real <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+          </a>
 
-        <h1 id="hero-heading" class="font-normal font-display tracking-tight leading-[1.04]">
-          <span class="line"><span>Crie na velocidade</span></span>
-          <span class="line"><span><em>da imaginação vocal.</em></span></span>
-        </h1>
+          <h1 id="hero-heading" class="font-normal font-display tracking-tight leading-[1.04]">
+            <span class="line"><span>Crie na velocidade</span></span>
+            <span class="line"><span><em>da imaginação vocal.</em></span></span>
+          </h1>
 
-        <p class="hero-fade-2 text-slate-300 text-base sm:text-lg max-w-xl leading-relaxed">
-          Seus timbres merecem mais do que trilhas estáticas.<br>
-          Modele bancos de voz virtuais com formantes neurais e latência ultrabaixa. Do seu próprio jeito.
-        </p>
+          <p class="hero-fade-2 text-slate-300 text-base sm:text-lg max-w-xl leading-relaxed">
+            Seus timbres merecem mais do que trilhas estáticas.<br>
+            Modele bancos de voz virtuais com formantes neurais e latência ultrabaixa. Do seu próprio jeito.
+          </p>
 
-        <!-- Composer Interativo do Forma -->
-        <form class="composer hero-fade-3" id="prompt-form" onsubmit="event.preventDefault(); window.location.href='#catalogo';">
-          <label class="sr-only" for="prompt" hidden>Descreva o timbre vocal ou estilo que deseja sintetizar</label>
-          <textarea id="prompt" aria-label="Descreva o timbre vocal" maxlength="600" placeholder="Uma voz pop cristalina e ágil para refrões com alta presença…" rows="2" required></textarea>
-          <div class="composer-bottom">
-            <div class="composer-options">
-              <span class="composer-mark">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
-              </span>
-              <label for="hero-style" hidden>Motor vocal</label>
-              <select id="hero-style" aria-label="Motor vocal">
-                <option value="crypton">Piapro Studio NT</option>
-                <option value="synthv">Synthesizer V AI</option>
-                <option value="vocaloid6">VOCALOID6 AI</option>
-                <option value="acoustic">Acústico / Natural</option>
-              </select>
+          <!-- Composer Interativo do Forma -->
+          <form class="composer hero-fade-3" id="prompt-form" onsubmit="event.preventDefault(); window.location.href='#catalogo';">
+            <label class="sr-only" for="prompt" hidden>Descreva o timbre vocal ou estilo que deseja sintetizar</label>
+            <textarea id="prompt" aria-label="Descreva o timbre vocal" maxlength="600" placeholder="Uma voz pop cristalina e ágil para refrões com alta presença…" rows="2" required></textarea>
+            <div class="composer-bottom">
+              <div class="composer-options">
+                <span class="composer-mark">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
+                </span>
+                <label for="hero-style" hidden>Motor vocal</label>
+                <select id="hero-style" aria-label="Motor vocal">
+                  <option value="crypton">Piapro Studio NT</option>
+                  <option value="synthv">Synthesizer V AI</option>
+                  <option value="vocaloid6">VOCALOID6 AI</option>
+                  <option value="acoustic">Acústico / Natural</option>
+                </select>
+              </div>
+              <button type="submit" class="pill copper build-button">
+                Sintetizar Timbre <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+              </button>
             </div>
-            <button type="submit" class="pill copper build-button">
-              Sintetizar Timbre <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+          </form>
+
+          <!-- Prompt Ideas Chips -->
+          <div class="prompt-ideas hero-fade-3" aria-label="Experimente um timbre pré-configurado">
+            <button type="button" onclick="document.getElementById('prompt').value='Hatsune Miku V6 AI — Pop vibrante com harmônicos brilhantes'; window.vocalStore.filterCategory('crypton'); window.location.href='#catalogo';">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+              Pop Enérgico (Miku)
+            </button>
+            <button type="button" onclick="document.getElementById('prompt').value='Kasane Teto AI — Rock alternativo, overdrive e potência'; window.vocalStore.filterCategory('rock'); window.location.href='#catalogo';">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
+              Rock & Potência (Teto)
+            </button>
+            <button type="button" onclick="document.getElementById('prompt').value='Megurine Luka V4X — Balada acústica, jazz e tons suaves'; window.vocalStore.filterCategory('mellow'); window.location.href='#catalogo';">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 8h14l1 13H4L5 8Zm3 0V6a4 4 0 0 1 8 0v2"/></svg>
+              Jazz & Suavidade (Luka)
             </button>
           </div>
-        </form>
 
-        <!-- Prompt Ideas Chips -->
-        <div class="prompt-ideas hero-fade-3" aria-label="Experimente um timbre pré-configurado">
-          <button type="button" onclick="document.getElementById('prompt').value='Hatsune Miku V6 AI — Pop vibrante com harmônicos brilhantes'; window.vocalStore.filterCategory('crypton'); window.location.href='#catalogo';">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
-            Pop Enérgico (Miku)
-          </button>
-          <button type="button" onclick="document.getElementById('prompt').value='Kasane Teto AI — Rock alternativo, overdrive e potência'; window.vocalStore.filterCategory('rock'); window.location.href='#catalogo';">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
-            Rock & Potência (Teto)
-          </button>
-          <button type="button" onclick="document.getElementById('prompt').value='Megurine Luka V4X — Balada acústica, jazz e tons suaves'; window.vocalStore.filterCategory('mellow'); window.location.href='#catalogo';">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 8h14l1 13H4L5 8Zm3 0V6a4 4 0 0 1 8 0v2"/></svg>
-            Jazz & Suavidade (Luka)
-          </button>
+          <p class="hero-note" style="font-size: 9px; color: #87837b; margin-top: 14px; letter-spacing: .02em;">
+            Experimente a demonstração interativa. Prévia aberta para produtores.
+          </p>
+
+          <!-- Social Proof de Produtores -->
+          <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-start gap-5 text-xs text-slate-400 font-mono">
+            <div class="flex items-center gap-2">
+              <div class="flex -space-x-2">
+                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">M</span>
+                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">L</span>
+                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">R</span>
+              </div>
+              <span>+52.400 produtores na lista VIP</span>
+            </div>
+            <div class="h-4 w-px bg-white/20 hidden sm:block"></div>
+            <div>Avaliação Média: <strong class="text-white font-sans">4.9 / 5.0</strong> ★★★★★</div>
+          </div>
+
         </div>
 
-        <p class="hero-note" style="font-size: 9px; color: #87837b; margin-top: 14px; letter-spacing: .02em;">
-          Experimente a demonstração interativa. Prévia aberta para produtores.
-        </p>
+        <!-- Coluna Direita: Vitrine Holográfica Miku V6 AI (Estilo Forma 02) -->
+        <div class="lg:col-span-5 relative z-10 w-full" data-reveal>
+          <div class="hero-showcase-panel" style="background: rgba(18, 19, 21, 0.85); border: 1px solid var(--line); border-radius: 14px; padding: 26px; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08); position: relative; overflow: hidden;">
+            
+            <div style="position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(231, 182, 145, 0.16), transparent 70%); pointer-events: none;"></div>
 
-        <!-- Social Proof de Produtores -->
-        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-start gap-6 text-xs text-slate-400 font-mono">
-          <div class="flex items-center gap-2">
-            <div class="flex -space-x-2">
-              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">M</span>
-              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">L</span>
-              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">R</span>
+            <!-- Topo do Card -->
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
+              <div class="eyebrow" style="margin-bottom: 0;">EDIÇÃO DEFINITIVA · CV01</div>
+              <span style="font-size: 9px; font-family: ui-monospace, monospace; color: var(--copper); background: rgba(231, 182, 145, 0.12); border: 1px solid rgba(231, 182, 145, 0.28); padding: 3px 9px; border-radius: 20px; font-weight: 500;">
+                PIAPRO NT / V6 AI
+              </span>
             </div>
-            <span>+52.400 produtores na lista VIP</span>
+
+            <!-- Arte da Miku & Identificação -->
+            <div style="display: flex; gap: 18px; align-items: center; margin-bottom: 22px;">
+              <div style="width: 120px; height: 120px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #0c0d0e; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative;">
+                <img src="assets/miku-transparent.png" alt="Hatsune Miku" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.08);">
+              </div>
+              <div>
+                <h3 style="font-size: 24px; font-weight: 400; letter-spacing: -.03em; line-height: 1.15; color: var(--ink); margin: 0 0 6px;">
+                  Hatsune Miku V6 AI<br>
+                  <em style="font-family: var(--serif); font-style: italic; color: #85868f; font-size: 20px;">Original &amp; Sweet</em>
+                </h3>
+                <p style="font-size: 11px; color: var(--muted); line-height: 1.55; margin: 0;">
+                  BPM 70–180 · Alcance A2–E4<br>
+                  Formantes neurais e float 32-bit.
+                </p>
+              </div>
+            </div>
+
+            <!-- Visualizador Espectrograma em Tempo Real -->
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; font-size: 9px; color: var(--muted); margin-bottom: 6px; font-family: ui-monospace, monospace; letter-spacing: .1em;">
+                <span>ESPECTROGRAMA EM TEMPO REAL</span>
+                <span id="hero-audio-status" style="color: var(--copper); font-weight: 500;">Pronto</span>
+              </div>
+              <canvas id="hero-spectrogram" width="400" height="64" style="width: 100%; height: 64px; background: #090a0b; border-radius: 8px; border: 1px solid var(--line); display: block;"></canvas>
+            </div>
+
+            <!-- Controles: Ouvir Demo e Preço/Reserva -->
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line);">
+              <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="pill copper" style="gap: 8px; padding: 10px 16px;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+                <span id="hero-play-text">Ouvir Demo</span>
+              </button>
+              <div style="text-align: right;">
+                <div style="font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em;">PRÉ-VENDA VIP</div>
+                <div id="hero-price-tag" style="font-size: 24px; font-weight: 400; letter-spacing: -.03em; color: var(--ink); line-height: 1.1;">R$ 899,00</div>
+              </div>
+              <button onclick="window.vocalStore.addToCart('miku')" class="pill light" style="padding: 10px 16px; font-size: 11px;">
+                + Reservar
+              </button>
+            </div>
+
           </div>
-          <div class="h-4 w-px bg-white/20 hidden sm:block"></div>
-          <div>Avaliação Média: <strong class="text-white font-sans">4.9 / 5.0</strong> ★★★★★</div>
         </div>
 
       </div>
@@ -1540,45 +1948,9 @@
               id="search-input" 
               oninput="window.vocalStore.handleSearch(this.value)"
               placeholder="Buscar por nome, motor ou timbre..." 
-              class="w-full bg-cyber-card border border-white/15 focus:border-cyber-miku focus:ring-1 focus:ring-cyber-miku pl-10 pr-4 py-2.5 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none font-mono transition-all"
+              class="w-full bg-[#121315] border border-white/15 focus:border-white/20 focus:ring-1 focus:ring-white/10 pl-10 pr-4 py-2.5 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none font-mono transition-all"
             >
           </div>
-        </div>
-      </div>
-
-      <!-- Card Destaque Miku (Featured Product) -->
-      <div class="featured-product" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; padding: 28px; border: 1px solid var(--line); border-radius: 11px; background: #0c0d0e;" data-reveal>
-        <!-- lado esquerdo: info -->
-        <div>
-          <div class="eyebrow" style="margin-bottom: 16px;">EDIÇÃO DEFINITIVA · CV01</div>
-          <h3 style="font-size: clamp(24px,3vw,40px); font-weight:400; letter-spacing:-.04em; line-height:1.1; margin-bottom:12px;">Hatsune Miku V6 AI<br><em style="font-family:var(--serif);font-style:italic;color:#85868f;">Original &amp; Sweet.</em></h3>
-          <p style="font-size:13px;color:var(--muted);line-height:1.8;max-width:340px;margin-bottom:20px;">A diva virtual mais reverenciada do planeta, reconstruída com síntese neural de altíssima fidelidade. BPM 70-180 · Alcance A2-E4.</p>
-          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
-            <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="pill copper">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
-              <span id="hero-play-text">Ouvir Demo</span>
-            </button>
-            <div>
-              <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Preço de Lançamento</div>
-              <div id="hero-price-tag" style="font-size:28px;font-weight:400;letter-spacing:-.04em;color:var(--ink);">R$ 899,00</div>
-            </div>
-          </div>
-        </div>
-        <!-- lado direito: arte miku + visualizador -->
-        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-end;">
-          <div style="width:140px;height:140px;border-radius:11px;overflow:hidden;border:1px solid var(--line);background:#121315;display:flex;align-items:center;justify-content:center;">
-            <img src="assets/miku-transparent.png" alt="Hatsune Miku" style="width:100%;height:100%;object-fit:contain;">
-          </div>
-          <div style="width:100%;">
-            <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-bottom:6px;font-family:ui-monospace,monospace;letter-spacing:.1em;">
-              <span>ESPECTROGRAMA</span>
-              <span id="hero-audio-status" style="color:var(--copper);">Pronto</span>
-            </div>
-            <canvas id="hero-spectrogram" width="400" height="60" style="width:100%;height:60px;background:#090a0b;border-radius:7px;border:1px solid var(--line);display:block;"></canvas>
-          </div>
-          <button onclick="window.vocalStore.addToCart('miku')" class="pill" style="width:100%;justify-content:center;">
-            + Reservar Voicebank
-          </button>
         </div>
       </div>
 
@@ -2110,7 +2482,7 @@
             id="newsletter-email" 
             required 
             placeholder="Seu melhor e-mail de produtor..." 
-            class="flex-1 bg-black/60 border border-white/20 focus:border-cyber-miku focus:ring-1 focus:ring-cyber-miku px-4 py-3 rounded-xl text-xs text-white placeholder-slate-500 font-mono focus:outline-none transition-all"
+            class="flex-1 bg-black/60 border border-white/20 focus:border-white/20 focus:ring-1 focus:ring-white/10 px-4 py-3 rounded-xl text-xs text-white placeholder-slate-500 font-mono focus:outline-none transition-all"
           >
           <button type="submit" class="pill copper px-6 py-3 text-xs font-semibold flex items-center justify-center gap-2">
             <span>Garantir Bônus VIP</span>
@@ -2264,7 +2636,7 @@
     <div id="cart-backdrop" onclick="window.vocalStore.toggleCart(false)" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
 
     <!-- Conteúdo da Gaveta -->
-    <div id="cart-content" class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-cyber-card border-l border-white/15 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto shadow-2xl">
+    <div id="cart-content" class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-[#121315] border-l border-white/15 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto shadow-2xl">
       
       <!-- Cabeçalho do Carrinho -->
       <div class="flex items-center justify-between pb-4 border-b border-white/10">
@@ -3687,7 +4059,7 @@
         if (!container) return;
 
         const toast = document.createElement('div');
-        toast.className = 'bg-cyber-card border border-white/10 shadow-xl text-white font-mono text-xs py-2.5 px-4 rounded-xl flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto';
+        toast.className = 'bg-[#121315] border border-white/10 shadow-xl text-white font-mono text-xs py-2.5 px-4 rounded-xl flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto';
         toast.innerHTML = `
           <span class="w-2 h-2 rounded-full bg-copper animate-ping"></span>
           <span>${message}</span>
@@ -3836,7 +4208,7 @@
             tx: mix(line[0], line[2], u),
             ty: mix(line[1], line[3], u),
             seed: seed,
-            size: i % 17 === 0 ? 1.7 : i % 4 === 0 ? 1.1 : 0.75
+            size: i % 17 === 0 ? 2.4 : i % 4 === 0 ? 1.6 : 1.1
           });
         }
 
@@ -3876,9 +4248,9 @@
           const sa = Math.sin(angle);
 
           // Radial glow in warm copper
-          const glow = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius * 1.35);
-          glow.addColorStop(0, 'rgba(232, 171, 126, 0.08)');
-          glow.addColorStop(0.5, 'rgba(216, 142, 86, 0.03)');
+          const glow = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius * 1.4);
+          glow.addColorStop(0, 'rgba(232, 171, 126, 0.14)');
+          glow.addColorStop(0.5, 'rgba(216, 142, 86, 0.06)');
           glow.addColorStop(1, 'rgba(17, 17, 16, 0)');
           ctx.fillStyle = glow;
           ctx.fillRect(0, 0, cw, ch);
@@ -3895,27 +4267,27 @@
             const x = mix(startX, bounds.x + pt.tx * bounds.w, blend);
             const y = mix(startY, bounds.y + pt.ty * bounds.h, blend);
 
-            const leftFade = mobile ? 1 : clamp((x / cw - .38) / .22);
-            const alpha = (.35 + (1 - rz) * .28) * (.18 + .82 * leftFade);
+            const leftFade = mobile ? 1 : clamp((x / cw - .15) / .25);
+            const alpha = (.45 + (1 - rz) * .35) * (.35 + .65 * leftFade);
 
             if (i % 6 === 0) {
-              ctx.fillStyle = 'rgba(242, 196, 159, ' + Math.min(0.95, alpha + 0.15) + ')';
+              ctx.fillStyle = 'rgba(250, 215, 185, ' + Math.min(0.98, alpha + 0.2) + ')';
             } else if (i % 3 === 0) {
-              ctx.fillStyle = 'rgba(232, 171, 126, ' + alpha + ')';
+              ctx.fillStyle = 'rgba(238, 185, 140, ' + Math.min(0.9, alpha + 0.1) + ')';
             } else {
-              ctx.fillStyle = 'rgba(216, 142, 86, ' + (alpha * 0.75) + ')';
+              ctx.fillStyle = 'rgba(225, 155, 100, ' + alpha + ')';
             }
 
             ctx.beginPath();
-            ctx.arc(x, y, (pt.size + .15) * (1 - blend * .18), 0, Math.PI * 2);
+            ctx.arc(x, y, (pt.size + .2) * (1 - blend * .15), 0, Math.PI * 2);
             ctx.fill();
 
-            if (i % 22 === 0 && blend < .97) {
-              ctx.strokeStyle = 'rgba(232, 171, 126, ' + (alpha * .25) + ')';
-              ctx.lineWidth = .6;
+            if (i % 16 === 0 && blend < .97) {
+              ctx.strokeStyle = 'rgba(238, 185, 140, ' + (alpha * .35) + ')';
+              ctx.lineWidth = .75;
               ctx.beginPath();
               ctx.moveTo(x, y);
-              ctx.lineTo(x - (1 - blend) * 10, y + (1 - blend) * 5);
+              ctx.lineTo(x - (1 - blend) * 12, y + (1 - blend) * 6);
               ctx.stroke();
             }
           }
