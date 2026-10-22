@@ -525,6 +525,773 @@
       color: #6f6d64;
       font-size: 11px;
     }
+
+    /* ===== FORMA DEEP OVERRIDE — substituir Tailwind remanescente ===== */
+
+    /* Texto: todas as variações de slate → tons corretos Forma */
+    .text-slate-400, .text-slate-500 { color: var(--muted) !important; }
+    .text-slate-300, .text-slate-200 { color: var(--ink) !important; }
+    .text-slate-600 { color: #45464d !important; }
+
+    /* Backgrounds */
+    .bg-white\/5, .bg-white\/10 { background: rgba(255,255,255,.04) !important; }
+    .bg-black\/30, .bg-black\/40, .bg-black\/50 { background: rgba(0,0,0,.25) !important; }
+    .bg-slate-950 { background: #090a0b !important; }
+    [class*="bg-cyber-card"] { background: var(--panel) !important; }
+
+    /* Bordas */
+    .border-white\/10, .border-white\/15, .border-white\/20 { border-color: var(--line) !important; }
+    .border-slate-700, .border-slate-800 { border-color: rgba(255,255,255,.07) !important; }
+
+    /* Font mono → DM Sans */
+    .font-mono { font-family: ui-monospace, 'JetBrains Mono', monospace; font-size: 11px; }
+
+    /* Font display → Instrument Serif */
+    .font-display { font-family: var(--serif) !important; }
+
+    /* Emerald (verde) → copper */
+    .text-emerald-400, .text-emerald-500 { color: var(--copper) !important; }
+    .bg-emerald-400, .bg-emerald-500 { background: var(--copper) !important; }
+
+    /* Pink (rosa no teclado) → muted */
+    .text-pink-400 { color: var(--muted) !important; }
+
+    /* Rounded mais Forma */
+    .rounded-2xl { border-radius: 11px !important; }
+    .rounded-3xl { border-radius: 14px !important; }
+    .rounded-xl { border-radius: 9px !important; }
+
+    /* Shadows removidos */
+    .shadow-2xl, .shadow-xl, .shadow-lg, .shadow-md { box-shadow: none !important; }
+
+    /* Remove glow animado */
+    .animate-ping { animation: none !important; width: 6px !important; height: 6px !important; border-radius: 2px !important; background: var(--copper) !important; }
+    .animate-pulse { animation: none !important; }
+
+    /* Nav links sem pill/hover colorido */
+    nav a { 
+      color: var(--muted) !important; 
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      padding: 4px 0 !important;
+      border-radius: 0 !important;
+      background: none !important;
+      transition: color .2s !important;
+    }
+    nav a:hover { color: var(--ink) !important; background: none !important; }
+
+    /* Barra de anúncio topo */
+    aside[aria-label] {
+      font-size: 11px !important;
+      letter-spacing: .02em !important;
+      color: var(--muted) !important;
+      background: #0c0d0e !important;
+    }
+
+    /* Section headers */
+    section h2 {
+      font-weight: 400 !important;
+      font-size: clamp(32px, 3.8vw, 52px) !important;
+      letter-spacing: -.055em !important;
+      line-height: 1.08 !important;
+      font-family: var(--font) !important;
+    }
+    section h2 em {
+      font-family: var(--serif) !important;
+      font-style: italic !important;
+      color: #85868f !important;
+      font-weight: 400 !important;
+    }
+
+    /* Hero text-left em desktop */
+    .hero .lg\:text-left { text-align: left !important; }
+    .hero .text-center { text-align: left !important; }
+
+    /* Piano keys — mais limpo */
+    .piano-key-white, .piano-key-black {
+      transition: all 0.1s ease !important;
+    }
+
+    /* Synth char/vowel buttons */
+    .synth-char-btn:not(.active), .synth-vowel-btn:not(.active) {
+      background: rgba(255,255,255,.04) !important;
+      border-color: var(--line) !important;
+      color: var(--muted) !important;
+    }
+    .synth-char-btn.active, .synth-vowel-btn.active {
+      background: var(--copper) !important;
+      border-color: var(--copper-light) !important;
+      color: #2a1e16 !important;
+    }
+
+    /* Filter tabs */
+    .filter-tab:not(.active) {
+      background: transparent !important;
+      border-color: var(--line) !important;
+      color: var(--muted) !important;
+    }
+    .filter-tab.active {
+      background: linear-gradient(135deg, #f2c49f, #d88e56) !important;
+      border-color: transparent !important;
+      color: #2a1e16 !important;
+    }
+    .filter-tab:hover:not(.active) {
+      color: var(--ink) !important;
+      border-color: rgba(255,255,255,.2) !important;
+    }
+
+    /* Hero social proof */
+    .hero .border-t.border-white\/10 {
+      border-top-color: var(--line) !important;
+      padding-top: 20px !important;
+    }
+
+    /* Badges tech no hero */
+    .hero [class*="bg-white"] {
+      background: rgba(255,255,255,.04) !important;
+    }
+
+    /* Seção de destaques técnicos (qualidades strip) */
+    section.py-6 {
+      background: #0c0d0e !important;
+      border-top: 1px solid var(--line) !important;
+      border-bottom: 1px solid var(--line) !important;
+    }
+    section.py-6 [class*="font-cyber"], section.py-6 [class*="font-bold"] {
+      font-family: var(--font) !important;
+      font-weight: 400 !important;
+      font-size: 24px !important;
+      letter-spacing: -.04em !important;
+    }
+
+    /* Carta hero miku */
+    .cyber-panel.rounded-xl {
+      border-radius: 11px !important;
+    }
+
+    /* Preço no hero card */
+    #hero-price-tag {
+      font-family: var(--font) !important;
+      font-weight: 400 !important;
+      font-size: 28px !important;
+      letter-spacing: -.04em !important;
+      color: var(--ink) !important;
+    }
+
+    /* Input de busca */
+    input[type="text"] {
+      background: var(--panel) !important;
+      border-color: var(--line) !important;
+      color: var(--ink) !important;
+      font-family: ui-monospace, monospace !important;
+      font-size: 11px !important;
+    }
+    input[type="text"]:focus {
+      border-color: var(--copper) !important;
+      outline: none !important;
+      box-shadow: 0 0 0 2px rgba(231, 182, 145, .1) !important;
+    }
+    input[type="text"]::placeholder {
+      color: var(--muted) !important;
+    }
+
+    /* Select (seletor de moeda) */
+    select {
+      background: var(--panel) !important;
+      border-color: var(--line) !important;
+      color: var(--muted) !important;
+    }
+
+    /* Osciloscópio */
+    #synth-oscilloscope {
+      background: #090a0b !important;
+      border-color: var(--line) !important;
+    }
+
+    /* Mini spectrogram */
+    #hero-spectrogram {
+      background: #090a0b !important;
+      border-color: var(--line) !important;
+    }
+
+    /* Seção mini-studio */
+    #mini-studio {
+      border-top: 1px solid var(--line) !important;
+      background: #0c0d0e !important;
+    }
+    #mini-studio > div > div.cyber-panel {
+      border-color: var(--line) !important;
+    }
+
+    /* Sliders bg */
+    .bg-black\/30 {
+      background: rgba(0,0,0,.2) !important;
+      border-color: var(--line) !important;
+    }
+
+    /* Logo do site — limpar */
+    header a .rounded-lg {
+      background: rgba(255,255,255,.04) !important;
+      border-color: var(--line) !important;
+    }
+
+    /* Cart badge */
+    #cart-badge {
+      background: var(--copper) !important;
+      color: #2a1e16 !important;
+    }
+
+    /* Cart button */
+    button[onclick*="toggleCart"] {
+      background: rgba(255,255,255,.04) !important;
+      border-color: var(--line) !important;
+      color: var(--ink) !important;
+    }
+    button[onclick*="toggleCart"]:hover {
+      border-color: rgba(255,255,255,.2) !important;
+    }
+
+    /* Botão adicionar ao carrinho */
+    button[onclick*="addToCart"] {
+      background: rgba(255,255,255,.06) !important;
+      border-color: var(--line) !important;
+      color: var(--ink) !important;
+      border-radius: 8px !important;
+    }
+    button[onclick*="addToCart"]:hover {
+      background: var(--copper) !important;
+      color: #2a1e16 !important;
+      border-color: transparent !important;
+    }
+
+    /* Status badge no hero card */
+    .text-emerald-400 { color: var(--copper) !important; }
+    .w-2.h-2.rounded-full.bg-emerald-400 {
+      background: var(--copper) !important;
+      border-radius: 2px !important;
+      width: 5px !important;
+      height: 5px !important;
+    }
+
+    /* Seção comparativo */
+    #comparativo { background: #0c0d0e !important; }
+
+    /* Seção comunidade */
+    #comunidade { background: var(--bg) !important; }
+
+    /* Separadores de seções */
+    .border-t.border-white\/10 { border-top-color: var(--line) !important; }
+    .border-b.border-white\/10 { border-bottom-color: var(--line) !important; }
+    .border-y.border-white\/10 { border-top-color: var(--line) !important; border-bottom-color: var(--line) !important; }
+
+    /* Countdown */
+    #top-countdown {
+      background: rgba(0,0,0,.3) !important;
+      border-color: var(--line) !important;
+      letter-spacing: .1em !important;
+      font-size: 11px !important;
+      font-family: ui-monospace, monospace !important;
+    }
+
+    /* Featured product responsive */
+    @media (max-width: 768px) {
+      .featured-product {
+        grid-template-columns: 1fr !important;
+      }
+      .featured-product > div:last-child {
+        align-items: stretch !important;
+      }
+    }
+
+    /* ===== FORMA FINAL POLISH ===== */
+
+    /* Hero: garantir texto à esquerda e espaço correto */
+    .hero > div { position: relative; z-index: 2; }
+    .hero h1 {
+      font-size: clamp(56px, 6.7vw, 96px) !important;
+      letter-spacing: -.065em !important;
+      line-height: 1.04 !important;
+      font-weight: 400 !important;
+      margin: 24px 0 20px !important;
+    }
+    /* Description hero */
+    .hero p.hero-fade-2 {
+      font-size: 15px !important;
+      line-height: 1.72 !important;
+      color: #929399 !important;
+      max-width: 480px !important;
+    }
+
+    /* Nav final — limpar qualquer px/py das classes Tailwind */
+    nav.hidden.lg\:flex a {
+      padding: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+    }
+
+    /* Header altura exata Forma */
+    header.sticky > div { height: 72px !important; }
+
+    /* Announcement bar mais sutil */
+    aside[aria-label] { font-size: 11px !important; }
+
+    /* Section headings finais */
+    section h2 {
+      margin-top: 16px !important;
+      margin-bottom: 0 !important;
+    }
+
+    /* Qualidades strip */
+    .qualities-strip span {
+      font-size: 13px !important;
+      font-weight: 400 !important;
+      font-family: var(--font) !important;
+    }
+
+    /* Seção catalogo */
+    #catalogo { padding: 100px 0 !important; }
+
+    /* Featured product layout clean */
+    .featured-product h3 { margin: 0 0 12px !important; }
+
+    /* Filtros de categoria exato Forma */
+    .filter-tab {
+      font-size: 10px !important;
+      padding: 8px 15px !important;
+      border-radius: 20px !important;
+      font-weight: 400 !important;
+    }
+
+    /* Piano: bordas mais sutis */
+    .piano-key-white { border-color: rgba(255,255,255,.06) !important; }
+
+    /* Sliders — remover bg azulado slate */
+    .bg-slate-950 { background: #090a0b !important; }
+
+    /* Garantir que cyber-panel herda tema correto */
+    .cyber-panel { transition: transform .4s var(--ease), border-color .3s !important; }
+
+    /* mini-studio panel */
+    #mini-studio .cyber-panel { background: #121315 !important; }
+
+    /* Footer */
+    footer .text-slate-400, footer .text-slate-500 { color: #6f6d64 !important; }
+    footer a:hover { color: var(--ink) !important; }
+    .footer-large {
+      font-size: clamp(60px, 14vw, 220px) !important;
+      letter-spacing: -.07em !important;
+    }
+
+    /* Remove grid holográfico do hero */
+    .hero-grid { display: none !important; }
+
+    /* Announcement bar — mais Forma */
+    aside[aria-label] strong { font-weight: 600 !important; }
+
+    /* Badges tech no hero — mais clean */
+    .hero-tech-badges div {
+      background: transparent !important;
+      border: 1px solid var(--line) !important;
+      color: var(--muted) !important;
+      font-size: 10px !important;
+    }
+
+    /* Social proof no hero */
+    .hero .flex.-space-x-2 span {
+      background: rgba(255,255,255,.06) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--muted) !important;
+      font-family: var(--font) !important;
+      font-weight: 500 !important;
+    }
+
+    /* Body: remover grid de fundo */
+    body {
+      background-image: none !important;
+      background-color: var(--bg) !important;
+    }
+
+    /* ===== FORMA COMPOSER, HERO CHOREOGRAPHY & MANIFESTO ===== */
+    .composer {
+      max-width: 580px;
+      margin: 28px 0 0;
+      background: linear-gradient(135deg, rgba(27, 28, 30, 0.92), rgba(18, 19, 21, 0.94));
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      padding: 16px 16px 12px;
+      text-align: left;
+      box-shadow: 0 12px 50px rgba(0, 0, 0, 0.4), inset 0 1px rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .composer:focus-within {
+      border-color: rgba(231, 182, 145, 0.6);
+      box-shadow: 0 12px 60px rgba(0, 0, 0, 0.5), 0 0 25px rgba(231, 182, 145, 0.08);
+    }
+    .composer textarea {
+      background: transparent;
+      border: 0;
+      outline: none;
+      resize: none;
+      width: 100%;
+      height: 54px;
+      color: var(--ink);
+      font-size: 13px;
+      line-height: 1.6;
+      padding: 2px 3px;
+      font-family: var(--font);
+    }
+    .composer textarea::placeholder {
+      color: #929399;
+    }
+    .composer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .composer-options {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: #929399;
+    }
+    .composer-mark {
+      width: 24px;
+      height: 24px;
+      display: grid;
+      place-items: center;
+      color: var(--copper);
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+    }
+    .composer-options select {
+      background: transparent;
+      color: #929399;
+      border: 0;
+      font-size: 11px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .composer-options select option {
+      background: #18191c;
+      color: #f1f2f3;
+    }
+    .prompt-ideas {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: 8px;
+      margin-top: 14px;
+      max-width: 580px;
+    }
+    .prompt-ideas button {
+      font-size: 11px;
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      background: rgba(16, 17, 19, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: #81838b;
+      cursor: pointer;
+      transition: all .25s;
+      font-family: var(--font);
+    }
+    .prompt-ideas button:hover {
+      color: #f2c49f;
+      background: rgba(45, 34, 25, 0.5);
+      border-color: rgba(231, 182, 145, 0.4);
+    }
+    .orb-label {
+      position: absolute;
+      right: 6%;
+      bottom: 85px;
+      font: 9px ui-monospace, monospace;
+      color: #62636b;
+      letter-spacing: .13em;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 2;
+      user-select: none;
+      pointer-events: none;
+    }
+    .orb-label:before {
+      content: '+';
+      font-size: 16px;
+      color: #bdb0a0;
+    }
+    .hero-particle-meter {
+      width: 56px;
+      height: 2px;
+      background: rgba(255, 255, 255, 0.1);
+      position: relative;
+      overflow: hidden;
+      display: block;
+    }
+    .hero-particle-meter i {
+      display: block;
+      height: 100%;
+      width: 100%;
+      background: var(--copper);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .1s linear;
+    }
+    .hero-bottom {
+      position: absolute;
+      bottom: 24px;
+      left: max(32px, calc((100% - 1280px)/2 + 32px));
+      right: max(32px, calc((100% - 1280px)/2 + 32px));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #777981;
+      z-index: 3;
+    }
+    .hero-bottom a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: inherit;
+      transition: color .2s;
+    }
+    .hero-bottom a:hover {
+      color: var(--ink);
+    }
+    .hero-bottom a span {
+      width: 22px;
+      height: 32px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+    }
+    .coordinates {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .small-star {
+      color: var(--copper);
+      font-size: 14px;
+    }
+    .manifesto {
+      padding: 110px 0 120px;
+      border-top: 1px solid var(--line);
+      background: var(--bg);
+    }
+    .manifesto .wrap {
+      width: min(1180px, calc(100% - 80px));
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 2.4fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .word-reveal {
+      font-size: clamp(34px, 4.3vw, 58px);
+      font-weight: 400;
+      letter-spacing: -.04em;
+      line-height: 1.18;
+      max-width: 900px;
+      margin: 0;
+      color: #41434b;
+    }
+    .word-reveal span {
+      display: inline-block;
+      color: #41434b;
+      will-change: color;
+      transition: color .2s ease;
+    }
+    .word-reveal span.lit {
+      color: #f1f2f3 !important;
+    }
+    .word-reveal em {
+      font-family: var(--serif);
+      font-style: italic;
+      color: var(--copper);
+      letter-spacing: -.02em;
+    }
+    @media (max-width: 768px) {
+      .manifesto .wrap {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .orb-label { display: none; }
+      .hero-bottom { display: none; }
+    }
+    .quick-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: #929399;
+      font-size: 11px;
+      padding: 6px 10px;
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .quick-trigger:hover {
+      color: var(--ink);
+      border-color: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .quick-trigger kbd {
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      padding: 2px 5px;
+      background: rgba(255, 255, 255, 0.04);
+      font-size: 10px;
+      font-family: ui-monospace, monospace;
+    }
+    .command-dialog {
+      width: min(560px, calc(100% - 32px));
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #141517;
+      color: var(--ink);
+      padding: 0;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
+    }
+    .command-dialog::backdrop {
+      background: rgba(9, 10, 11, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .command-dialog[open] {
+      display: flex;
+      flex-direction: column;
+      animation: modalIn .3s var(--ease);
+    }
+    .command-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .command-top h2 {
+      font-size: 14px;
+      font-weight: 500;
+      margin: 0;
+      letter-spacing: -.02em;
+    }
+    .command-top button {
+      background: none;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .command-items {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .command-items button {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 14px;
+      background: transparent;
+      border: 0;
+      border-radius: 6px;
+      color: var(--ink);
+      font-size: 13px;
+      cursor: pointer;
+      text-align: left;
+      transition: background .15s;
+    }
+    .command-items button:hover, .command-items button:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+      outline: none;
+    }
+    .command-items button span {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: ui-monospace, monospace;
+    }
+    .command-hint {
+      padding: 10px 18px;
+      border-top: 1px solid var(--line);
+      font-size: 10px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .motion-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 50;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+      background: rgba(24, 25, 28, 0.85);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      color: #929399;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all .25s;
+    }
+    .motion-toggle:hover {
+      color: #f1f2f3;
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: scale(1.05);
+    }
+    .motion-toggle svg {
+      width: 14px;
+      height: 14px;
+    }
+    .motion-paused * {
+      animation-play-state: paused !important;
+    }
+    .announcement {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 10px;
+      letter-spacing: .02em;
+      border: 1px solid rgba(203, 167, 129, 0.2);
+      background: rgba(26, 24, 21, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 30px;
+      padding: 6px 12px 6px 8px;
+      color: #c5bbae;
+      text-decoration: none;
+      transition: border-color .2s, transform .2s;
+    }
+    .announcement:hover {
+      border-color: rgba(231, 182, 145, 0.4);
+      transform: translateY(-1px);
+    }
+    .announcement span {
+      font-size: 9px;
+      border-radius: 20px;
+      background: rgba(219, 168, 120, 0.12);
+      color: #e7b992;
+      padding: 2px 7px;
+      font-family: ui-monospace, monospace;
+      font-weight: 600;
+    }
   </style>
 </head>
 <body class="selection:bg-copper selection:text-black antialiased text-slate-200">
@@ -578,26 +1345,19 @@
 
       <!-- Menu Central de Navegação -->
       <nav class="hidden lg:flex items-center gap-[27px] text-[12px] text-muted font-medium">
-        <a href="#catalogo" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
-          <i data-lucide="music-2" class="w-3.5 h-3.5 text-copper"></i>
-          Catálogo de Vozes
-        </a>
-        <a href="#mini-studio" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
-          <i data-lucide="piano" class="w-3.5 h-3.5 text-muted"></i>
-          Mini-Studio Sintetizador
-        </a>
-        <a href="#comparativo" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
-          <i data-lucide="cpu" class="w-3.5 h-3.5 text-muted"></i>
-          Comparativo de Motores
-        </a>
-        <a href="#comunidade" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-muted"></i>
-          Produtores & Demos
-        </a>
+        <a href="#catalogo">Catálogo de Vozes</a>
+        <a href="#mini-studio">Mini-Studio Sintetizador</a>
+        <a href="#comparativo">Comparativo de Motores</a>
+        <a href="#comunidade">Produtores & Demos</a>
       </nav>
 
       <!-- Ações do Cabeçalho: Busca, Seletor de Moeda e Carrinho -->
       <div class="flex items-center gap-3">
+        <!-- Quick Actions Button (Estilo Forma) -->
+        <button class="quick-trigger hidden md:inline-flex" onclick="window.toggleCommandDialog()" aria-label="Abrir ações rápidas" aria-haspopup="dialog">
+          Ações rápidas <kbd>⌘ K</kbd>
+        </button>
+
         <!-- Seletor de Moeda -->
         <div class="relative hidden sm:block">
           <select id="currency-selector" onchange="window.vocalStore.changeCurrency(this.value)" class="bg-cyber-card border border-white/15 text-xs text-slate-300 font-mono py-1.5 px-3 rounded-lg focus:outline-none focus:border-cyber-miku transition-colors cursor-pointer">
@@ -626,206 +1386,129 @@
   </header>
 
   <!-- Hero Section Futurista com Player Interativo e Visualizador Holográfico -->
-  <section class="hero relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+  <section class="hero relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden" aria-labelledby="hero-heading">
     <!-- Canvas 3D Sculpture Interativo no Estilo Forma -->
     <div class="hero-stage">
+      <div class="hero-grid"></div>
       <canvas id="sculpture" aria-hidden="true"></canvas>
       <div class="hero-shade"></div>
     </div>
-    <!-- Elementos de Iluminação Holográfica de Fundo -->
-    
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="max-w-2xl space-y-6 text-left">
         
-        <!-- Coluna Esquerda: Texto de Impacto e Chamadas -->
-        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-          
-          <div class="hero-fade-1 eyebrow">
-            MOTOR VOCAL DE REDES NEURAIS PROFUNDAS
-          </div>
+        <!-- Announcement Pill (Estilo Forma) -->
+        <a href="#catalogo" class="announcement hero-fade-1">
+          <span>FORMA / 06</span> Síntese neural vocal em tempo real <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
 
-          <h1 class="font-normal font-display tracking-tight leading-[1.04]">
-            A Próxima Geração de <br>
-            <em style="font-family: var(--serif); font-style: italic; color: #a6a7ae; letter-spacing: -.035em;">
-              Síntese Vocal Virtual.
-            </em>
-          </h1>
+        <h1 id="hero-heading" class="font-normal font-display tracking-tight leading-[1.04]">
+          <span class="line"><span>Crie na velocidade</span></span>
+          <span class="line"><span><em>da imaginação vocal.</em></span></span>
+        </h1>
 
-          <p class="hero-fade-2 text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0">
-            Experimente a prévia da loja oficial de <strong>Voicebanks de Vocaloid & Synthesizer V</strong>. 
-            Ouça as amostras sintetizadas em tempo real com processamento de formantes, explore o teclado interativo e garanta licenças antecipadas com bônus exclusivos.
-          </p>
+        <p class="hero-fade-2 text-slate-300 text-base sm:text-lg max-w-xl leading-relaxed">
+          Seus timbres merecem mais do que trilhas estáticas.<br>
+          Modele bancos de voz virtuais com formantes neurais e latência ultrabaixa. Do seu próprio jeito.
+        </p>
 
-          <!-- Badges Tecnológicos -->
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs font-mono text-slate-300">
-            <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-copper"></i>
-              VST3 / AU / ARA2
+        <!-- Composer Interativo do Forma -->
+        <form class="composer hero-fade-3" id="prompt-form" onsubmit="event.preventDefault(); window.location.href='#catalogo';">
+          <label class="sr-only" for="prompt" hidden>Descreva o timbre vocal ou estilo que deseja sintetizar</label>
+          <textarea id="prompt" aria-label="Descreva o timbre vocal" maxlength="600" placeholder="Uma voz pop cristalina e ágil para refrões com alta presença…" rows="2" required></textarea>
+          <div class="composer-bottom">
+            <div class="composer-options">
+              <span class="composer-mark">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
+              </span>
+              <label for="hero-style" hidden>Motor vocal</label>
+              <select id="hero-style" aria-label="Motor vocal">
+                <option value="crypton">Piapro Studio NT</option>
+                <option value="synthv">Synthesizer V AI</option>
+                <option value="vocaloid6">VOCALOID6 AI</option>
+                <option value="acoustic">Acústico / Natural</option>
+              </select>
             </div>
-            <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-muted"></i>
-              Piapro Studio NT 2.0
-            </div>
-            <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-              <i data-lucide="zap" class="w-3.5 h-3.5 text-muted"></i>
-              Latência Neural &lt; 2.5ms
-            </div>
+            <button type="submit" class="pill copper build-button">
+              Sintetizar Timbre <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+            </button>
           </div>
+        </form>
 
-          <!-- Botões de Ação Hero no Estilo Forma -->
-          <div class="hero-fade-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
-            <a href="#catalogo" class="pill copper">
-              <i data-lucide="shopping-cart" class="w-4 h-4"></i>
-              Explorar Vitrine de Vozes
-            </a>
-            
-            <a href="#mini-studio" class="pill light">
-              <i data-lucide="sliders" class="w-4 h-4"></i>
-              Testar Mini-Sintetizador
-            </a>
-          </div>
-
-          <!-- Social Proof de Produtores -->
-          <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 font-mono">
-            <div class="flex items-center gap-2">
-              <div class="flex -space-x-2">
-                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">M</span>
-                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">L</span>
-                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">R</span>
-              </div>
-              <span>+52.400 produtores na lista VIP</span>
-            </div>
-            <div class="h-4 w-px bg-white/20 hidden sm:block"></div>
-            <div>Avaliação Média: <strong class="text-white font-sans">4.9 / 5.0</strong> ★★★★★</div>
-          </div>
-
+        <!-- Prompt Ideas Chips -->
+        <div class="prompt-ideas hero-fade-3" aria-label="Experimente um timbre pré-configurado">
+          <button type="button" onclick="document.getElementById('prompt').value='Hatsune Miku V6 AI — Pop vibrante com harmônicos brilhantes'; window.vocalStore.filterCategory('crypton'); window.location.href='#catalogo';">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+            Pop Enérgico (Miku)
+          </button>
+          <button type="button" onclick="document.getElementById('prompt').value='Kasane Teto AI — Rock alternativo, overdrive e potência'; window.vocalStore.filterCategory('rock'); window.location.href='#catalogo';">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
+            Rock & Potência (Teto)
+          </button>
+          <button type="button" onclick="document.getElementById('prompt').value='Megurine Luka V4X — Balada acústica, jazz e tons suaves'; window.vocalStore.filterCategory('mellow'); window.location.href='#catalogo';">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 8h14l1 13H4L5 8Zm3 0V6a4 4 0 0 1 8 0v2"/></svg>
+            Jazz & Suavidade (Luka)
+          </button>
         </div>
 
-        <!-- Coluna Direita: Cartão Holográfico Hero — Hatsune Miku V6 AI Preview Player -->
-        <div class="lg:col-span-5" data-reveal>
-          <div class="relative mx-auto max-w-md lg:max-w-none">
-            
-            <!-- Anel de Brilho Exterior -->
-            
+        <p class="hero-note" style="font-size: 9px; color: #87837b; margin-top: 14px; letter-spacing: .02em;">
+          Experimente a demonstração interativa. Prévia aberta para produtores.
+        </p>
 
-            <!-- Card Principal Hero -->
-            <div class="relative cyber-panel rounded-xl p-6">
-              
-              <!-- Cabeçalho do Card com Status "Destaque da Prévia" -->
-              <div class="flex items-center justify-between pb-4 border-b border-white/10">
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-copper/20 text-copper border border-copper/30">
-                    CV01 • ED. DEFINITIVA
-                  </span>
-                  <span class="text-xs text-slate-400 font-mono">CRYPT-AI V6</span>
-                </div>
-                <div class="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
-                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  Pré-venda Aberta
-                </div>
-              </div>
-
-              <!-- Arte e Visualizador Holográfico da Miku -->
-              <div class="relative my-5 rounded-xl overflow-hidden bg-[#121315] p-4 border border-white/10">
-                
-                                <!-- Arte Oficial da Hatsune Miku -->
-                <div class="flex items-center gap-4">
-                  <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-[#242422] via-[#1a1a18] to-[#111110] p-1.5 flex-shrink-0 border border-white/10 overflow-hidden flex items-center justify-center group">
-                    <div class="absolute inset-0 bg-radial from-forma-copper/10 via-transparent to-transparent pointer-events-none"></div>
-                    <img 
-                      src="assets/miku-transparent.png" 
-                      alt="Hatsune Miku Oficial" 
-                      class="w-full h-full object-contain object-center drop-shadow-[0_4px_12px_rgba(232,171,126,0.25)] group-hover:scale-105 transition-transform duration-300"
-                    >
-                  </div>
-
-                  <div class="space-y-1">
-                    <span class="text-xs font-mono font-bold text-copper flex items-center gap-1">
-                      <span class="w-1.5 h-1.5 rounded-full bg-copper animate-ping"></span>
-                      HATSUNE MIKU V6 AI
-                    </span>
-                    <h2 class="text-lg font-bold text-white font-display leading-tight">Original & Sweet Dual Pack</h2>
-                    <p class="text-xs text-slate-400 line-clamp-2">
-                      A diva virtual mais reverenciada do planeta, reconstruída com síntese neural de altíssima fidelidade.
-                    </p>
-                    <div class="pt-1 flex items-center gap-2 text-[11px] font-mono text-muted">
-                      <span>BPM: 70-180</span>
-                      <span>•</span>
-                      <span>Alcance: A2-E4</span>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Canvas Visualizador de Espectro de Áudio ao Vivo -->
-                <div class="mt-4 pt-3 border-t border-white/10">
-                  <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-1.5">
-                    <span class="flex items-center gap-1">
-                      <i data-lucide="activity" class="w-3.5 h-3.5 text-copper"></i>
-                      ESPECTROGRAMA EM TEMPO REAL
-                    </span>
-                    <span id="hero-audio-status" class="text-copper font-semibold">Pronto para Tocar</span>
-                  </div>
-                  <canvas id="hero-spectrogram" width="400" height="75" class="w-full h-[75px] bg-[#090a0b] rounded-lg border border-white/10"></canvas>
-                </div>
-
-              </div>
-
-              <!-- Controles Interativos de Reprodução da Amostra -->
-              <div class="space-y-3">
-                <div class="flex items-center gap-3">
-                  <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="flex-1 pill copper flex-1 py-3 px-4 font-semibold text-xs">
-                    <i data-lucide="play" id="hero-play-icon" class="w-5 h-5 fill-current"></i>
-                    <span id="hero-play-text">Ouvir Demo "Starlight Pop"</span>
-                  </button>
-
-                  <button onclick="window.vocalStore.openSpecModal('miku')" class="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-white/10 text-slate-300 hover:text-white transition-colors" title="Ver Especificações Completas">
-                    <i data-lucide="file-text" class="w-5 h-5"></i>
-                  </button>
-                </div>
-
-                <!-- Preço e Botão Adicionar ao Carrinho -->
-                <div class="flex items-center justify-between pt-2">
-                  <div>
-                    <span class="text-[10px] uppercase font-mono text-slate-400">Preço de Lançamento</span>
-                    <div class="text-xl font-black font-mono text-white" id="hero-price-tag">R$ 899,00</div>
-                  </div>
-                  <button onclick="window.vocalStore.addToCart('miku')" class="px-4 py-2 bg-white/10 hover:bg-copper hover:text-slate-950 text-white border border-white/20 hover:border-cyber-miku rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
-                    <i data-lucide="plus" class="w-4 h-4"></i>
-                    Reservar Voicebank
-                  </button>
-                </div>
-              </div>
-
+        <!-- Social Proof de Produtores -->
+        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-start gap-6 text-xs text-slate-400 font-mono">
+          <div class="flex items-center gap-2">
+            <div class="flex -space-x-2">
+              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">M</span>
+              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">L</span>
+              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">R</span>
             </div>
+            <span>+52.400 produtores na lista VIP</span>
           </div>
+          <div class="h-4 w-px bg-white/20 hidden sm:block"></div>
+          <div>Avaliação Média: <strong class="text-white font-sans">4.9 / 5.0</strong> ★★★★★</div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- Orb Label do Forma (Progresso da Escultura 3D) -->
+    <div class="orb-label" aria-hidden="true">
+      <span id="hero-particle-label">01 / CAMPO DE POSSIBILIDADES</span>
+      <span class="hero-particle-meter"><i id="hero-particle-progress"></i></span>
+      <b id="hero-particle-percent">0%</b>
+    </div>
+
+    <!-- Barra Inferior do Hero (Estilo Forma) -->
+    <div class="hero-bottom">
+      <a href="#catalogo">
+        <span><svg viewBox="0 0 20 20" width="12" height="12" fill="none" stroke="currentColor"><path d="M10 4v12m-4-4 4 4 4-4"/></svg></span>
+        Role para moldar o timbre
+      </a>
+      <div class="coordinates">
+        <span class="small-star">✳</span> Imaginação humana. Amplificada.
       </div>
     </div>
   </section>
 
-  <!-- Barra de Destaques Técnicos & Requisitos -->
-  <section class="py-6 border-y border-white/10 bg-cyber-card/60 backdrop-blur-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-        <div class="space-y-1">
-          <div class="text-copper font-cyber font-bold text-xl sm:text-2xl">96 kHz</div>
-          <div class="text-xs text-slate-400 font-mono">Amostragem Float 32-bit</div>
-        </div>
-        <div class="space-y-1">
-          <div class="text-muted font-cyber font-bold text-xl sm:text-2xl">V6 AI</div>
-          <div class="text-xs text-slate-400 font-mono">Redes Neurais com Atenção</div>
-        </div>
-        <div class="space-y-1">
-          <div class="text-muted font-cyber font-bold text-xl sm:text-2xl">100% VST3</div>
-          <div class="text-xs text-slate-400 font-mono">Compatível com Todas DAWs</div>
-        </div>
-        <div class="space-y-1">
-          <div class="text-muted font-cyber font-bold text-xl sm:text-2xl">X-SAMPA</div>
-          <div class="text-xs text-slate-400 font-mono">Dicionário Fonético Global</div>
-        </div>
-      </div>
+  <!-- Strip de qualidades (como Forma) -->
+  <div class="qualities-strip" style="border-block: 1px solid var(--line); padding: 22px 0; background: #0c0d0e;">
+    <div style="width: min(1180px, calc(100% - 80px)); margin: auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap;">
+      <span style="font-size: 9px; line-height: 1.8; letter-spacing: .13em; color: #6f7179; max-width: 140px;">DO PRIMEIRO PENSAMENTO<br>AO DETALHE FINAL</span>
+      <span style="display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>96 kHz · Float 32-bit</span>
+      <span style="display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>V6 AI · Redes Neurais</span>
+      <span style="display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M12 17v4m-4 0h8"/></svg>100% VST3 · Todas DAWs</span>
+      <span style="display: flex; align-items: center; gap: 10px; color: #d1b597; font-size: 13px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m8 7-5 5 5 5m8-10 5 5-5 5"/></svg>X-SAMPA · Fonética Global</span>
+    </div>
+  </div>
+
+  <!-- SEÇÃO MANIFESTO (Estilo Forma — Reveal de Palavras no Scroll) -->
+  <section class="manifesto">
+    <div class="wrap">
+      <div class="eyebrow" data-reveal>Menos atrito. Mais harmonia.</div>
+      <p class="word-reveal" id="manifesto-text" data-reveal>
+        A melhor parte de criar música é aquele momento exato em que a melodia na sua mente se transforma em algo <em>que você pode sentir.</em>
+      </p>
     </div>
   </section>
 
@@ -859,6 +1542,42 @@
               class="w-full bg-cyber-card border border-white/15 focus:border-cyber-miku focus:ring-1 focus:ring-cyber-miku pl-10 pr-4 py-2.5 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none font-mono transition-all"
             >
           </div>
+        </div>
+      </div>
+
+      <!-- Card Destaque Miku (Featured Product) -->
+      <div class="featured-product" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; padding: 28px; border: 1px solid var(--line); border-radius: 11px; background: #0c0d0e;" data-reveal>
+        <!-- lado esquerdo: info -->
+        <div>
+          <div class="eyebrow" style="margin-bottom: 16px;">EDIÇÃO DEFINITIVA · CV01</div>
+          <h3 style="font-size: clamp(24px,3vw,40px); font-weight:400; letter-spacing:-.04em; line-height:1.1; margin-bottom:12px;">Hatsune Miku V6 AI<br><em style="font-family:var(--serif);font-style:italic;color:#85868f;">Original &amp; Sweet.</em></h3>
+          <p style="font-size:13px;color:var(--muted);line-height:1.8;max-width:340px;margin-bottom:20px;">A diva virtual mais reverenciada do planeta, reconstruída com síntese neural de altíssima fidelidade. BPM 70-180 · Alcance A2-E4.</p>
+          <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+            <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="pill copper">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+              <span id="hero-play-text">Ouvir Demo</span>
+            </button>
+            <div>
+              <div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Preço de Lançamento</div>
+              <div id="hero-price-tag" style="font-size:28px;font-weight:400;letter-spacing:-.04em;color:var(--ink);">R$ 899,00</div>
+            </div>
+          </div>
+        </div>
+        <!-- lado direito: arte miku + visualizador -->
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-end;">
+          <div style="width:140px;height:140px;border-radius:11px;overflow:hidden;border:1px solid var(--line);background:#121315;display:flex;align-items:center;justify-content:center;">
+            <img src="assets/miku-transparent.png" alt="Hatsune Miku" style="width:100%;height:100%;object-fit:contain;">
+          </div>
+          <div style="width:100%;">
+            <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-bottom:6px;font-family:ui-monospace,monospace;letter-spacing:.1em;">
+              <span>ESPECTROGRAMA</span>
+              <span id="hero-audio-status" style="color:var(--copper);">Pronto</span>
+            </div>
+            <canvas id="hero-spectrogram" width="400" height="60" style="width:100%;height:60px;background:#090a0b;border-radius:7px;border:1px solid var(--line);display:block;"></canvas>
+          </div>
+          <button onclick="window.vocalStore.addToCart('miku')" class="pill" style="width:100%;justify-content:center;">
+            + Reservar Voicebank
+          </button>
         </div>
       </div>
 
@@ -3198,6 +3917,14 @@
               ctx.stroke();
             }
           }
+
+          // Atualizar barra de progresso do Orb do Forma
+          const pLabel = document.getElementById('hero-particle-label');
+          if (pLabel) pLabel.textContent = p < .33 ? '01 / CAMPO DE POSSIBILIDADES' : p < .76 ? '02 / SÍNTESE NEURAL' : '03 / TIMBRE MOLDADO';
+          const pProgress = document.getElementById('hero-particle-progress');
+          if (pProgress) pProgress.style.transform = 'scaleX(' + p + ')';
+          const pPercent = document.getElementById('hero-particle-percent');
+          if (pPercent) pPercent.textContent = Math.round(p * 100) + '%';
         }
 
         function animate(now) {
@@ -3244,16 +3971,140 @@
         resumeCanvas();
       }
 
+            // 3. Manifesto Word-Reveal no Scroll (Exato Forma)
+      function setupManifestoReveal() {
+        const manifesto = document.getElementById('manifesto-text');
+        if (!manifesto) return;
+        const nodes = [...manifesto.childNodes];
+        manifesto.innerHTML = '';
+        nodes.forEach(node => {
+          if (node.nodeType === 3) {
+            node.textContent.split(/(\s+)/).forEach(word => {
+              if (!word.trim()) {
+                manifesto.appendChild(document.createTextNode(word));
+              } else {
+                const span = document.createElement('span');
+                span.textContent = word;
+                manifesto.appendChild(span);
+              }
+            });
+          } else {
+            manifesto.appendChild(node);
+          }
+        });
+
+        const words = manifesto.querySelectorAll('span');
+        function updateWords() {
+          const r = manifesto.getBoundingClientRect();
+          const p = Math.max(0, Math.min(1, (window.innerHeight * 0.85 - r.top) / (window.innerHeight * 0.55)));
+          words.forEach((w, i) => {
+            w.classList.toggle('lit', (p - i / words.length) * 4 > 0);
+          });
+        }
+        window.addEventListener('scroll', updateWords, { passive: true });
+        updateWords();
+      }
+
       window.addEventListener('DOMContentLoaded', () => {
         setupHeadingTransitions();
         setupSculptureCanvas();
+        setupManifestoReveal();
       });
       // In case DOM is already loaded:
       if (document.readyState !== 'loading') {
         setupHeadingTransitions();
         setupSculptureCanvas();
+        setupManifestoReveal();
+      }
+    })();
+
+    // Sistema de Command Dialog (âŒ˜ K) e Motion Toggle (Estilo Forma)
+    (function initFormaControls() {
+      const dialog = document.getElementById('command-dialog');
+      let paused = false;
+
+      window.toggleCommandDialog = function(force) {
+        if (!dialog) return;
+        const shouldOpen = force !== undefined ? force : !dialog.open;
+        if (shouldOpen) {
+          dialog.showModal();
+        } else {
+          dialog.close();
+        }
+      };
+
+      window.toggleMotion = function() {
+        paused = !paused;
+        document.body.classList.toggle('motion-paused', paused);
+        const btn = document.getElementById('motion-toggle');
+        const icon = document.getElementById('motion-icon');
+        if (btn) {
+          btn.setAttribute('aria-pressed', String(paused));
+          btn.setAttribute('aria-label', paused ? 'Ativar animaÃ§Ãµes' : 'Pausar animaÃ§Ãµes');
+          btn.title = paused ? 'Ativar animaÃ§Ãµes' : 'Pausar animaÃ§Ãµes';
+        }
+        if (icon) {
+          icon.setAttribute('d', paused ? 'm5 3 8 5-8 5Z' : 'M5 3v10M11 3v10');
+        }
+      };
+
+      document.addEventListener('keydown', e => {
+        if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          window.toggleCommandDialog();
+        }
+      });
+
+      if (dialog) {
+        dialog.addEventListener('click', e => {
+          if (e.target === dialog) dialog.close();
+        });
       }
     })();
 </script>
+
+<!-- Command Dialog (Estilo Forma âŒ˜ K) -->
+<dialog class="command-dialog" id="command-dialog" aria-labelledby="command-title">
+  <div class="command-top">
+    <div style="display:flex;align-items:center;gap:8px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" style="color:var(--copper);"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
+      <h2 id="command-title">AÃ§Ãµes RÃ¡pidas</h2>
+    </div>
+    <button onclick="window.toggleCommandDialog(false)" aria-label="Fechar aÃ§Ãµes rÃ¡pidas">ESC</button>
+  </div>
+  <div class="command-items">
+    <button onclick="window.toggleCommandDialog(false); window.location.href='#catalogo';">
+      <span>Explorar CatÃ¡logo de Voicebanks</span>
+      <span>01</span>
+    </button>
+    <button onclick="window.toggleCommandDialog(false); window.location.href='#mini-studio';">
+      <span>Abrir Mini-Studio Sintetizador</span>
+      <span>02</span>
+    </button>
+    <button onclick="window.toggleCommandDialog(false); window.vocalStore.togglePreview('miku');">
+      <span>Ouvir Demo Hatsune Miku V6 AI</span>
+      <span>â™«</span>
+    </button>
+    <button onclick="window.toggleCommandDialog(false); window.vocalStore.toggleCart(true);">
+      <span>Visualizar Carrinho de Compras</span>
+      <span>ðŸ›’</span>
+    </button>
+    <button onclick="window.toggleCommandDialog(false); window.toggleMotion();">
+      <span>Alternar AnimaÃ§Ãµes (Play/Pause)</span>
+      <span>â—</span>
+    </button>
+  </div>
+  <div class="command-hint">
+    Pressione <kbd style="border:1px solid var(--line);padding:2px 4px;border-radius:3px;">ESC</kbd> para fechar Â· <kbd style="border:1px solid var(--line);padding:2px 4px;border-radius:3px;">âŒ˜ K</kbd> para abrir
+  </div>
+</dialog>
+
+<!-- BotÃ£o Flutuante de Motion Toggle (Estilo Forma) -->
+<button class="motion-toggle" id="motion-toggle" aria-label="Pausar animaÃ§Ãµes" title="Pausar animaÃ§Ãµes" onclick="window.toggleMotion()">
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2">
+    <path id="motion-icon" d="M5 3v10M11 3v10"></path>
+  </svg>
+</button>
+
 </body>
 </html>
