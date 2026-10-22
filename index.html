@@ -404,6 +404,64 @@
       border-bottom-color: rgba(244, 236, 222, 0.18) !important;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
     }
+
+    /* --- ANIMAÇÃO DE REVELAÇÃO 3D PALAVRA-POR-PALAVRA (ESTILO FORMA) --- */
+    .split-enter {
+      perspective: 1000px;
+    }
+    .split-enter .reveal-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(24px) rotateX(-35deg);
+      filter: blur(6px);
+      transition: transform 0.85s var(--ease), opacity 0.85s ease, filter 0.85s ease;
+      transition-delay: calc(var(--word-i, 0) * 45ms);
+      will-change: transform, opacity, filter;
+    }
+    /* Fix: spans com bg-clip-text precisam que os filhos preserve o gradiente */
+    .split-enter span[class*="bg-gradient"] .reveal-word,
+    .split-enter span[style*="bg-clip-text"] .reveal-word {
+      display: inline-block;
+    }
+    .split-enter.visible .reveal-word {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+    /* Hero h1 aparece logo ao carregar (está no viewport) */
+    .hero .split-enter {
+      animation: none;
+    }
+
+    /* Canvas 3D Sculpture Hero */
+    .hero {
+      position: relative;
+      min-height: 600px;
+    }
+    #sculpture {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-stage {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(ellipse 700px 450px at 70% 40%, rgba(232, 171, 126, 0.08) 0%, transparent 70%),
+                  linear-gradient(180deg, rgba(17, 17, 16, 0.4) 0%, transparent 20%, transparent 80%, #111110 100%);
+    }
   </style>
 </head>
 <body class="selection:bg-cyber-miku selection:text-black antialiased text-slate-200">
@@ -505,7 +563,12 @@
   </header>
 
   <!-- Hero Section Futurista com Player Interativo e Visualizador Holográfico -->
-  <section class="relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+  <section class="hero relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+    <!-- Canvas 3D Sculpture Interativo no Estilo Forma -->
+    <div class="hero-stage">
+      <canvas id="sculpture" aria-hidden="true"></canvas>
+      <div class="hero-shade"></div>
+    </div>
     <!-- Elementos de Iluminação Holográfica de Fundo -->
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-cyan-500/15 via-fuchsia-500/10 to-transparent blur-[120px] pointer-events-none rounded-full"></div>
     
@@ -2870,5 +2933,268 @@
     });
   </script>
 
+<script>
+
+    // =========================================================
+    // FORMA ANIMATION ENGINE (3D SCULPTURE & 3D WORD CHOREOGRAPHY)
+    // =========================================================
+    (function initFormaAnimations() {
+      // 1. Text Word Splitter (Forma exact implementation)
+      function splitWords(el, cls) {
+        const walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walk.nextNode()) nodes.push(walk.currentNode);
+        let index = 0;
+        nodes.forEach(node => {
+          const text = node.textContent;
+          if (!text.trim()) return;
+          const frag = document.createDocumentFragment();
+          text.split(/(\s+)/).forEach(word => {
+            if (!word.trim()) {
+              frag.appendChild(document.createTextNode(word));
+            } else {
+              const span = document.createElement('span');
+              span.className = cls;
+              span.style.setProperty('--word-i', index++);
+              span.textContent = word;
+              frag.appendChild(span);
+            }
+          });
+          node.replaceWith(frag);
+        });
+      }
+
+      function setupHeadingTransitions() {
+        const headings = document.querySelectorAll('h1, h2, .section-heading');
+        headings.forEach(el => {
+          el.classList.add('split-enter');
+          splitWords(el, 'reveal-word');
+          // Fix bg-clip-text spans: inherit gradient onto each reveal-word inside them
+          el.querySelectorAll('.reveal-word').forEach(span => {
+            const parent = span.parentElement;
+            if (parent && parent !== el && (parent.style.backgroundImage || parent.classList.contains('bg-gradient-to-r') || parent.classList.toString().includes('bg-gradient'))) {
+              // Copy gradient styles down so bg-clip-text still works
+              const cs = getComputedStyle(parent);
+              span.style.backgroundImage = cs.backgroundImage;
+              span.style.webkitBackgroundClip = 'text';
+              span.style.backgroundClip = 'text';
+              span.style.webkitTextFillColor = 'transparent';
+              span.style.color = 'transparent';
+            }
+          });
+        });
+
+        if ('IntersectionObserver' in window) {
+          const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.12 });
+          headings.forEach(el => revealObs.observe(el));
+        } else {
+          headings.forEach(el => el.classList.add('visible'));
+        }
+      }
+
+      // 2. Interactive 3D Particle Sculpture Canvas (Forma exact math)
+      function setupSculptureCanvas() {
+        const hero = document.querySelector('.hero');
+        const heroStage = document.querySelector('.hero-stage');
+        const canvas = document.getElementById('sculpture');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        // If hero section not found, fall back to canvas parent chain
+        const heroEl = hero || canvas.closest('section') || canvas.parentElement;
+
+        let cw = 0, ch = 0, dpr = 1, heroVisible = true, frame = 0, time = 0, lastTime = 0, heroProgress = 0, heroTarget = 0;
+        const mix = (a, b, t) => a + (b - a) * t;
+        const smooth = t => t * t * (3 - 2 * t);
+        const clamp = (n, a = 0, b = 1) => Math.max(a, Math.min(b, n));
+        const isMobile = () => matchMedia('(max-width: 760px)').matches;
+
+        // Schematic lines for website wireframe target
+        const heroLines = [
+          [0,0,1,0],[1,0,1,1],[1,1,0,1],[0,1,0,0],[0,.105,1,.105],[.19,.105,.19,1],
+          [.035,.05,.105,.05],[.39,.05,.62,.05],[.035,.20,.14,.20],[.035,.28,.13,.28],
+          [.035,.36,.14,.36],[.035,.44,.12,.44],[.035,.60,.14,.60],[.035,.68,.12,.68],
+          [.245,.20,.36,.20],[.73,.20,.93,.20],[.245,.33,.65,.33],[.245,.38,.65,.38],
+          [.245,.47,.59,.47],[.245,.52,.59,.52],[.245,.62,.52,.62],[.245,.67,.48,.67],
+          [.245,.76,.43,.76],[.43,.76,.43,.83],[.43,.83,.245,.83],[.245,.83,.245,.76],
+          [.245,.91,.94,.91],[.245,.95,.42,.95],[.49,.95,.66,.95],[.74,.95,.92,.95]
+        ];
+        for (let i = 0; i < 58; i++) {
+          const a = (i / 58) * Math.PI * 2, b = ((i + 1) / 58) * Math.PI * 2;
+          heroLines.push([.80 + Math.cos(a) * .125, .55 + Math.sin(a) * .235, .80 + Math.cos(b) * .125, .55 + Math.sin(b) * .235]);
+        }
+
+        const heroLengths = heroLines.map(s => Math.hypot(s[2] - s[0], s[3] - s[1]));
+        const heroLength = heroLengths.reduce((a, b) => a + b, 0);
+        const heroPoints = [];
+        const heroCount = isMobile() ? 750 : 1450;
+
+        for (let i = 0; i < heroCount; i++) {
+          let distance = (i + .5) / heroCount * heroLength;
+          let index = 0;
+          while (index < heroLines.length - 1 && distance > heroLengths[index]) {
+            distance -= heroLengths[index];
+            index++;
+          }
+          const line = heroLines[index];
+          const u = distance / heroLengths[index];
+          const a = i * 2.39996323;
+          const z = 1 - 2 * (i + .5) / heroCount;
+          const r = Math.sqrt(1 - z * z);
+          const seed = (Math.sin(i * 93.13) + 1) / 2;
+          const shell = .68 + .32 * seed;
+          heroPoints.push({
+            x: Math.cos(a) * r * shell,
+            y: Math.sin(a) * r * shell,
+            z: z * shell,
+            tx: mix(line[0], line[2], u),
+            ty: mix(line[1], line[3], u),
+            seed: seed,
+            size: i % 17 === 0 ? 1.7 : i % 4 === 0 ? 1.1 : 0.75
+          });
+        }
+
+        function readHeroScroll() {
+          if (!heroEl) return;
+          const rect = heroEl.getBoundingClientRect();
+          const denom = heroEl.offsetHeight - (heroStage ? heroStage.offsetHeight : 0);
+          heroTarget = clamp(-rect.top / Math.max(1, denom || 400));
+          resumeCanvas();
+        }
+
+        function sizeCanvas() {
+          const rect = canvas.getBoundingClientRect();
+          cw = rect.width || window.innerWidth;
+          ch = rect.height || 600;
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.round(cw * dpr);
+          canvas.height = Math.round(ch * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          readHeroScroll();
+          drawHeroParticles(time);
+        }
+
+        function drawHeroParticles(t) {
+          if (!ctx || !cw || !ch) return;
+          ctx.clearRect(0, 0, cw, ch);
+          const mobile = isMobile();
+          const p = heroProgress;
+          const converge = smooth(clamp((p - .12) / .70));
+          const centerX = cw * (mobile ? .55 : .72);
+          const centerY = ch * (mobile ? .65 : .48);
+          const radius = Math.min(cw * (mobile ? .42 : .23), ch * .42);
+          const bounds = mobile ? { x: cw * .1, y: ch * .6, w: cw * .8, h: ch * .25 } : { x: cw * .52, y: ch * .24, w: cw * .44, h: ch * .48 };
+          const angle = t * .065 + p * 1.15;
+          const ca = Math.cos(angle);
+          const sa = Math.sin(angle);
+
+          // Radial glow in warm copper
+          const glow = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius * 1.35);
+          glow.addColorStop(0, 'rgba(232, 171, 126, 0.08)');
+          glow.addColorStop(0.5, 'rgba(216, 142, 86, 0.03)');
+          glow.addColorStop(1, 'rgba(17, 17, 16, 0)');
+          ctx.fillStyle = glow;
+          ctx.fillRect(0, 0, cw, ch);
+
+          for (let i = 0; i < heroPoints.length; i += (mobile && heroPoints.length > 800 ? 2 : 1)) {
+            const pt = heroPoints[i];
+            const rx = pt.x * ca - pt.z * sa;
+            const rz = pt.x * sa + pt.z * ca;
+            const perspective = 2.8 / (2.8 + rz * .65);
+            const jitter = Math.sin(t * .8 + pt.seed * 15) * 3;
+            const startX = centerX + rx * radius * perspective;
+            const startY = centerY + pt.y * radius * .82 * perspective + jitter;
+            const blend = smooth(clamp((converge - pt.seed * .16) / .84));
+            const x = mix(startX, bounds.x + pt.tx * bounds.w, blend);
+            const y = mix(startY, bounds.y + pt.ty * bounds.h, blend);
+
+            const leftFade = mobile ? 1 : clamp((x / cw - .38) / .22);
+            const alpha = (.35 + (1 - rz) * .28) * (.18 + .82 * leftFade);
+
+            if (i % 6 === 0) {
+              ctx.fillStyle = 'rgba(242, 196, 159, ' + Math.min(0.95, alpha + 0.15) + ')';
+            } else if (i % 3 === 0) {
+              ctx.fillStyle = 'rgba(232, 171, 126, ' + alpha + ')';
+            } else {
+              ctx.fillStyle = 'rgba(216, 142, 86, ' + (alpha * 0.75) + ')';
+            }
+
+            ctx.beginPath();
+            ctx.arc(x, y, (pt.size + .15) * (1 - blend * .18), 0, Math.PI * 2);
+            ctx.fill();
+
+            if (i % 22 === 0 && blend < .97) {
+              ctx.strokeStyle = 'rgba(232, 171, 126, ' + (alpha * .25) + ')';
+              ctx.lineWidth = .6;
+              ctx.beginPath();
+              ctx.moveTo(x, y);
+              ctx.lineTo(x - (1 - blend) * 10, y + (1 - blend) * 5);
+              ctx.stroke();
+            }
+          }
+        }
+
+        function animate(now) {
+          frame = 0;
+          if (!heroVisible || document.hidden) {
+            lastTime = 0;
+            return;
+          }
+          const dt = lastTime ? Math.min(now - lastTime, 65) : 33;
+          time += dt / 1000;
+          lastTime = now;
+          heroProgress = mix(heroProgress, heroTarget, 1 - Math.exp(-dt / 75));
+          if (Math.abs(heroProgress - heroTarget) < .0001) heroProgress = heroTarget;
+          drawHeroParticles(time);
+          frame = requestAnimationFrame(animate);
+        }
+
+        function resumeCanvas() {
+          if (!frame && heroVisible && !document.hidden) {
+            frame = requestAnimationFrame(animate);
+          }
+        }
+
+        sizeCanvas();
+        window.addEventListener('resize', sizeCanvas);
+        window.addEventListener('scroll', readHeroScroll, { passive: true });
+        if ('IntersectionObserver' in window && heroEl) {
+          new IntersectionObserver(entries => {
+            heroVisible = entries[0].isIntersecting;
+            if (!heroVisible) {
+              cancelAnimationFrame(frame);
+              frame = 0;
+              lastTime = 0;
+            } else {
+              readHeroScroll();
+              resumeCanvas();
+            }
+          }).observe(heroEl);
+        }
+        document.addEventListener('visibilitychange', () => {
+          lastTime = 0;
+          resumeCanvas();
+        });
+        resumeCanvas();
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        setupHeadingTransitions();
+        setupSculptureCanvas();
+      });
+      // In case DOM is already loaded:
+      if (document.readyState !== 'loading') {
+        setupHeadingTransitions();
+        setupSculptureCanvas();
+      }
+    })();
+</script>
 </body>
 </html>
