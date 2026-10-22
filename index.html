@@ -453,27 +453,28 @@
     /* Canvas 3D Sculpture Hero (exato Forma 02) */
     #sculpture {
       position: absolute;
-      inset: 0;
+      top: 40px;
+      left: 0;
       width: 100%;
-      height: 100%;
-      opacity: .85;
+      height: 800px;
+      opacity: 1;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
       display: block;
     }
     .hero-stage {
       position: absolute;
       inset: 0;
-      overflow: hidden;
+      overflow: visible;
       pointer-events: none;
-      z-index: 0;
+      z-index: 1;
     }
     .hero-shade {
       position: absolute;
       inset: 0;
       pointer-events: none;
-      z-index: 1;
-      background: radial-gradient(circle at 75% 45%, rgba(231,182,145,0.06) 0%, transparent 60%), linear-gradient(180deg, #090a0b 0%, transparent 25%, transparent 75%, #090a0b 100%);
+      z-index: 0;
+      background: radial-gradient(ellipse at 76% 45%, rgba(231,182,145,0.08) 0%, transparent 60%), linear-gradient(180deg, #090a0b 0%, transparent 25%, transparent 75%, #090a0b 100%);
     }
 
     /* Split text word-by-word reveal */
@@ -1007,27 +1008,27 @@
     }
     .orb-label {
       position: absolute;
-      right: 6%;
+      right: 8%;
       bottom: 85px;
       font: 9px ui-monospace, monospace;
-      color: #62636b;
+      color: #929399;
       letter-spacing: .13em;
-      display: flex;
+      display: flex !important;
       align-items: center;
       gap: 12px;
-      z-index: 2;
+      z-index: 10;
       user-select: none;
       pointer-events: none;
     }
     .orb-label:before {
       content: '+';
       font-size: 16px;
-      color: #bdb0a0;
+      color: var(--copper);
     }
     .hero-particle-meter {
-      width: 56px;
+      width: 65px;
       height: 2px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.15);
       position: relative;
       overflow: hidden;
       display: block;
@@ -1040,6 +1041,11 @@
       transform: scaleX(0);
       transform-origin: left;
       transition: transform .1s linear;
+    }
+    #hero-particle-percent {
+      font-size: 10px;
+      color: var(--ink);
+      font-family: ui-monospace, monospace;
     }
     .hero-bottom {
       position: absolute;
@@ -1741,141 +1747,78 @@
     </div>
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div class="max-w-2xl space-y-6 text-left">
         
-        <!-- Coluna Esquerda: Typography & Composer Forma -->
-        <div class="lg:col-span-7 space-y-6 text-left">
-          
-          <!-- Announcement Pill (Estilo Forma) -->
-          <a href="#catalogo" class="announcement hero-fade-1">
-            <span>FORMA / 06</span> Síntese neural vocal em tempo real <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
-          </a>
+        <!-- Announcement Pill (Estilo Forma) -->
+        <a href="#catalogo" class="announcement hero-fade-1">
+          <span>FORMA / 06</span> Síntese neural vocal em tempo real <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
 
-          <h1 id="hero-heading" class="font-normal font-display tracking-tight leading-[1.04]">
-            <span class="line"><span>Crie na velocidade</span></span>
-            <span class="line"><span><em>da imaginação vocal.</em></span></span>
-          </h1>
+        <h1 id="hero-heading" class="font-normal font-display tracking-tight leading-[1.04]">
+          <span class="line"><span>Crie na velocidade</span></span>
+          <span class="line"><span><em>da imaginação vocal.</em></span></span>
+        </h1>
 
-          <p class="hero-fade-2 text-slate-300 text-base sm:text-lg max-w-xl leading-relaxed">
-            Seus timbres merecem mais do que trilhas estáticas.<br>
-            Modele bancos de voz virtuais com formantes neurais e latência ultrabaixa. Do seu próprio jeito.
-          </p>
+        <p class="hero-fade-2 text-slate-300 text-base sm:text-lg max-w-xl leading-relaxed">
+          Seus timbres merecem mais do que trilhas estáticas.<br>
+          Modele bancos de voz virtuais com formantes neurais e latência ultrabaixa. Do seu próprio jeito.
+        </p>
 
-          <!-- Composer Interativo do Forma -->
-          <form class="composer hero-fade-3" id="prompt-form" onsubmit="event.preventDefault(); window.location.href='#catalogo';">
-            <label class="sr-only" for="prompt" hidden>Descreva o timbre vocal ou estilo que deseja sintetizar</label>
-            <textarea id="prompt" aria-label="Descreva o timbre vocal" maxlength="600" placeholder="Uma voz pop cristalina e ágil para refrões com alta presença…" rows="2" required></textarea>
-            <div class="composer-bottom">
-              <div class="composer-options">
-                <span class="composer-mark">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
-                </span>
-                <label for="hero-style" hidden>Motor vocal</label>
-                <select id="hero-style" aria-label="Motor vocal">
-                  <option value="crypton">Piapro Studio NT</option>
-                  <option value="synthv">Synthesizer V AI</option>
-                  <option value="vocaloid6">VOCALOID6 AI</option>
-                  <option value="acoustic">Acústico / Natural</option>
-                </select>
-              </div>
-              <button type="submit" class="pill copper build-button">
-                Sintetizar Timbre <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
-              </button>
+        <!-- Composer Interativo do Forma -->
+        <form class="composer hero-fade-3" id="prompt-form" onsubmit="event.preventDefault(); window.location.href='#catalogo';">
+          <label class="sr-only" for="prompt" hidden>Descreva o timbre vocal ou estilo que deseja sintetizar</label>
+          <textarea id="prompt" aria-label="Descreva o timbre vocal" maxlength="600" placeholder="Uma voz pop cristalina e ágil para refrões com alta presença…" rows="2" required></textarea>
+          <div class="composer-bottom">
+            <div class="composer-options">
+              <span class="composer-mark">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
+              </span>
+              <label for="hero-style" hidden>Motor vocal</label>
+              <select id="hero-style" aria-label="Motor vocal">
+                <option value="crypton">Piapro Studio NT</option>
+                <option value="synthv">Synthesizer V AI</option>
+                <option value="vocaloid6">VOCALOID6 AI</option>
+                <option value="acoustic">Acústico / Natural</option>
+              </select>
             </div>
-          </form>
-
-          <!-- Prompt Ideas Chips -->
-          <div class="prompt-ideas hero-fade-3" aria-label="Experimente um timbre pré-configurado">
-            <button type="button" onclick="document.getElementById('prompt').value='Hatsune Miku V6 AI — Pop vibrante com harmônicos brilhantes'; window.vocalStore.filterCategory('crypton'); window.location.href='#catalogo';">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
-              Pop Enérgico (Miku)
-            </button>
-            <button type="button" onclick="document.getElementById('prompt').value='Kasane Teto AI — Rock alternativo, overdrive e potência'; window.vocalStore.filterCategory('rock'); window.location.href='#catalogo';">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
-              Rock & Potência (Teto)
-            </button>
-            <button type="button" onclick="document.getElementById('prompt').value='Megurine Luka V4X — Balada acústica, jazz e tons suaves'; window.vocalStore.filterCategory('mellow'); window.location.href='#catalogo';">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 8h14l1 13H4L5 8Zm3 0V6a4 4 0 0 1 8 0v2"/></svg>
-              Jazz & Suavidade (Luka)
+            <button type="submit" class="pill copper build-button">
+              Sintetizar Timbre <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
             </button>
           </div>
+        </form>
 
-          <p class="hero-note" style="font-size: 9px; color: #87837b; margin-top: 14px; letter-spacing: .02em;">
-            Experimente a demonstração interativa. Prévia aberta para produtores.
-          </p>
-
-          <!-- Social Proof de Produtores -->
-          <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-start gap-5 text-xs text-slate-400 font-mono">
-            <div class="flex items-center gap-2">
-              <div class="flex -space-x-2">
-                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">M</span>
-                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">L</span>
-                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">R</span>
-              </div>
-              <span>+52.400 produtores na lista VIP</span>
-            </div>
-            <div class="h-4 w-px bg-white/20 hidden sm:block"></div>
-            <div>Avaliação Média: <strong class="text-white font-sans">4.9 / 5.0</strong> ★★★★★</div>
-          </div>
-
+        <!-- Prompt Ideas Chips -->
+        <div class="prompt-ideas hero-fade-3" aria-label="Experimente um timbre pré-configurado">
+          <button type="button" onclick="document.getElementById('prompt').value='Hatsune Miku V6 AI — Pop vibrante com harmônicos brilhantes'; window.vocalStore.filterCategory('crypton'); window.location.href='#catalogo';">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+            Pop Enérgico (Miku)
+          </button>
+          <button type="button" onclick="document.getElementById('prompt').value='Kasane Teto AI — Rock alternativo, overdrive e potência'; window.vocalStore.filterCategory('rock'); window.location.href='#catalogo';">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5Z"/></svg>
+            Rock & Potência (Teto)
+          </button>
+          <button type="button" onclick="document.getElementById('prompt').value='Megurine Luka V4X — Balada acústica, jazz e tons suaves'; window.vocalStore.filterCategory('mellow'); window.location.href='#catalogo';">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 8h14l1 13H4L5 8Zm3 0V6a4 4 0 0 1 8 0v2"/></svg>
+            Jazz & Suavidade (Luka)
+          </button>
         </div>
 
-        <!-- Coluna Direita: Vitrine Holográfica Miku V6 AI (Estilo Forma 02) -->
-        <div class="lg:col-span-5 relative z-10 w-full" data-reveal>
-          <div class="hero-showcase-panel" style="background: rgba(18, 19, 21, 0.85); border: 1px solid var(--line); border-radius: 14px; padding: 26px; backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); box-shadow: 0 24px 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08); position: relative; overflow: hidden;">
-            
-            <div style="position: absolute; top: -60px; right: -60px; width: 200px; height: 200px; background: radial-gradient(circle, rgba(231, 182, 145, 0.16), transparent 70%); pointer-events: none;"></div>
+        <p class="hero-note" style="font-size: 9px; color: #87837b; margin-top: 14px; letter-spacing: .02em;">
+          Experimente a demonstração interativa. Prévia aberta para produtores.
+        </p>
 
-            <!-- Topo do Card -->
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px;">
-              <div class="eyebrow" style="margin-bottom: 0;">EDIÇÃO DEFINITIVA · CV01</div>
-              <span style="font-size: 9px; font-family: ui-monospace, monospace; color: var(--copper); background: rgba(231, 182, 145, 0.12); border: 1px solid rgba(231, 182, 145, 0.28); padding: 3px 9px; border-radius: 20px; font-weight: 500;">
-                PIAPRO NT / V6 AI
-              </span>
+        <!-- Social Proof de Produtores -->
+        <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-start gap-6 text-xs text-slate-400 font-mono">
+          <div class="flex items-center gap-2">
+            <div class="flex -space-x-2">
+              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">M</span>
+              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">L</span>
+              <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">R</span>
             </div>
-
-            <!-- Arte da Miku & Identificação -->
-            <div style="display: flex; gap: 18px; align-items: center; margin-bottom: 22px;">
-              <div style="width: 120px; height: 120px; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); background: #0c0d0e; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative;">
-                <img src="assets/miku-transparent.png" alt="Hatsune Miku" style="width: 100%; height: 100%; object-fit: contain; transform: scale(1.08);">
-              </div>
-              <div>
-                <h3 style="font-size: 24px; font-weight: 400; letter-spacing: -.03em; line-height: 1.15; color: var(--ink); margin: 0 0 6px;">
-                  Hatsune Miku V6 AI<br>
-                  <em style="font-family: var(--serif); font-style: italic; color: #85868f; font-size: 20px;">Original &amp; Sweet</em>
-                </h3>
-                <p style="font-size: 11px; color: var(--muted); line-height: 1.55; margin: 0;">
-                  BPM 70–180 · Alcance A2–E4<br>
-                  Formantes neurais e float 32-bit.
-                </p>
-              </div>
-            </div>
-
-            <!-- Visualizador Espectrograma em Tempo Real -->
-            <div style="margin-bottom: 20px;">
-              <div style="display: flex; justify-content: space-between; font-size: 9px; color: var(--muted); margin-bottom: 6px; font-family: ui-monospace, monospace; letter-spacing: .1em;">
-                <span>ESPECTROGRAMA EM TEMPO REAL</span>
-                <span id="hero-audio-status" style="color: var(--copper); font-weight: 500;">Pronto</span>
-              </div>
-              <canvas id="hero-spectrogram" width="400" height="64" style="width: 100%; height: 64px; background: #090a0b; border-radius: 8px; border: 1px solid var(--line); display: block;"></canvas>
-            </div>
-
-            <!-- Controles: Ouvir Demo e Preço/Reserva -->
-            <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; padding-top: 16px; border-top: 1px solid var(--line);">
-              <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="pill copper" style="gap: 8px; padding: 10px 16px;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
-                <span id="hero-play-text">Ouvir Demo</span>
-              </button>
-              <div style="text-align: right;">
-                <div style="font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: .1em;">PRÉ-VENDA VIP</div>
-                <div id="hero-price-tag" style="font-size: 24px; font-weight: 400; letter-spacing: -.03em; color: var(--ink); line-height: 1.1;">R$ 899,00</div>
-              </div>
-              <button onclick="window.vocalStore.addToCart('miku')" class="pill light" style="padding: 10px 16px; font-size: 11px;">
-                + Reservar
-              </button>
-            </div>
-
+            <span>+52.400 produtores na lista VIP</span>
           </div>
+          <div class="h-4 w-px bg-white/20 hidden sm:block"></div>
+          <div>Avaliação Média: <strong class="text-white font-sans">4.9 / 5.0</strong> ★★★★★</div>
         </div>
 
       </div>
@@ -1951,6 +1894,44 @@
               class="w-full bg-[#121315] border border-white/15 focus:border-white/20 focus:ring-1 focus:ring-white/10 pl-10 pr-4 py-2.5 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none font-mono transition-all"
             >
           </div>
+        </div>
+      </div>
+
+      <!-- Card Destaque Miku (Featured Product) -->
+      <div class="featured-product" style="display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-bottom: 48px; padding: 28px; border: 1px solid var(--line); border-radius: 14px; background: rgba(18, 19, 21, 0.75); backdrop-filter: blur(20px);" data-reveal>
+        <div>
+          <div class="eyebrow" style="margin-bottom: 14px;">EDIÇÃO DEFINITIVA · CV01</div>
+          <h3 style="font-size: clamp(24px,3vw,36px); font-weight:400; letter-spacing:-.04em; line-height:1.1; margin-bottom:12px; color: var(--ink);">
+            Hatsune Miku V6 AI<br><em style="font-family:var(--serif);font-style:italic;color:#85868f;">Original &amp; Sweet</em>
+          </h3>
+          <p style="font-size:13px;color:var(--muted);line-height:1.75;max-width:380px;margin-bottom:20px;">
+            A diva virtual mais reverenciada do planeta, reconstruída com síntese neural de altíssima fidelidade. BPM 70–180 · Alcance A2–E4.
+          </p>
+          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+            <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="pill copper" style="gap: 8px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3l14 9-14 9V3z"/></svg>
+              <span id="hero-play-text">Ouvir Demo</span>
+            </button>
+            <div>
+              <div style="font-size:8px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;">Preço de Lançamento</div>
+              <div id="hero-price-tag" style="font-size:26px;font-weight:400;letter-spacing:-.04em;color:var(--ink);">R$ 899,00</div>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px;align-items:flex-end;">
+          <div style="width:130px;height:130px;border-radius:12px;overflow:hidden;border:1px solid var(--line);background:#0c0d0e;display:flex;align-items:center;justify-content:center;">
+            <img src="assets/miku-transparent.png" alt="Hatsune Miku" style="width:100%;height:100%;object-fit:contain;transform:scale(1.08);">
+          </div>
+          <div style="width:100%;">
+            <div style="display:flex;justify-content:space-between;font-size:9px;color:var(--muted);margin-bottom:6px;font-family:ui-monospace,monospace;letter-spacing:.1em;">
+              <span>ESPECTROGRAMA EM TEMPO REAL</span>
+              <span id="hero-audio-status" style="color:var(--copper);font-weight:500;">Pronto</span>
+            </div>
+            <canvas id="hero-spectrogram" width="400" height="60" style="width:100%;height:60px;background:#090a0b;border-radius:8px;border:1px solid var(--line);display:block;"></canvas>
+          </div>
+          <button onclick="window.vocalStore.addToCart('miku')" class="pill light" style="width:100%;justify-content:center;">
+            + Reservar Voicebank
+          </button>
         </div>
       </div>
 
@@ -4185,7 +4166,7 @@
         const heroLengths = heroLines.map(s => Math.hypot(s[2] - s[0], s[3] - s[1]));
         const heroLength = heroLengths.reduce((a, b) => a + b, 0);
         const heroPoints = [];
-        const heroCount = isMobile() ? 750 : 1450;
+        const heroCount = isMobile() ? 900 : 1800;
 
         for (let i = 0; i < heroCount; i++) {
           let distance = (i + .5) / heroCount * heroLength;
@@ -4208,7 +4189,7 @@
             tx: mix(line[0], line[2], u),
             ty: mix(line[1], line[3], u),
             seed: seed,
-            size: i % 17 === 0 ? 2.4 : i % 4 === 0 ? 1.6 : 1.1
+            size: i % 19 === 0 ? 3.0 : i % 5 === 0 ? 1.8 : 1.15
           });
         }
 
@@ -4223,8 +4204,9 @@
         function sizeCanvas() {
           const rect = canvas.getBoundingClientRect();
           cw = rect.width || canvas.offsetWidth || window.innerWidth;
-          ch = rect.height || canvas.offsetHeight || 770;
-          if (cw < 10 || ch < 10) { cw = window.innerWidth; ch = 770; }
+          ch = rect.height || canvas.offsetHeight || 780;
+          if (cw < 10) cw = window.innerWidth;
+          if (ch < 10) ch = 780;
           dpr = Math.min(window.devicePixelRatio || 1, 2);
           canvas.width = Math.round(cw * dpr);
           canvas.height = Math.round(ch * dpr);
@@ -4239,27 +4221,51 @@
           const mobile = isMobile();
           const p = heroProgress;
           const converge = smooth(clamp((p - .12) / .70));
-          const centerX = cw * (mobile ? .55 : .72);
-          const centerY = ch * (mobile ? .65 : .48);
-          const radius = Math.min(cw * (mobile ? .42 : .23), ch * .42);
+          const centerX = cw * (mobile ? .55 : .76);
+          const centerY = Math.min(ch * .48, 410);
+          const radius = Math.min(cw * (mobile ? .42 : .245), ch * .42, 330);
           const bounds = mobile ? { x: cw * .1, y: ch * .6, w: cw * .8, h: ch * .25 } : { x: cw * .52, y: ch * .24, w: cw * .44, h: ch * .48 };
-          const angle = t * .065 + p * 1.15;
+          const angle = t * .075 + p * 1.15;
           const ca = Math.cos(angle);
           const sa = Math.sin(angle);
 
-          // Radial glow in warm copper
-          const glow = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius * 1.4);
-          glow.addColorStop(0, 'rgba(232, 171, 126, 0.14)');
-          glow.addColorStop(0.5, 'rgba(216, 142, 86, 0.06)');
+          // Radial warm copper glow in center of the sphere
+          const glow = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius * 1.45);
+          glow.addColorStop(0, 'rgba(232, 171, 126, 0.16)');
+          glow.addColorStop(0.4, 'rgba(216, 142, 86, 0.06)');
           glow.addColorStop(1, 'rgba(17, 17, 16, 0)');
           ctx.fillStyle = glow;
           ctx.fillRect(0, 0, cw, ch);
 
-          for (let i = 0; i < heroPoints.length; i += (mobile && heroPoints.length > 800 ? 2 : 1)) {
+          // Faint orbital rings around the sphere
+          ctx.save();
+          ctx.translate(centerX, centerY);
+          ctx.rotate(angle * 0.35);
+          ctx.strokeStyle = 'rgba(232, 171, 126, 0.12)';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, radius * 1.08, radius * 0.36, Math.PI / 5, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+
+          // Wireframe convergence guide lines if scrolling
+          const guide = smooth(clamp((p - .56) / .29));
+          if (guide > 0) {
+            ctx.strokeStyle = 'rgba(232, 171, 126, ' + (guide * 0.28) + ')';
+            ctx.lineWidth = .65;
+            ctx.beginPath();
+            heroLines.forEach(s => {
+              ctx.moveTo(bounds.x + s[0] * bounds.w, bounds.y + s[1] * bounds.h);
+              ctx.lineTo(bounds.x + s[2] * bounds.w, bounds.y + s[3] * bounds.h);
+            });
+            ctx.stroke();
+          }
+
+          for (let i = 0; i < heroPoints.length; i += (mobile && heroPoints.length > 900 ? 2 : 1)) {
             const pt = heroPoints[i];
             const rx = pt.x * ca - pt.z * sa;
             const rz = pt.x * sa + pt.z * ca;
-            const perspective = 2.8 / (2.8 + rz * .65);
+            const perspective = 2.9 / (2.9 + rz * .65);
             const jitter = Math.sin(t * .8 + pt.seed * 15) * 3;
             const startX = centerX + rx * radius * perspective;
             const startY = centerY + pt.y * radius * .82 * perspective + jitter;
@@ -4271,19 +4277,20 @@
             const alpha = (.45 + (1 - rz) * .35) * (.35 + .65 * leftFade);
 
             if (i % 6 === 0) {
-              ctx.fillStyle = 'rgba(250, 215, 185, ' + Math.min(0.98, alpha + 0.2) + ')';
+              ctx.fillStyle = 'rgba(255, 230, 205, ' + Math.min(0.98, alpha + 0.22) + ')';
             } else if (i % 3 === 0) {
-              ctx.fillStyle = 'rgba(238, 185, 140, ' + Math.min(0.9, alpha + 0.1) + ')';
+              ctx.fillStyle = 'rgba(238, 185, 140, ' + Math.min(0.92, alpha + 0.12) + ')';
             } else {
-              ctx.fillStyle = 'rgba(225, 155, 100, ' + alpha + ')';
+              ctx.fillStyle = 'rgba(220, 150, 95, ' + (alpha * 0.85) + ')';
             }
 
             ctx.beginPath();
             ctx.arc(x, y, (pt.size + .2) * (1 - blend * .15), 0, Math.PI * 2);
             ctx.fill();
 
-            if (i % 16 === 0 && blend < .97) {
-              ctx.strokeStyle = 'rgba(238, 185, 140, ' + (alpha * .35) + ')';
+            // Radiant star trails / filaments for depth
+            if (i % 14 === 0 && blend < .97) {
+              ctx.strokeStyle = 'rgba(238, 185, 140, ' + (alpha * .4) + ')';
               ctx.lineWidth = .75;
               ctx.beginPath();
               ctx.moveTo(x, y);
@@ -4303,9 +4310,16 @@
 
         function animate(now) {
           frame = 0;
-          if (!heroVisible || document.hidden) {
+          if (document.hidden) {
             lastTime = 0;
             return;
+          }
+          if (heroEl) {
+            const rect = heroEl.getBoundingClientRect();
+            if (rect.bottom < 0 || rect.top > window.innerHeight) {
+              lastTime = 0;
+              return;
+            }
           }
           const dt = lastTime ? Math.min(now - lastTime, 65) : 33;
           time += dt / 1000;
@@ -4317,27 +4331,17 @@
         }
 
         function resumeCanvas() {
-          if (!frame && heroVisible && !document.hidden) {
+          if (!frame && !document.hidden) {
             frame = requestAnimationFrame(animate);
           }
         }
 
         sizeCanvas();
         window.addEventListener('resize', sizeCanvas);
-        window.addEventListener('scroll', readHeroScroll, { passive: true });
-        if ('IntersectionObserver' in window && heroEl) {
-          new IntersectionObserver(entries => {
-            heroVisible = entries[0].isIntersecting;
-            if (!heroVisible) {
-              cancelAnimationFrame(frame);
-              frame = 0;
-              lastTime = 0;
-            } else {
-              readHeroScroll();
-              resumeCanvas();
-            }
-          }).observe(heroEl);
-        }
+        window.addEventListener('scroll', () => {
+          readHeroScroll();
+          resumeCanvas();
+        }, { passive: true });
         document.addEventListener('visibilitychange', () => {
           lastTime = 0;
           resumeCanvas();
@@ -4379,16 +4383,19 @@
         updateWords();
       }
 
-      window.addEventListener('DOMContentLoaded', () => {
-        setupHeadingTransitions();
-        setupSculptureCanvas();
-        setupManifestoReveal();
-      });
-      // In case DOM is already loaded:
-      if (document.readyState !== 'loading') {
-        setupHeadingTransitions();
-        setupSculptureCanvas();
-        setupManifestoReveal();
+      let formaInitialized = false;
+      function runFormaInitializers() {
+        if (formaInitialized) return;
+        formaInitialized = true;
+        try { setupHeadingTransitions(); } catch(e) { console.warn('Heading transition error:', e); }
+        try { setupSculptureCanvas(); } catch(e) { console.warn('Sculpture canvas error:', e); }
+        try { setupManifestoReveal(); } catch(e) { console.warn('Manifesto reveal error:', e); }
+      }
+
+      if (document.readyState === 'loading') {
+        window.addEventListener('DOMContentLoaded', runFormaInitializers);
+      } else {
+        runFormaInitializers();
       }
     })();
 
