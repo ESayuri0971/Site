@@ -1,0 +1,3200 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080c14">
+  <title>VOCAL//VAULT — Prévia Oficial da Loja de Voicebanks & Motores AI</title>
+  <meta name="description" content="A maior loja e vitrine de bancos de voz virtuais do mundo. Teste demos em tempo real, experimente o mini-sintetizador vocal e garanta acesso antecipado às edições Hatsune Miku V6 AI, Kasane Teto, Kagamine Rin/Len e mais.">
+
+  <!-- Fontes Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind CSS CDN com Design System Forma -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            forma: {
+              bg: '#111110',
+              panel: '#191918',
+              card: '#191918',
+              cardHover: '#222220',
+              border: 'rgba(244, 236, 222, 0.12)',
+              ink: '#f2f0e9',
+              muted: '#96948d',
+              copper: '#e8ab7e',
+              copperLight: '#f2c49f',
+              copperDark: '#d88e56',
+              line: 'rgba(244, 236, 222, 0.13)'
+            },
+            cyan: {
+              50: '#fdf8f5',
+              100: '#fbeee6',
+              200: '#f7dccb',
+              300: '#f2c49f',
+              400: '#e8ab7e',
+              500: '#d88e56',
+              600: '#c5773e',
+              700: '#9d582d',
+              800: '#733f24',
+              900: '#432213',
+              950: '#1e140e'
+            },
+            teal: {
+              300: '#edd5b3',
+              400: '#dfbe8e',
+              500: '#cca26b',
+              600: '#ab814c',
+              950: '#1a1612'
+            },
+            fuchsia: {
+              300: '#e8c2b7',
+              400: '#d69e90',
+              500: '#bf7968',
+              600: '#9e5a4a',
+              950: '#1c1312'
+            },
+            pink: {
+              400: '#d69e90',
+              500: '#bf7968'
+            },
+            slate: {
+              950: '#0c0c0b',
+              900: '#141413',
+              800: '#1d1d1b',
+              700: '#2c2c29',
+              600: '#4a4a46',
+              500: '#73726c',
+              400: '#96948d',
+              300: '#c2c0b8',
+              200: '#e5e3dc',
+              100: '#f2f0e9'
+            },
+            cyber: {
+              bg: '#111110',
+              card: '#191918',
+              cardHover: '#232321',
+              border: 'rgba(244, 236, 222, 0.12)',
+              miku: '#e8ab7e',
+              rin: '#f2c49f',
+              luka: '#d88e56',
+              teto: '#bf7968',
+              ia: '#cca26b',
+              gumi: '#a3b18a',
+              kaito: '#8da4c4',
+              flower: '#ab814c',
+              cyanGlow: 'rgba(232, 171, 126, 0.22)',
+              pinkGlow: 'rgba(216, 142, 86, 0.22)'
+            }
+          },
+          fontFamily: {
+            sans: ['"DM Sans"', 'Arial', 'sans-serif'],
+            display: ['"Instrument Serif"', 'Georgia', 'serif'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+            cyber: ['"Instrument Serif"', 'Georgia', 'serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+            jp: ['"DM Sans"', 'sans-serif']
+          },
+          animation: {
+            'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+            'float': 'floating 4s ease-in-out infinite',
+            'spin-slow': 'spin 12s linear infinite'
+          },
+          keyframes: {
+            glowPulse: {
+              '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
+              '50%': { opacity: '0.8', transform: 'scale(1.05)' }
+            },
+            floating: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-8px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+    <style>
+    /* Design System Forma - Variáveis & Tokens Visuais */
+    :root {
+      --bg: #111110;
+      --panel: #191918;
+      --ink: #f2f0e9;
+      --muted: #96948d;
+      --copper: #e8ab7e;
+      --copper-light: #f2c49f;
+      --copper-dark: #d88e56;
+      --line: rgba(244, 236, 222, .13);
+      --font: 'DM Sans', Arial, sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font);
+      overflow-x: hidden;
+      background-image: 
+        radial-gradient(ellipse at 50% 0%, rgba(232, 171, 126, 0.09) 0%, transparent 60%),
+        radial-gradient(circle at 85% 50%, rgba(216, 142, 86, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 15% 80%, rgba(242, 196, 159, 0.03) 0%, transparent 45%),
+        linear-gradient(rgba(244, 236, 222, 0.012) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(244, 236, 222, 0.012) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
+    }
+
+    ::selection {
+      background: var(--copper);
+      color: #111110;
+    }
+
+    /* Custom scrollbar no estilo Forma */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #111110;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #252523;
+      border-radius: 4px;
+      border: 1px solid rgba(244, 236, 222, 0.08);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--copper);
+    }
+
+    /* Brilhos e bordas no estilo Copper Forma */
+    .glow-border-miku, .glow-border-luka, .glow-border-rin {
+      box-shadow: 0 0 25px rgba(232, 171, 126, 0.15), inset 0 0 15px rgba(232, 171, 126, 0.05);
+      border-color: rgba(232, 171, 126, 0.35);
+    }
+
+    /* Painéis translúcidos Forma */
+    .cyber-panel, .forma-panel {
+      background: rgba(25, 25, 24, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--line);
+      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Botões Pill no estilo Forma */
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      border: 1px solid var(--line);
+      padding: 12px 24px;
+      border-radius: 9999px;
+      background: transparent;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+      transition: background .25s, transform .35s, border-color .25s, box-shadow .25s;
+      cursor: pointer;
+    }
+    .pill:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+    .pill.light {
+      background: var(--ink);
+      color: #171715;
+      border-color: var(--ink);
+      box-shadow: inset 0 2px 1px #fff;
+    }
+    .pill.light:hover {
+      background: #ffffff;
+      transform: translateY(-2px);
+    }
+    .pill.copper {
+      background: linear-gradient(135deg, #f2c49f, #d88e56);
+      border-color: rgba(242, 196, 159, 0.4);
+      color: #2a1e16;
+      box-shadow: inset 0 1px 0 #ffe4c7, 0 4px 20px rgba(221, 133, 71, 0.25);
+    }
+    .pill.copper:hover {
+      box-shadow: inset 0 1px 0 #fff2e0, 0 6px 30px rgba(221, 133, 71, 0.4);
+      transform: translateY(-2px);
+    }
+
+    /* Eyebrows com bullet Forma Copper */
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--copper);
+    }
+    .eyebrow::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--copper);
+      border-radius: 50%;
+    }
+
+    /* Teclado sintetizador sofisticado */
+    .piano-key-white {
+      background: linear-gradient(180deg, #242422 0%, #191918 100%);
+      border: 1px solid rgba(244, 236, 222, 0.08);
+      color: #f2f0e9;
+      transition: all 0.12s ease;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+    .piano-key-white:active, .piano-key-white.active {
+      background: linear-gradient(180deg, #f2c49f 0%, #e8ab7e 100%);
+      color: #2a1e16;
+      transform: translateY(3px);
+      box-shadow: 0 0 25px rgba(232, 171, 126, 0.7);
+    }
+    .piano-key-black {
+      background: linear-gradient(180deg, #161615 0%, #0d0d0c 100%);
+      border: 1px solid rgba(244, 236, 222, 0.05);
+      color: #96948d;
+      transition: all 0.12s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+    .piano-key-black:active, .piano-key-black.active {
+      background: linear-gradient(180deg, #e8ab7e 0%, #d88e56 100%);
+      color: #1a120c;
+      transform: translateY(3px);
+      box-shadow: 0 0 25px rgba(216, 142, 86, 0.8);
+    }
+
+    /* Range slider customizado com estilo Forma Copper */
+    input[type=range] {
+      -webkit-appearance: none;
+      background: #252523;
+      border-radius: 9999px;
+      height: 5px;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 16px;
+      width: 16px;
+      border-radius: 50%;
+      background: var(--copper);
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(232, 171, 126, 0.6);
+      border: 2px solid #111110;
+    }
+    /* --- SISTEMA DE TRANSIÇÕES & CHOREOGRAPHY (FORMA STYLE) --- */
+    .page-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: linear-gradient(90deg, var(--copper-dark), var(--copper), var(--copper-light));
+      box-shadow: 0 0 12px rgba(232, 171, 126, 0.8);
+      z-index: 100;
+      pointer-events: none;
+      transition: transform 0.08s ease-out;
+    }
+
+    /* Scroll Reveal progressivo */
+    .js [data-reveal] {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.85s var(--ease), transform 0.85s var(--ease), border-color 0.3s ease, box-shadow 0.5s var(--ease);
+      will-change: opacity, transform;
+    }
+    .js [data-reveal].visible {
+      opacity: 1;
+      transform: none;
+    }
+    .js [data-reveal-delay='1'] { transition-delay: .08s; }
+    .js [data-reveal-delay='2'] { transition-delay: .16s; }
+    .js [data-reveal-delay='3'] { transition-delay: .24s; }
+    .js [data-reveal-delay='4'] { transition-delay: .32s; }
+    .js [data-reveal-delay='5'] { transition-delay: .40s; }
+    .js [data-reveal-delay='6'] { transition-delay: .48s; }
+
+    /* Hero Typography Mask & Entrance */
+    .hero-title .line {
+      display: block;
+      overflow: hidden;
+      padding-bottom: 6px;
+    }
+    .hero-title .line > span {
+      display: block;
+      animation: heroType 1.25s var(--ease) both;
+    }
+    .hero-title .line:nth-child(2) > span {
+      animation-delay: 0.15s;
+    }
+    .hero-fade-1 {
+      animation: fadeUp 1s 0.1s var(--ease) both;
+    }
+    .hero-fade-2 {
+      animation: fadeUp 1s 0.28s var(--ease) both;
+    }
+    .hero-fade-3 {
+      animation: fadeUp 1s 0.45s var(--ease) both;
+    }
+
+    @keyframes heroType {
+      from {
+        transform: translateY(115%);
+        filter: blur(8px);
+        opacity: .1;
+      }
+      to {
+        transform: none;
+        filter: blur(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* Cards com elevação física suave */
+    .cyber-panel, .forma-panel {
+      transition: transform 0.6s var(--ease), border-color 0.35s ease, box-shadow 0.6s var(--ease) !important;
+    }
+    .cyber-panel:hover, .forma-panel:hover {
+      transform: translateY(-6px) !important;
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(232, 171, 126, 0.14) !important;
+      border-color: rgba(232, 171, 126, 0.45) !important;
+    }
+
+    /* Transição de ícones em botões */
+    .pill svg, .pill [data-lucide], a.group:hover [data-lucide="arrow-right"] {
+      transition: transform 0.3s var(--ease);
+    }
+    .pill:hover svg, .pill:hover [data-lucide] {
+      transform: translateX(4px);
+    }
+
+    /* Navbar scroll transition */
+    header.sticky {
+      transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+    }
+    header.sticky.scrolled {
+      background-color: rgba(17, 17, 16, 0.96) !important;
+      border-bottom-color: rgba(244, 236, 222, 0.18) !important;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+    }
+
+    /* --- ANIMAÇÃO DE REVELAÇÃO 3D PALAVRA-POR-PALAVRA (ESTILO FORMA) --- */
+    .split-enter {
+      perspective: 1000px;
+    }
+    .split-enter .reveal-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(24px) rotateX(-35deg);
+      filter: blur(6px);
+      transition: transform 0.85s var(--ease), opacity 0.85s ease, filter 0.85s ease;
+      transition-delay: calc(var(--word-i, 0) * 45ms);
+      will-change: transform, opacity, filter;
+    }
+    /* Fix: spans com bg-clip-text precisam que os filhos preserve o gradiente */
+    .split-enter span[class*="bg-gradient"] .reveal-word,
+    .split-enter span[style*="bg-clip-text"] .reveal-word {
+      display: inline-block;
+    }
+    .split-enter.visible .reveal-word {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+    /* Hero h1 aparece logo ao carregar (está no viewport) */
+    .hero .split-enter {
+      animation: none;
+    }
+
+    /* Canvas 3D Sculpture Hero */
+    .hero {
+      position: relative;
+      min-height: 600px;
+    }
+    #sculpture {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-stage {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero-shade {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(ellipse 700px 450px at 70% 40%, rgba(232, 171, 126, 0.08) 0%, transparent 70%),
+                  linear-gradient(180deg, rgba(17, 17, 16, 0.4) 0%, transparent 20%, transparent 80%, #111110 100%);
+    }
+  </style>
+</head>
+<body class="selection:bg-cyber-miku selection:text-black antialiased text-slate-200">
+  <!-- Barra de Progresso de Leitura Superior no Estilo Forma -->
+  <div class="page-progress" id="page-progress" aria-hidden="true"></div>
+
+  <!-- Barra de Notificação Superior com Contador de Lançamento -->
+  <aside aria-label="Aviso de Lançamento" class="relative z-50 bg-gradient-to-r from-cyan-950 via-slate-900 to-fuchsia-950 border-b border-cyan-500/30 text-xs py-2 px-4">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-center sm:text-left">
+      <div class="flex items-center gap-2 mx-auto sm:mx-0">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-400 text-slate-950 tracking-wider animate-pulse">
+          PREVIEW V6.0
+        </span>
+        <span class="text-slate-300">
+          Pré-venda global aberta! Use o cupom <strong class="text-cyber-miku font-mono font-bold">MIKU39</strong> para <strong>39% OFF</strong> na finalização.
+        </span>
+      </div>
+      
+      <div class="flex items-center gap-3 mx-auto sm:mx-0 text-slate-400 font-mono text-[11px]">
+        <span class="flex items-center gap-1.5 text-cyan-300">
+          <i data-lucide="clock" class="w-3.5 h-3.5"></i>
+          Acesso Geral em:
+        </span>
+        <div id="top-countdown" class="font-bold text-white tracking-widest bg-black/40 px-2.5 py-0.5 rounded border border-white/10">
+          04d 18h 32m 45s
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Cabeçalho Principal Fixo -->
+  <header class="sticky top-0 z-40 bg-cyber-bg/90 backdrop-blur-xl border-b border-white/10 transition-all duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Logotipo & Tag -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 via-teal-500 to-fuchsia-500 p-0.5 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-all">
+          <div class="w-full h-full bg-cyber-bg rounded-[10px] flex items-center justify-center relative overflow-hidden">
+            <span class="font-cyber font-black text-transparent bg-clip-text bg-gradient-to-tr from-cyan-300 to-fuchsia-400 text-lg">01</span>
+            <div class="absolute inset-0 bg-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-cyber font-black tracking-wider text-lg text-white group-hover:text-cyber-miku transition-colors">VOCAL<span class="text-cyber-miku">//</span>VAULT</span>
+            <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/30 rounded">STORE PREVIEW</span>
+          </div>
+          <p class="text-[10px] text-slate-400 font-jp tracking-wider">ボーカロイド・公式ストア体験版</p>
+        </div>
+      </a>
+
+      <!-- Menu Central de Navegação -->
+      <nav class="hidden lg:flex items-center gap-1 bg-white/5 border border-white/10 p-1.5 rounded-full text-xs font-medium">
+        <a href="#catalogo" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
+          <i data-lucide="music-2" class="w-3.5 h-3.5 text-cyber-miku"></i>
+          Catálogo de Vozes
+        </a>
+        <a href="#mini-studio" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
+          <i data-lucide="piano" class="w-3.5 h-3.5 text-cyber-luka"></i>
+          Mini-Studio Sintetizador
+        </a>
+        <a href="#comparativo" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyber-rin"></i>
+          Comparativo de Motores
+        </a>
+        <a href="#comunidade" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyber-ia"></i>
+          Produtores & Demos
+        </a>
+      </nav>
+
+      <!-- Ações do Cabeçalho: Busca, Seletor de Moeda e Carrinho -->
+      <div class="flex items-center gap-3">
+        <!-- Seletor de Moeda -->
+        <div class="relative hidden sm:block">
+          <select id="currency-selector" onchange="window.vocalStore.changeCurrency(this.value)" class="bg-cyber-card border border-white/15 text-xs text-slate-300 font-mono py-1.5 px-3 rounded-lg focus:outline-none focus:border-cyber-miku transition-colors cursor-pointer">
+            <option value="BRL" selected>BRL (R$)</option>
+            <option value="USD">USD ($)</option>
+            <option value="JPY">JPY (¥)</option>
+          </select>
+        </div>
+
+        <!-- Botão Abrir Busca Rápida -->
+        <button onclick="document.getElementById('search-input').focus(); window.location.href='#catalogo'" class="p-2.5 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:border-cyber-miku transition-colors" title="Buscar Voicebanks">
+          <i data-lucide="search" class="w-4 h-4"></i>
+        </button>
+
+        <!-- Botão Carrinho de Compras -->
+        <button onclick="window.vocalStore.toggleCart(true)" class="relative flex items-center gap-2.5 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 border border-cyan-400/40 hover:border-cyan-400 py-2 px-3.5 rounded-xl text-white font-medium text-xs shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/25 transition-all">
+          <div class="relative">
+            <i data-lucide="shopping-bag" class="w-4 h-4 text-cyber-miku"></i>
+            <span id="cart-badge" class="absolute -top-2 -right-2 bg-cyber-teto text-white font-mono font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
+          </div>
+          <span class="hidden md:inline font-mono" id="cart-total-header">R$ 0</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Hero Section Futurista com Player Interativo e Visualizador Holográfico -->
+  <section class="hero relative pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden">
+    <!-- Canvas 3D Sculpture Interativo no Estilo Forma -->
+    <div class="hero-stage">
+      <canvas id="sculpture" aria-hidden="true"></canvas>
+      <div class="hero-shade"></div>
+    </div>
+    <!-- Elementos de Iluminação Holográfica de Fundo -->
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-cyan-500/15 via-fuchsia-500/10 to-transparent blur-[120px] pointer-events-none rounded-full"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Coluna Esquerda: Texto de Impacto e Chamadas -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          
+          <div class="hero-fade-1 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/70 border border-cyan-400/30 text-xs font-mono text-cyan-300 shadow-inner">
+            <span class="w-2 h-2 rounded-full bg-cyber-miku animate-ping"></span>
+            MOTOR VOCAL DE REDES NEURAIS PROFUNDAS
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-normal font-display tracking-tight leading-[1.05]">
+            A Próxima Geração de <br>
+            <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-forma-copperLight via-forma-copper to-forma-copperDark">
+              Síntese Vocal Virtual.
+            </span>
+          </h1>
+
+          <p class="hero-fade-2 text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0">
+            Experimente a prévia da loja oficial de <strong>Voicebanks de Vocaloid & Synthesizer V</strong>. 
+            Ouça as amostras sintetizadas em tempo real com processamento de formantes, explore o teclado interativo e garanta licenças antecipadas com bônus exclusivos.
+          </p>
+
+          <!-- Badges Tecnológicos -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs font-mono text-slate-300">
+            <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyber-miku"></i>
+              VST3 / AU / ARA2
+            </div>
+            <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyber-luka"></i>
+              Piapro Studio NT 2.0
+            </div>
+            <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-cyber-rin"></i>
+              Latência Neural &lt; 2.5ms
+            </div>
+          </div>
+
+          <!-- Botões de Ação Hero no Estilo Forma -->
+          <div class="hero-fade-3 flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-4">
+            <a href="#catalogo" class="pill copper">
+              <i data-lucide="shopping-cart" class="w-4 h-4"></i>
+              Explorar Vitrine de Vozes
+            </a>
+            
+            <a href="#mini-studio" class="pill light">
+              <i data-lucide="sliders" class="w-4 h-4"></i>
+              Testar Mini-Sintetizador
+            </a>
+          </div>
+
+          <!-- Social Proof de Produtores -->
+          <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 font-mono">
+            <div class="flex items-center gap-2">
+              <div class="flex -space-x-2">
+                <span class="w-7 h-7 rounded-full bg-cyan-500/30 border border-cyan-400 flex items-center justify-center text-[10px] text-cyan-200 font-bold">M</span>
+                <span class="w-7 h-7 rounded-full bg-pink-500/30 border border-pink-400 flex items-center justify-center text-[10px] text-pink-200 font-bold">L</span>
+                <span class="w-7 h-7 rounded-full bg-yellow-500/30 border border-yellow-400 flex items-center justify-center text-[10px] text-yellow-200 font-bold">R</span>
+              </div>
+              <span>+52.400 produtores na lista VIP</span>
+            </div>
+            <div class="h-4 w-px bg-white/20 hidden sm:block"></div>
+            <div>Avaliação Média: <strong class="text-white font-sans">4.9 / 5.0</strong> ★★★★★</div>
+          </div>
+
+        </div>
+
+        <!-- Coluna Direita: Cartão Holográfico Hero — Hatsune Miku V6 AI Preview Player -->
+        <div class="lg:col-span-5" data-reveal>
+          <div class="relative mx-auto max-w-md lg:max-w-none">
+            
+            <!-- Anel de Brilho Exterior -->
+            <div class="absolute -inset-1 bg-gradient-to-r from-cyber-miku via-teal-500 to-cyber-luka rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+
+            <!-- Card Principal Hero -->
+            <div class="relative cyber-panel rounded-2xl p-6 border-cyan-500/40 glow-border-miku">
+              
+              <!-- Cabeçalho do Card com Status "Destaque da Prévia" -->
+              <div class="flex items-center justify-between pb-4 border-b border-white/10">
+                <div class="flex items-center gap-2">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-400/20 text-cyber-miku border border-cyan-400/40">
+                    CV01 • ED. DEFINITIVA
+                  </span>
+                  <span class="text-xs text-slate-400 font-mono">CRYPT-AI V6</span>
+                </div>
+                <div class="flex items-center gap-1.5 text-xs text-emerald-400 font-mono">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Pré-venda Aberta
+                </div>
+              </div>
+
+              <!-- Arte e Visualizador Holográfico da Miku -->
+              <div class="relative my-5 rounded-xl overflow-hidden bg-gradient-to-b from-slate-900 to-black p-4 border border-cyan-500/20">
+                
+                                <!-- Arte Oficial da Hatsune Miku -->
+                <div class="flex items-center gap-4">
+                  <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-[#242422] via-[#1a1a18] to-[#111110] p-1.5 flex-shrink-0 border border-forma-copper/40 shadow-inner overflow-hidden flex items-center justify-center group">
+                    <div class="absolute inset-0 bg-radial from-forma-copper/10 via-transparent to-transparent pointer-events-none"></div>
+                    <img 
+                      src="assets/miku-transparent.png" 
+                      alt="Hatsune Miku Oficial" 
+                      class="w-full h-full object-contain object-center drop-shadow-[0_4px_12px_rgba(232,171,126,0.25)] group-hover:scale-105 transition-transform duration-300"
+                    >
+                  </div>
+
+                  <div class="space-y-1">
+                    <span class="text-xs font-mono font-bold text-cyber-miku flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                      HATSUNE MIKU V6 AI
+                    </span>
+                    <h2 class="text-lg font-bold text-white font-display leading-tight">Original & Sweet Dual Pack</h2>
+                    <p class="text-xs text-slate-400 line-clamp-2">
+                      A diva virtual mais reverenciada do planeta, reconstruída com síntese neural de altíssima fidelidade.
+                    </p>
+                    <div class="pt-1 flex items-center gap-2 text-[11px] font-mono text-cyan-300">
+                      <span>BPM: 70-180</span>
+                      <span>•</span>
+                      <span>Alcance: A2-E4</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Canvas Visualizador de Espectro de Áudio ao Vivo -->
+                <div class="mt-4 pt-3 border-t border-white/10">
+                  <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-1.5">
+                    <span class="flex items-center gap-1">
+                      <i data-lucide="activity" class="w-3.5 h-3.5 text-cyber-miku"></i>
+                      ESPECTROGRAMA EM TEMPO REAL
+                    </span>
+                    <span id="hero-audio-status" class="text-cyber-miku font-semibold">Pronto para Tocar</span>
+                  </div>
+                  <canvas id="hero-spectrogram" width="400" height="75" class="w-full h-[75px] bg-slate-950/80 rounded-lg border border-cyan-500/20"></canvas>
+                </div>
+
+              </div>
+
+              <!-- Controles Interativos de Reprodução da Amostra -->
+              <div class="space-y-3">
+                <div class="flex items-center gap-3">
+                  <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="flex-1 bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2.5 shadow-lg shadow-cyan-400/20 transition-all active:scale-[0.98]">
+                    <i data-lucide="play" id="hero-play-icon" class="w-5 h-5 fill-current"></i>
+                    <span id="hero-play-text">Ouvir Demo "Starlight Pop"</span>
+                  </button>
+
+                  <button onclick="window.vocalStore.openSpecModal('miku')" class="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400 text-slate-300 hover:text-white transition-colors" title="Ver Especificações Completas">
+                    <i data-lucide="file-text" class="w-5 h-5"></i>
+                  </button>
+                </div>
+
+                <!-- Preço e Botão Adicionar ao Carrinho -->
+                <div class="flex items-center justify-between pt-2">
+                  <div>
+                    <span class="text-[10px] uppercase font-mono text-slate-400">Preço de Lançamento</span>
+                    <div class="text-xl font-black font-mono text-white" id="hero-price-tag">R$ 899,00</div>
+                  </div>
+                  <button onclick="window.vocalStore.addToCart('miku')" class="px-4 py-2 bg-white/10 hover:bg-cyber-miku hover:text-slate-950 text-white border border-white/20 hover:border-cyber-miku rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
+                    <i data-lucide="plus" class="w-4 h-4"></i>
+                    Reservar Voicebank
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Barra de Destaques Técnicos & Requisitos -->
+  <section class="py-6 border-y border-white/10 bg-cyber-card/60 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="space-y-1">
+          <div class="text-cyber-miku font-cyber font-bold text-xl sm:text-2xl">96 kHz</div>
+          <div class="text-xs text-slate-400 font-mono">Amostragem Float 32-bit</div>
+        </div>
+        <div class="space-y-1">
+          <div class="text-cyber-rin font-cyber font-bold text-xl sm:text-2xl">V6 AI</div>
+          <div class="text-xs text-slate-400 font-mono">Redes Neurais com Atenção</div>
+        </div>
+        <div class="space-y-1">
+          <div class="text-cyber-luka font-cyber font-bold text-xl sm:text-2xl">100% VST3</div>
+          <div class="text-xs text-slate-400 font-mono">Compatível com Todas DAWs</div>
+        </div>
+        <div class="space-y-1">
+          <div class="text-cyber-teto font-cyber font-bold text-xl sm:text-2xl">X-SAMPA</div>
+          <div class="text-xs text-slate-400 font-mono">Dicionário Fonético Global</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 1: CATÁLOGO DE VOICEBANKS COM FILTROS AVANÇADOS -->
+  <section id="catalogo" data-reveal class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Cabeçalho da Seção -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-2">
+            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+            BANCOS DE VOZ EM PRÉ-VENDA
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+            Catálogo Oficial de Voicebanks
+          </h2>
+          <p class="text-slate-400 text-sm mt-1 max-w-xl">
+            Escolha seu ícone vocal favorito. Todas as edições da prévia incluem acesso instantâneo às demos de estúdio e bônus de pré-reserva.
+          </p>
+        </div>
+
+        <!-- Barra de Busca Rápida de Personagens -->
+        <div class="w-full md:w-80">
+          <div class="relative">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="text" 
+              id="search-input" 
+              oninput="window.vocalStore.handleSearch(this.value)"
+              placeholder="Buscar por nome, motor ou timbre..." 
+              class="w-full bg-cyber-card border border-white/15 focus:border-cyber-miku focus:ring-1 focus:ring-cyber-miku pl-10 pr-4 py-2.5 rounded-xl text-xs text-white placeholder-slate-500 focus:outline-none font-mono transition-all"
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Abas de Filtros de Categoria no Estilo Forma Pill -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-4 mb-8 no-scrollbar text-xs font-medium border-b border-white/10">
+        <button onclick="window.vocalStore.filterCategory('todos')" class="filter-tab active pill copper text-xs font-bold transition-all shadow-md" data-category="todos">
+          Todos os Voicebanks (<span id="count-todos">8</span>)
+        </button>
+        <button onclick="window.vocalStore.filterCategory('crypton')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="crypton">
+          Lendários Crypton (01-03)
+        </button>
+        <button onclick="window.vocalStore.filterCategory('ai')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="ai">
+          Motores de IA de Ponta
+        </button>
+        <button onclick="window.vocalStore.filterCategory('rock')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="rock">
+          Rock & Alta Energia
+        </button>
+        <button onclick="window.vocalStore.filterCategory('mellow')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="mellow">
+          Vozes Suaves & Jazz
+        </button>
+        <button onclick="window.vocalStore.filterCategory('bilingual')" class="filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10" data-category="bilingual">
+          Bilíngues (JP / EN)
+        </button>
+      </div>
+
+      <!-- Grade dos Cards de Voicebank -->
+      <div id="character-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Renderizado dinamicamente pelo JavaScript com dados completos -->
+      </div>
+
+      <!-- Mensagem quando nenhum personagem é encontrado -->
+      <div id="no-results" class="hidden text-center py-16 cyber-panel rounded-2xl border-white/10">
+        <i data-lucide="music" class="w-12 h-12 text-slate-600 mx-auto mb-3"></i>
+        <h3 class="text-lg font-bold text-white">Nenhum Voicebank encontrado</h3>
+        <p class="text-sm text-slate-400 max-w-sm mx-auto mt-1">Tente buscar por termos como "Miku", "Luka", "AI", "Rock" ou limpe a busca.</p>
+        <button onclick="document.getElementById('search-input').value=''; window.vocalStore.handleSearch('')" class="mt-4 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-mono text-cyan-300 transition-colors">
+          Limpar Filtros
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2: MINI-STUDIO INTERATIVO — TECLADO SINTETIZADOR DE VOZ (Web Audio API) -->
+  <section id="mini-studio" data-reveal class="py-20 relative bg-slate-950/70 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-fuchsia-950/80 border border-fuchsia-500/30 text-xs font-mono text-fuchsia-300 mb-2">
+          <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+          LABORATÓRIO INTERATIVO NO SEU NAVEGADOR
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+          Mini-Studio Sintetizador de Voz
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Teste a resposta acústica e os formantes vocais de cada personagem diretamente no teclado abaixo. 
+          Use o mouse ou as teclas do seu computador para cantar!
+        </p>
+      </div>
+
+      <!-- Painel Principal do Mini-Studio -->
+      <div data-reveal class="cyber-panel rounded-3xl p-6 sm:p-8 border-cyan-500/30 shadow-2xl relative overflow-hidden">
+        
+        <!-- Controles Superiores: Seletor de Personagem Ativo & Vogal Fonética -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-6 border-b border-white/10 items-center">
+          
+          <!-- Seletor de Timbre do Personagem -->
+          <div class="md:col-span-6 space-y-2">
+            <label class="text-xs font-mono text-slate-400 flex items-center justify-between">
+              <span>PERSONAGEM SELECIONADO:</span>
+              <span id="synth-char-badge" class="text-cyber-miku font-bold font-mono">HATSUNE MIKU (AGUDO/POP)</span>
+            </label>
+            <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
+              <button onclick="window.vocalStore.setSynthCharacter('miku')" class="synth-char-btn active px-2.5 py-2 rounded-xl text-xs font-bold bg-cyan-400 text-slate-950 flex flex-col items-center gap-1 border border-cyan-400 shadow-md transition-all" data-char="miku">
+                <span>01 MIKU</span>
+              </button>
+              <button onclick="window.vocalStore.setSynthCharacter('rin')" class="synth-char-btn px-2.5 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 flex flex-col items-center gap-1 border border-white/10 transition-all" data-char="rin">
+                <span>02 RIN</span>
+              </button>
+              <button onclick="window.vocalStore.setSynthCharacter('luka')" class="synth-char-btn px-2.5 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 flex flex-col items-center gap-1 border border-white/10 transition-all" data-char="luka">
+                <span>03 LUKA</span>
+              </button>
+              <button onclick="window.vocalStore.setSynthCharacter('teto')" class="synth-char-btn px-2.5 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 flex flex-col items-center gap-1 border border-white/10 transition-all" data-char="teto">
+                <span>TETO</span>
+              </button>
+              <button onclick="window.vocalStore.setSynthCharacter('ia')" class="synth-char-btn px-2.5 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 flex flex-col items-center gap-1 border border-white/10 transition-all" data-char="ia">
+                <span>IA</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Seletor de Vogais Fonéticas (Formantes F1/F2) -->
+          <div class="md:col-span-6 space-y-2">
+            <label class="text-xs font-mono text-slate-400 flex items-center justify-between">
+              <span>FONEMA VOGAL ATIVO (FILTRO DE FORMANTES):</span>
+              <span id="synth-vowel-badge" class="text-fuchsia-400 font-bold font-jp">あ [A] (Aberto)</span>
+            </label>
+            <div class="grid grid-cols-5 gap-2">
+              <button onclick="window.vocalStore.setSynthVowel('A')" class="synth-vowel-btn active py-2 rounded-xl text-xs font-bold font-mono bg-fuchsia-500 text-white border border-fuchsia-400 shadow-md transition-all" data-vowel="A">
+                A [あ]
+              </button>
+              <button onclick="window.vocalStore.setSynthVowel('I')" class="synth-vowel-btn py-2 rounded-xl text-xs font-bold font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all" data-vowel="I">
+                I [い]
+              </button>
+              <button onclick="window.vocalStore.setSynthVowel('U')" class="synth-vowel-btn py-2 rounded-xl text-xs font-bold font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all" data-vowel="U">
+                U [う]
+              </button>
+              <button onclick="window.vocalStore.setSynthVowel('E')" class="synth-vowel-btn py-2 rounded-xl text-xs font-bold font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all" data-vowel="E">
+                E [え]
+              </button>
+              <button onclick="window.vocalStore.setSynthVowel('O')" class="synth-vowel-btn py-2 rounded-xl text-xs font-bold font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all" data-vowel="O">
+                O [お]
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Linha Central: Sliders de Expressão Vocal e Canvas Osciloscópio -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 my-6 items-center">
+          
+          <!-- Sliders de Modulação de Síntese -->
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <!-- Slider 1: Vibrato Depth -->
+            <div class="bg-black/30 p-3.5 rounded-xl border border-white/10 space-y-1.5">
+              <div class="flex justify-between text-xs font-mono">
+                <span class="text-slate-400">Profundidade Vibrato</span>
+                <span id="label-vibrato" class="text-cyber-miku">45%</span>
+              </div>
+              <input type="range" id="param-vibrato" min="0" max="100" value="45" oninput="window.vocalStore.updateSynthParam('vibrato', this.value)" class="w-full">
+            </div>
+
+            <!-- Slider 2: Brightness (Filtro Harmônico) -->
+            <div class="bg-black/30 p-3.5 rounded-xl border border-white/10 space-y-1.5">
+              <div class="flex justify-between text-xs font-mono">
+                <span class="text-slate-400">Brilho dos Formantes</span>
+                <span id="label-brightness" class="text-cyber-rin">70%</span>
+              </div>
+              <input type="range" id="param-brightness" min="20" max="100" value="70" oninput="window.vocalStore.updateSynthParam('brightness', this.value)" class="w-full">
+            </div>
+
+            <!-- Slider 3: Breathiness (Ar e Ruído de Respiração) -->
+            <div class="bg-black/30 p-3.5 rounded-xl border border-white/10 space-y-1.5">
+              <div class="flex justify-between text-xs font-mono">
+                <span class="text-slate-400">Breathiness (Ar / Sussurro)</span>
+                <span id="label-breath" class="text-cyber-luka">25%</span>
+              </div>
+              <input type="range" id="param-breath" min="0" max="100" value="25" oninput="window.vocalStore.updateSynthParam('breath', this.value)" class="w-full">
+            </div>
+
+            <!-- Slider 4: Gender Factor -->
+            <div class="bg-black/30 p-3.5 rounded-xl border border-white/10 space-y-1.5">
+              <div class="flex justify-between text-xs font-mono">
+                <span class="text-slate-400">Fator de Gênero (Corpo)</span>
+                <span id="label-gender" class="text-cyber-ia">Padrao</span>
+              </div>
+              <input type="range" id="param-gender" min="-50" max="50" value="0" oninput="window.vocalStore.updateSynthParam('gender', this.value)" class="w-full">
+            </div>
+
+          </div>
+
+          <!-- Canvas Osciloscópio / Monitor de Ondas Vocais -->
+          <div class="lg:col-span-5 bg-black/50 p-4 rounded-2xl border border-white/10 relative">
+            <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
+              <span class="flex items-center gap-1.5 text-cyber-miku">
+                <i data-lucide="waveform" class="w-3.5 h-3.5"></i>
+                OSCILOSCÓPIO SINTÉTICO (FFT)
+              </span>
+              <span id="synth-hz-display" class="text-white font-mono">Standby</span>
+            </div>
+            <canvas id="synth-oscilloscope" width="350" height="90" class="w-full h-[90px] rounded-lg bg-slate-950 border border-white/5"></canvas>
+            
+            <div class="mt-2 flex items-center justify-between">
+              <button onclick="window.vocalStore.playDemoPhrase()" class="text-[11px] font-mono text-cyan-300 hover:text-cyan-200 flex items-center gap-1">
+                <i data-lucide="sparkles" class="w-3 h-3"></i> Tocar Frase Automática "Miku Song"
+              </button>
+              <span class="text-[10px] text-slate-500 font-mono">Teclado PC Ativo</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- TECLADO DE PIANO INTERATIVO (14 Teclas - C4 a D5) -->
+        <div class="pt-2">
+          <div class="relative max-w-4xl mx-auto select-none">
+            
+            <!-- Teclas Brancas e Negras Intercaladas -->
+            <div class="flex justify-center h-48 sm:h-56 relative bg-slate-950 p-3 rounded-2xl border border-white/15 shadow-2xl">
+              
+              <!-- C4 (Dó) -->
+              <button 
+                data-note="C4" 
+                data-key="A"
+                onmousedown="window.vocalStore.triggerKey('C4')" 
+                class="piano-key-white relative flex-1 min-w-[36px] sm:min-w-[48px] h-full rounded-b-xl border border-slate-700 flex flex-col justify-end items-center pb-3 text-slate-400 text-xs font-mono"
+              >
+                <span class="font-bold text-white">C4</span>
+                <span class="text-[10px] text-slate-500">[A]</span>
+              </button>
+
+              <!-- C#4 (Dó#) - Preta -->
+              <button 
+                data-note="Cs4" 
+                data-key="W"
+                onmousedown="window.vocalStore.triggerKey('Cs4')" 
+                class="piano-key-black absolute z-10 w-6 sm:w-8 h-28 sm:h-34 rounded-b-lg border border-slate-800 flex flex-col justify-end items-center pb-2 text-white text-[10px] font-mono"
+                style="left: calc(10% - 12px);"
+              >
+                <span>C#4</span>
+                <span class="text-[9px] text-pink-400">[W]</span>
+              </button>
+
+              <!-- D4 (Ré) -->
+              <button 
+                data-note="D4" 
+                data-key="S"
+                onmousedown="window.vocalStore.triggerKey('D4')" 
+                class="piano-key-white relative flex-1 min-w-[36px] sm:min-w-[48px] h-full rounded-b-xl border border-slate-700 flex flex-col justify-end items-center pb-3 text-slate-400 text-xs font-mono"
+              >
+                <span class="font-bold text-white">D4</span>
+                <span class="text-[10px] text-slate-500">[S]</span>
+              </button>
+
+              <!-- D#4 (Ré#) - Preta -->
+              <button 
+                data-note="Ds4" 
+                data-key="E"
+                onmousedown="window.vocalStore.triggerKey('Ds4')" 
+                class="piano-key-black absolute z-10 w-6 sm:w-8 h-28 sm:h-34 rounded-b-lg border border-slate-800 flex flex-col justify-end items-center pb-2 text-white text-[10px] font-mono"
+                style="left: calc(23.5% - 12px);"
+              >
+                <span>D#4</span>
+                <span class="text-[9px] text-pink-400">[E]</span>
+              </button>
+
+              <!-- E4 (Mi) -->
+              <button 
+                data-note="E4" 
+                data-key="D"
+                onmousedown="window.vocalStore.triggerKey('E4')" 
+                class="piano-key-white relative flex-1 min-w-[36px] sm:min-w-[48px] h-full rounded-b-xl border border-slate-700 flex flex-col justify-end items-center pb-3 text-slate-400 text-xs font-mono"
+              >
+                <span class="font-bold text-white">E4</span>
+                <span class="text-[10px] text-slate-500">[D]</span>
+              </button>
+
+              <!-- F4 (Fá) -->
+              <button 
+                data-note="F4" 
+                data-key="F"
+                onmousedown="window.vocalStore.triggerKey('F4')" 
+                class="piano-key-white relative flex-1 min-w-[36px] sm:min-w-[48px] h-full rounded-b-xl border border-slate-700 flex flex-col justify-end items-center pb-3 text-slate-400 text-xs font-mono"
+              >
+                <span class="font-bold text-white">F4</span>
+                <span class="text-[10px] text-slate-500">[F]</span>
+              </button>
+
+              <!-- F#4 (Fá#) - Preta -->
+              <button 
+                data-note="Fs4" 
+                data-key="T"
+                onmousedown="window.vocalStore.triggerKey('Fs4')" 
+                class="piano-key-black absolute z-10 w-6 sm:w-8 h-28 sm:h-34 rounded-b-lg border border-slate-800 flex flex-col justify-end items-center pb-2 text-white text-[10px] font-mono"
+                style="left: calc(50.5% - 12px);"
+              >
+                <span>F#4</span>
+                <span class="text-[9px] text-pink-400">[T]</span>
+              </button>
+
+              <!-- G4 (Sol) -->
+              <button 
+                data-note="G4" 
+                data-key="G"
+                onmousedown="window.vocalStore.triggerKey('G4')" 
+                class="piano-key-white relative flex-1 min-w-[36px] sm:min-w-[48px] h-full rounded-b-xl border border-slate-700 flex flex-col justify-end items-center pb-3 text-slate-400 text-xs font-mono"
+              >
+                <span class="font-bold text-white">G4</span>
+                <span class="text-[10px] text-slate-500">[G]</span>
+              </button>
+
+              <!-- G#4 (Sol#) - Preta -->
+              <button 
+                data-note="Gs4" 
+                data-key="Y"
+                onmousedown="window.vocalStore.triggerKey('Gs4')" 
+                class="piano-key-black absolute z-10 w-6 sm:w-8 h-28 sm:h-34 rounded-b-lg border border-slate-800 flex flex-col justify-end items-center pb-2 text-white text-[10px] font-mono"
+                style="left: calc(64% - 12px);"
+              >
+                <span>G#4</span>
+                <span class="text-[9px] text-pink-400">[Y]</span>
+              </button>
+
+              <!-- A4 (Lá) -->
+              <button 
+                data-note="A4" 
+                data-key="H"
+                onmousedown="window.vocalStore.triggerKey('A4')" 
+                class="piano-key-white relative flex-1 min-w-[36px] sm:min-w-[48px] h-full rounded-b-xl border border-slate-700 flex flex-col justify-end items-center pb-3 text-slate-400 text-xs font-mono"
+              >
+                <span class="font-bold text-white">A4</span>
+                <span class="text-[10px] text-slate-500">[H]</span>
+              </button>
+
+              <!-- A#4 (Lá#) - Preta -->
+              <button 
+                data-note="As4" 
+                data-key="U"
+                onmousedown="window.vocalStore.triggerKey('As4')" 
+                class="piano-key-black absolute z-10 w-6 sm:w-8 h-28 sm:h-34 rounded-b-lg border border-slate-800 flex flex-col justify-end items-center pb-2 text-white text-[10px] font-mono"
+                style="left: calc(77.5% - 12px);"
+              >
+                <span>A#4</span>
+                <span class="text-[9px] text-pink-400">[U]</span>
+              </button>
+
+              <!-- B4 (Si) -->
+              <button 
+                data-note="B4" 
+                data-key="J"
+                onmousedown="window.vocalStore.triggerKey('B4')" 
+                class="piano-key-white relative flex-1 min-w-[36px] sm:min-w-[48px] h-full rounded-b-xl border border-slate-700 flex flex-col justify-end items-center pb-3 text-slate-400 text-xs font-mono"
+              >
+                <span class="font-bold text-white">B4</span>
+                <span class="text-[10px] text-slate-500">[J]</span>
+              </button>
+
+              <!-- C5 (Dó Agudo) -->
+              <button 
+                data-note="C5" 
+                data-key="K"
+                onmousedown="window.vocalStore.triggerKey('C5')" 
+                class="piano-key-white relative flex-1 min-w-[36px] sm:min-w-[48px] h-full rounded-b-xl border border-slate-700 flex flex-col justify-end items-center pb-3 text-slate-400 text-xs font-mono"
+              >
+                <span class="font-bold text-white">C5</span>
+                <span class="text-[10px] text-slate-500">[K]</span>
+              </button>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3: COMPARATIVO TÉCNICO DE MOTORES (V6 AI vs Synthesizer V vs Piapro Studio) -->
+  <section id="comparativo" data-reveal class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-950/80 border border-yellow-500/30 text-xs font-mono text-yellow-300 mb-2">
+          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+          GUIA DE ARQUITETURA
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+          Qual Motor de Voz Escolher?
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          A loja VOCAL//VAULT distribui pacotes compatíveis com os 3 principais padrões da indústria mundial.
+        </p>
+      </div>
+
+      <!-- Tabela Comparativa Estilizada -->
+      <div data-reveal class="cyber-panel rounded-2xl overflow-hidden border-white/10 shadow-xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs font-mono">
+            <thead class="bg-black/60 text-slate-300 border-b border-white/10 uppercase tracking-wider text-[11px]">
+              <tr>
+                <th class="py-4 px-6 font-bold">Recurso / Capacidade</th>
+                <th class="py-4 px-6 text-cyber-miku font-bold">VOCALOID 6 AI</th>
+                <th class="py-4 px-6 text-cyber-teto font-bold">Synthesizer V Studio Pro</th>
+                <th class="py-4 px-6 text-cyber-luka font-bold">Piapro Studio 2.0</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5">
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="py-4 px-6 font-sans font-medium text-white">Tecnologia de Síntese</td>
+                <td class="py-4 px-6 text-cyan-300">Rede Neural Profunda (DNN + V6 AI)</td>
+                <td class="py-4 px-6 text-pink-300">Dreamtonics Deep AI Engine</td>
+                <td class="py-4 px-6 text-slate-300">Híbrido Concatenação + NT</td>
+              </tr>
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="py-4 px-6 font-sans font-medium text-white">Edição Manual de Curva de Pitch</td>
+                <td class="py-4 px-6 text-emerald-400">Total (Controle de Vibrato & Dyn)</td>
+                <td class="py-4 px-6 text-emerald-400">Tempo Real + AI Pitch Tuning</td>
+                <td class="py-4 px-6 text-emerald-400">Modo Gráfico Tradicional</td>
+              </tr>
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="py-4 px-6 font-sans font-medium text-white">Síntese Polifônica / Duetos</td>
+                <td class="py-4 px-6 text-cyan-300">Pistas Múltiplas com Cross-Track</td>
+                <td class="py-4 px-6 text-pink-300">Pistas de Harmonia Automatizadas</td>
+                <td class="py-4 px-6 text-slate-300">Múltiplos Bancos Simultâneos</td>
+              </tr>
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="py-4 px-6 font-sans font-medium text-white">Integração ARA2 com DAWs</td>
+                <td class="py-4 px-6 text-emerald-400">Sim (Cubase, Studio One, Reaper)</td>
+                <td class="py-4 px-6 text-emerald-400">Sim (Sincronização Perfeita)</td>
+                <td class="py-4 px-6 text-amber-400">Via Plugin VST3 Standalone</td>
+              </tr>
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="py-4 px-6 font-sans font-medium text-white">Idiomas Nativos Suportados</td>
+                <td class="py-4 px-6 text-slate-300">Japonês, Inglês, Chinês</td>
+                <td class="py-4 px-6 text-slate-300">Cross-Lingual Automático (JP/EN/CN/ES)</td>
+                <td class="py-4 px-6 text-slate-300">Japonês & Inglês</td>
+              </tr>
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="py-4 px-6 font-sans font-medium text-white">Personagens Principais</td>
+                <td class="py-4 px-6 text-cyan-300 font-bold">Miku, Rin/Len, Gumi, Flower</td>
+                <td class="py-4 px-6 text-pink-300 font-bold">Kasane Teto, Solaria, Asterian</td>
+                <td class="py-4 px-6 text-rose-300 font-bold">Crypton Future Media 6</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO 4: PRODUTORES & DEPOIMENTOS DA COMUNIDADE -->
+  <section id="comunidade" data-reveal class="py-20 relative bg-slate-950/80 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/80 border border-purple-500/30 text-xs font-mono text-purple-300 mb-2">
+          <i data-lucide="award" class="w-3.5 h-3.5"></i>
+          APROVADO POR PRODUTORES DE SUCESSO
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+          A Opinião de Quem Cria Músicas
+        </h2>
+        <p class="text-slate-400 text-sm mt-2">
+          Veja o que compositores de VOCALOID e Synthesizer V dizem sobre a nova geração de bancos em prévia.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Depoimento 1 -->
+        <div data-reveal data-reveal-delay="1" class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-cyan-400/40 transition-all flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              ★★★★★
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              "A transição de consoantes e respiração da nova Hatsune Miku V6 AI é impressionante. Praticamente não preciso gastar horas afinando formantes manuais para ter um som límpido e emotivo."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 flex items-center gap-3 mt-4">
+            <div class="w-10 h-10 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center font-bold text-cyber-miku text-xs">
+              RX
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">RhythmX-P</div>
+              <div class="text-[10px] text-slate-400 font-mono">Produtor de Electro-Pop (Tóquio)</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 2 -->
+        <div data-reveal data-reveal-delay="2" class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-pink-400/40 transition-all flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              ★★★★★
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              "O banco de voz da Kasane Teto no Synthesizer V Pro ultrapassou todas as minhas expectativas. O alcance agudo em falsete carrega um poder que nunca vi em nenhum UTAU anterior."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 flex items-center gap-3 mt-4">
+            <div class="w-10 h-10 rounded-full bg-pink-950 border border-pink-400 flex items-center justify-center font-bold text-cyber-teto text-xs">
+              SD
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">SynthiDrift</div>
+              <div class="text-[10px] text-slate-400 font-mono">Compositor de Synthwave / Rock</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Depoimento 3 -->
+        <div data-reveal data-reveal-delay="3" class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-purple-400/40 transition-all flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center gap-1 text-amber-400">
+              ★★★★★
+            </div>
+            <p class="text-sm text-slate-300 italic leading-relaxed">
+              "A flexibilidade do dicionário fonético bilíngue da Megurine Luka e da IA permite criar trilhas cinematográficas inteiras cantadas em inglês e japonês na mesma música sem sotaque forçado."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-white/10 flex items-center gap-3 mt-4">
+            <div class="w-10 h-10 rounded-full bg-purple-950 border border-purple-400 flex items-center justify-center font-bold text-cyber-ia text-xs">
+              NL
+            </div>
+            <div>
+              <div class="text-xs font-bold text-white">NeoLuna Audio</div>
+              <div class="text-[10px] text-slate-400 font-mono">Sound Designer de Jogos</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO 5: NEWSLETTER VIP & PRÉ-RESERVA COM BÔNUS EXCLUSIVOS -->
+  <section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-cyan-950/40 via-slate-900 to-fuchsia-950/40 pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      <div data-reveal class="cyber-panel rounded-3xl p-8 sm:p-12 border-cyan-400/40 glow-border-miku">
+        
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-400/20 text-cyber-miku border border-cyan-400/40 text-xs font-mono font-bold mb-4">
+          ★ ACESSO ANTECIPADO EXCLUSIVO
+        </span>
+
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white mb-3">
+          Garanta o Pacote Grátis <span class="text-cyber-miku">Append Whisper Pack</span>
+        </h2>
+
+        <p class="text-slate-300 text-sm max-w-xl mx-auto mb-8">
+          Inscreva seu e-mail para receber o aviso instantâneo do lançamento da loja, 100 arquivos MIDI de afinação profissional e o pacote extra de respirações acústicas para o seu Voicebank.
+        </p>
+
+        <!-- Formulário Interativo -->
+        <form onsubmit="window.vocalStore.handleNewsletter(event)" class="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+          <input 
+            type="email" 
+            id="newsletter-email" 
+            required 
+            placeholder="Seu melhor e-mail de produtor..." 
+            class="flex-1 bg-black/60 border border-white/20 focus:border-cyber-miku focus:ring-1 focus:ring-cyber-miku px-4 py-3 rounded-xl text-xs text-white placeholder-slate-500 font-mono focus:outline-none transition-all"
+          >
+          <button type="submit" class="bg-gradient-to-r from-cyber-miku to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs shadow-lg shadow-cyan-400/20 transition-all flex items-center justify-center gap-2 active:scale-95">
+            <span>Garantir Bônus VIP</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </button>
+        </form>
+
+        <p class="text-[11px] text-slate-500 mt-4 font-mono">
+          Sem spam. Seus dados estão seguros sob criptografia TLS 256-bit.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ DA LOJA (ESTILO CRYPTON / YAMAHA) -->
+  <footer data-reveal class="bg-black border-t border-white/10 pt-16 pb-28 text-slate-400 text-xs font-mono">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <span class="font-cyber font-black tracking-wider text-base text-white">VOCAL<span class="text-cyber-miku">//</span>VAULT</span>
+            <span class="text-[9px] px-1.5 py-0.5 bg-cyan-400/20 text-cyber-miku rounded">V6 PREVIEW</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed font-sans text-xs">
+            Portal internacional de demonstração e pré-venda de voicebanks de síntese de canto virtual. Desenvolvido para produtores musicais, entusiastas de anime e compositores digitais.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs">Navegação Rápida</h4>
+          <ul class="space-y-2">
+            <li><a href="#catalogo" class="hover:text-cyber-miku transition-colors">Todos os Voicebanks</a></li>
+            <li><a href="#mini-studio" class="hover:text-cyber-miku transition-colors">Laboratório Mini-Synth</a></li>
+            <li><a href="#comparativo" class="hover:text-cyber-miku transition-colors">Matriz de Motores (V6 vs SV)</a></li>
+            <li><a href="#comunidade" class="hover:text-cyber-miku transition-colors">Avaliações da Comunidade</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs">Suporte Técnico</h4>
+          <ul class="space-y-2">
+            <li><a href="#" onclick="alert('Manual em PDF de Instalação do Voicebank V6 em elaboração!')" class="hover:text-cyber-miku transition-colors">Guia de Instalação VST3</a></li>
+            <li><a href="#" onclick="alert('Compatível com Windows 10/11 64-bit e macOS Monterey ou superior (Apple Silicon nativo).')" class="hover:text-cyber-miku transition-colors">Requisitos de Sistema</a></li>
+            <li><a href="#" onclick="alert('Atendimento ao cliente 24/7 via Discord e e-mail de suporte.')" class="hover:text-cyber-miku transition-colors">Central de Ajuda</a></li>
+            <li><a href="#" onclick="alert('Cupom de lançamento: MIKU39 dá 39% de desconto no carrinho!')" class="hover:text-cyber-miku transition-colors">Cupons e Promoções</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs">Avisos de Propriedade</h4>
+          <p class="text-[11px] leading-relaxed text-slate-500">
+            VOCALOID™ e VOCALOID6™ são marcas registradas da Yamaha Corporation.
+            Hatsune Miku, Kagamine Rin/Len, Megurine Luka e KAITO são personagens de propriedade da Crypton Future Media, INC.
+            Kasane Teto é desenvolvida pela TwinDrill. Megpoid GUMI é da Internet Co., Ltd.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center text-slate-500 text-[11px]">
+        <div>
+          © 2026 VOCAL//VAULT Synthesizer Hub. Todos os direitos reservados.
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-cyber-miku">● Servidores de Download Ativos</span>
+          <span>SSL 256-bit Verificado</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- DOCK FLUTUANTE DE ÁUDIO GLOBAL (PLAYER PERSISTENTE NA BASE) -->
+  <div id="bottom-player" class="fixed bottom-0 left-0 right-0 z-50 bg-cyber-bg/95 backdrop-blur-xl border-t border-cyan-500/30 px-4 py-3 transform transition-transform duration-300 translate-y-full shadow-2xl">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      
+      <!-- Informações do Voicebank em Reprodução -->
+      <div class="flex items-center gap-3 min-w-[220px]">
+        <div id="player-avatar" class="w-11 h-11 rounded-xl bg-slate-800 p-0.5 border border-cyan-400 flex items-center justify-center overflow-hidden flex-shrink-0">
+          <span class="font-cyber font-bold text-xs text-cyber-miku">01</span>
+        </div>
+        <div class="space-y-0.5">
+          <div class="flex items-center gap-1.5">
+            <span id="player-char-name" class="font-bold text-xs text-white">Hatsune Miku V6 AI</span>
+            <span id="player-badge" class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-cyan-400/20 text-cyber-miku border border-cyan-400/30">V6 AI</span>
+          </div>
+          <div id="player-track-name" class="text-[11px] text-slate-400 font-mono truncate max-w-[200px]">Demo: "Starlight Pop"</div>
+        </div>
+      </div>
+
+      <!-- Controles Centrais de Reprodução e Mini-Visualizador -->
+      <div class="flex-1 max-w-lg flex flex-col items-center gap-1.5">
+        <div class="flex items-center gap-4">
+          <button onclick="window.vocalStore.previousTrack()" class="text-slate-400 hover:text-white transition-colors" title="Voz Anterior">
+            <i data-lucide="skip-back" class="w-4 h-4"></i>
+          </button>
+          
+          <button id="player-play-btn" onclick="window.vocalStore.toggleBottomPlay()" class="w-10 h-10 rounded-full bg-cyber-miku text-slate-950 flex items-center justify-center hover:scale-105 active:scale-95 shadow-md shadow-cyan-400/30 transition-all">
+            <i data-lucide="pause" id="player-play-icon" class="w-5 h-5 fill-current"></i>
+          </button>
+          
+          <button onclick="window.vocalStore.nextTrack()" class="text-slate-400 hover:text-white transition-colors" title="Próxima Voz">
+            <i data-lucide="skip-forward" class="w-4 h-4"></i>
+          </button>
+
+          <!-- Botão Loop Demo -->
+          <button id="player-loop-btn" onclick="window.vocalStore.toggleLoop()" class="text-cyan-300 hover:text-white transition-colors text-xs font-mono flex items-center gap-1 ml-2" title="Modo Loop Ativo">
+            <i data-lucide="repeat" class="w-3.5 h-3.5"></i>
+            <span class="text-[10px]">LOOP</span>
+          </button>
+        </div>
+
+        <!-- Barra de Progresso / Tempo -->
+        <div class="w-full flex items-center gap-2 text-[10px] font-mono text-slate-400">
+          <span id="player-time-current">0:00</span>
+          <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden relative cursor-pointer" onclick="window.vocalStore.seekAudio(event)">
+            <div id="player-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 to-fuchsia-400 w-0 transition-all duration-100"></div>
+          </div>
+          <span id="player-time-total">0:15</span>
+        </div>
+      </div>
+
+      <!-- Lado Direito: Mini Visualizador Canvas + Controle de Volume e Ação -->
+      <div class="flex items-center gap-4">
+        <!-- Canvas Mini Spectrometer -->
+        <canvas id="mini-player-spectrogram" width="120" height="32" class="hidden sm:block rounded bg-black/40 border border-white/10 w-[120px] h-[32px]"></canvas>
+
+        <div class="flex items-center gap-2 text-slate-400">
+          <i data-lucide="volume-2" class="w-4 h-4"></i>
+          <input type="range" min="0" max="100" value="80" oninput="window.vocalStore.setMasterVolume(this.value)" class="w-16">
+        </div>
+
+        <button onclick="window.vocalStore.addCurrentPlayingToCart()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-400/20 hover:bg-cyan-400 hover:text-slate-950 text-cyan-300 font-mono text-xs font-bold border border-cyan-400/40 transition-all">
+          <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+          Reservar
+        </button>
+
+        <button onclick="window.vocalStore.closeBottomPlayer()" class="text-slate-400 hover:text-white p-1" title="Fechar Player">
+          <i data-lucide="x" class="w-4 h-4"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GAVETA LATERAL DO CARRINHO (CART DRAWER) -->
+  <div id="cart-drawer" class="fixed inset-0 z-50 pointer-events-none transition-all duration-300">
+    <!-- Backdrop com desfoque -->
+    <div id="cart-backdrop" onclick="window.vocalStore.toggleCart(false)" class="absolute inset-0 bg-black/70 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+    <!-- Conteúdo da Gaveta -->
+    <div id="cart-content" class="absolute top-0 right-0 bottom-0 w-full max-w-md bg-cyber-card border-l border-white/15 p-6 flex flex-col justify-between transform translate-x-full transition-transform duration-300 pointer-events-auto shadow-2xl">
+      
+      <!-- Cabeçalho do Carrinho -->
+      <div class="flex items-center justify-between pb-4 border-b border-white/10">
+        <div class="flex items-center gap-2">
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-cyber-miku"></i>
+          <h3 class="text-base font-bold text-white font-display">Carrinho de Pré-Venda</h3>
+          <span id="cart-items-count" class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-white/10 text-cyan-300">0 itens</span>
+        </div>
+        <button onclick="window.vocalStore.toggleCart(false)" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <!-- Lista de Itens do Carrinho -->
+      <div id="cart-items-container" class="flex-1 overflow-y-auto py-4 space-y-3 no-scrollbar">
+        <!-- Inserido dinamicamente via JS -->
+      </div>
+
+      <!-- Seção Inferior: Cupom de Desconto, Totais e Botão de Finalização -->
+      <div class="pt-4 border-t border-white/10 space-y-4">
+        
+        <!-- Campo de Cupom -->
+        <div class="flex gap-2">
+          <div class="relative flex-1">
+            <i data-lucide="tag" class="w-3.5 h-3.5 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="text" 
+              id="coupon-input" 
+              placeholder="Cupom (tente MIKU39)" 
+              class="w-full uppercase font-mono text-xs bg-black/40 border border-white/15 rounded-xl pl-9 pr-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+            >
+          </div>
+          <button onclick="window.vocalStore.applyCoupon()" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold rounded-xl border border-white/15 transition-all">
+            Aplicar
+          </button>
+        </div>
+
+        <div id="coupon-alert" class="hidden text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+          <i data-lucide="check-circle" class="w-3.5 h-3.5"></i>
+          <span>Cupom <strong>MIKU39</strong> aplicado: 39% de desconto garantido!</span>
+        </div>
+
+        <!-- Cálculos de Subtotal, Desconto e Total -->
+        <div class="space-y-1.5 text-xs font-mono">
+          <div class="flex justify-between text-slate-400">
+            <span>Subtotal:</span>
+            <span id="cart-subtotal" class="text-white">R$ 0,00</span>
+          </div>
+          <div id="cart-discount-row" class="hidden flex justify-between text-emerald-400">
+            <span>Desconto (39% OFF):</span>
+            <span id="cart-discount">- R$ 0,00</span>
+          </div>
+          <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-white/10">
+            <span>Total da Reserva:</span>
+            <span id="cart-total" class="text-cyber-miku font-mono text-base">R$ 0,00</span>
+          </div>
+        </div>
+
+        <!-- Botão Finalizar Reserva / Simulação de Compra -->
+        <button onclick="window.vocalStore.checkout()" id="cart-checkout-btn" class="w-full py-3.5 rounded-xl font-bold text-xs font-mono uppercase tracking-wider bg-gradient-to-r from-cyber-miku via-teal-400 to-cyber-luka text-slate-950 shadow-lg shadow-cyan-400/20 hover:shadow-cyan-400/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+          <i data-lucide="lock" class="w-4 h-4"></i>
+          Garantir Chave de Licença VIP
+        </button>
+
+        <p class="text-[10px] text-center text-slate-500 font-mono">
+          ✓ Envio imediato da chave no e-mail após a confirmação.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODAL DE ESPECIFICAÇÕES TÉCNICAS COMPLETAS DO VOICEBANK (FICHA TÉCNICA) -->
+  <div id="spec-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div onclick="window.vocalStore.closeSpecModal()" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
+    
+    <div class="relative w-full max-w-2xl cyber-panel rounded-3xl p-6 sm:p-8 border-cyan-400/40 shadow-2xl z-10 max-h-[90vh] overflow-y-auto no-scrollbar">
+      <button onclick="window.vocalStore.closeSpecModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-1 rounded-lg">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div id="spec-modal-content">
+        <!-- Renderizado dinamicamente com informações ricas -->
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL DE FINALIZAÇÃO DE PEDIDO / CONFIRMAÇÃO DE RESERVA (CHECKOUT SUCCESS) -->
+  <div id="success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <div onclick="window.vocalStore.closeSuccessModal()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+    
+    <div class="relative w-full max-w-lg cyber-panel rounded-3xl p-6 sm:p-8 border-cyan-400 text-center z-10 glow-border-miku">
+      <div class="w-16 h-16 rounded-2xl bg-cyan-400/20 border border-cyan-400 text-cyber-miku flex items-center justify-center mx-auto mb-4">
+        <i data-lucide="sparkles" class="w-8 h-8"></i>
+      </div>
+
+      <span class="inline-flex items-center px-2.5 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mb-2">
+        RESERVA DE ACESSO ANTECIPADO CONFIRMADA
+      </span>
+
+      <h3 class="text-2xl font-bold font-display text-white mb-2">Obrigado por Fazer História!</h3>
+      <p class="text-slate-300 text-xs leading-relaxed max-w-sm mx-auto mb-6">
+        Sua licença de Voicebank foi pré-alocada com sucesso nos servidores globais. Guarde sua chave serial provisória:
+      </p>
+
+      <!-- Serial Key Box -->
+      <div class="bg-black/60 border border-cyan-400/40 rounded-xl p-3.5 mb-6 font-mono text-xs text-cyber-miku font-bold flex items-center justify-between">
+        <span id="generated-serial-key">VOCAL-V6AI-3939-MIKU-PRO</span>
+        <button onclick="navigator.clipboard.writeText(document.getElementById('generated-serial-key').innerText); window.vocalStore.showToast('Serial copiado!')" class="text-slate-400 hover:text-white text-[11px] underline">
+          Copiar
+        </button>
+      </div>
+
+      <div class="text-[11px] text-slate-400 space-y-1 mb-6 text-left bg-white/5 p-3 rounded-xl font-mono">
+        <div>• <strong>Itens Reservados:</strong> <span id="success-items-list" class="text-white">...</span></div>
+        <div>• <strong>Bônus Ativado:</strong> Whisper Append Pack + 100 Midis VIP</div>
+        <div>• <strong>Instalador:</strong> O link de download será liberado no lançamento global.</div>
+      </div>
+
+      <button onclick="window.vocalStore.closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-cyber-miku to-teal-400 text-slate-950 font-bold rounded-xl text-xs font-mono uppercase tracking-wider hover:scale-[1.02] transition-all">
+        Voltar à Loja
+      </button>
+    </div>
+  </div>
+
+  <!-- CONTAINER DE NOTIFICAÇÕES TOAST -->
+  <div id="toast-container" class="fixed top-24 right-4 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- ========================================== -->
+  <!-- SCRIPT COMPLETO: BANCO DE DADOS & MOTOR JS -->
+  <!-- ========================================== -->
+  <script>
+    // --- 1. BANCO DE DADOS DOS PERSONAGENS VOCALOID ---
+    const VOCAL_CHARACTERS = [
+      {
+        id: 'miku',
+        code: 'CV01',
+        name: 'Hatsune Miku V6 AI',
+        jpName: '初音ミク',
+        title: 'Original & Sweet Dual Edition',
+        engine: 'VOCALOID 6 AI',
+        category: ['crypton', 'ai', 'todos'],
+        color: '#00f0d6',
+        colorClass: 'glow-border-miku',
+        colorBadge: 'bg-cyan-400/20 text-cyber-miku border-cyan-400/30',
+        bpm: '70 - 180',
+        range: 'A2 - E4',
+        provider: 'Saki Fujita (藤田咲)',
+        description: 'A diva virtual que definiu uma geração. A nova versão V6 AI traz transições de respiração ultra-realistas, vibrato dinâmico e suporte completo ao Piapro Studio NT.',
+        demoTrack: 'Starlight Pop (Vocaloid 6 AI)',
+        demoBpm: 145,
+        demoKey: 'Dm',
+        priceBRL: 899,
+        priceUSD: 169,
+        priceJPY: 25500,
+        badge: 'Mais Esperado',
+        phonemes: 'JP Romaji, Hiragana, X-SAMPA, EN CMU Dictionary',
+        systemReq: 'Windows 11 / macOS Sonoma (M1-M4 nativo), 8GB RAM, VST3/AU/ARA2',
+        colorsPack: ['Original AI', 'Sweet Vocal', 'Solid Rock', 'Whisper Breath']
+      },
+      {
+        id: 'rin-len',
+        code: 'CV02',
+        name: 'Kagamine Rin & Len V4X',
+        jpName: '鏡音リン・レン',
+        title: 'Dynamic Power Dual Package',
+        engine: 'VOCALOID 4X / V6 Compatible',
+        category: ['crypton', 'rock', 'todos'],
+        color: '#ffb703',
+        colorClass: 'glow-border-rin',
+        colorBadge: 'bg-amber-400/20 text-cyber-rin border-amber-400/30',
+        bpm: '85 - 195',
+        range: 'F2 - C5',
+        provider: 'Asami Shimoda (下田麻美)',
+        description: 'Dois bancos completos em uma só licença. Perfeitos para rock acelerado, electro-house e power pop com tecnologia nativa de Cross-Synthesis.',
+        demoTrack: 'Dual Ignition (Power Rock)',
+        demoBpm: 160,
+        demoKey: 'Em',
+        priceBRL: 949,
+        priceUSD: 179,
+        priceJPY: 27000,
+        badge: 'Pacote Duplo',
+        phonemes: 'Japonês Hiragana, E.V.E.C. Colors, Growl FX',
+        systemReq: 'Windows 10/11, macOS Monterey+, 8GB RAM, VST3/AU',
+        colorsPack: ['Power (Rin)', 'Warm (Len)', 'Sweet (Rin)', 'Serious (Len)']
+      },
+      {
+        id: 'luka',
+        code: 'CV03',
+        name: 'Megurine Luka V4X',
+        jpName: '巡音ルカ',
+        title: 'Bilingual Native (JP / EN)',
+        engine: 'VOCALOID 4X Bilingual',
+        category: ['crypton', 'mellow', 'bilingual', 'todos'],
+        color: '#ff2a85',
+        colorClass: 'glow-border-luka',
+        colorBadge: 'bg-pink-400/20 text-cyber-luka border-pink-400/30',
+        bpm: '65 - 150',
+        range: 'D3 - F4',
+        provider: 'Yuu Asakawa (浅川悠)',
+        description: 'Voz aveludada, sensual e madura. Dicionário bilíngue nativo perfeito para Jazz, R&B, Bossa Nova, Synth-Pop e produções orquestrais.',
+        demoTrack: 'Velvet Midnight (Neo-Soul Jazz)',
+        demoBpm: 105,
+        demoKey: 'Am',
+        priceBRL: 899,
+        priceUSD: 169,
+        priceJPY: 25500,
+        badge: 'Bilíngue Nativa',
+        phonemes: 'JP Hiragana + English X-SAMPA com pronúncia fluida',
+        systemReq: 'Windows 10/11, macOS Ventura+, 8GB RAM, VST3/AU',
+        colorsPack: ['Japanese Hard', 'Japanese Soft', 'English Straight', 'English Soft']
+      },
+      {
+        id: 'teto',
+        code: 'SV-01',
+        name: 'Kasane Teto AI',
+        jpName: '重音テト',
+        title: 'Synthesizer V Studio Pro AI',
+        engine: 'Synthesizer V AI',
+        category: ['ai', 'rock', 'todos'],
+        color: '#ff0055',
+        colorClass: 'glow-border-teto',
+        colorBadge: 'bg-rose-500/20 text-cyber-teto border-rose-500/30',
+        bpm: '80 - 200',
+        range: 'E3 - A5',
+        provider: 'Mayo Oyamano (小山乃舞世)',
+        description: 'A quimera de cabelos em espiral renascida no Synthesizer V AI. Potência vocal extrema com transições guturais e falsetes que viralizaram nas paradas globais.',
+        demoTrack: 'Drill Chimera Frenzy (Hyperpop)',
+        demoBpm: 175,
+        demoKey: 'C#m',
+        priceBRL: 749,
+        priceUSD: 139,
+        priceJPY: 21000,
+        badge: 'Sensação Viral AI',
+        phonemes: 'Cross-Lingual Automático (JP, EN, CN, ES)',
+        systemReq: 'Synthesizer V Studio Pro 1.10+, 8GB RAM, VST3/ARA2',
+        colorsPack: ['Joy', 'Power', 'Mellow', 'Whisper', 'Falsetto']
+      },
+      {
+        id: 'ia',
+        code: '1ST-01',
+        name: 'IA - ARIA ON THE PLANETES',
+        jpName: 'イア',
+        title: 'CeVIO AI & V4 Anniversary',
+        engine: 'CeVIO AI / VOCALOID 4',
+        category: ['mellow', 'todos'],
+        color: '#c084fc',
+        colorClass: 'glow-border-ia',
+        colorBadge: 'bg-purple-400/20 text-cyber-ia border-purple-400/30',
+        bpm: '90 - 185',
+        range: 'B2 - A4',
+        provider: 'Lia (Cantora de Tori no Uta)',
+        description: 'Timbre cristalino e etéreo com afinação cirúrgica. Criada para aberturas épicas de anime, rock progressivo e trilhas sonoras cinematográficas.',
+        demoTrack: 'Crystal Ether (Celestial Ballad)',
+        demoBpm: 128,
+        demoKey: 'F#m',
+        priceBRL: 829,
+        priceUSD: 155,
+        priceJPY: 23500,
+        badge: 'Grau Audiófilo',
+        phonemes: 'JP Hiragana, English CeVIO AI Neural Dictionary',
+        systemReq: 'CeVIO AI Editor ou VOCALOID 4 Editor, 8GB RAM',
+        colorsPack: ['Normal', 'IA ROCKS (Rock rasgado)', 'English Duo']
+      },
+      {
+        id: 'gumi',
+        code: 'MEG-01',
+        name: 'Megpoid GUMI V6 AI',
+        jpName: 'メグッポイド GUMI',
+        title: 'Next-Gen Expressive Edition',
+        engine: 'VOCALOID 6 AI',
+        category: ['ai', 'todos'],
+        color: '#84cc16',
+        colorClass: 'glow-border-gumi',
+        colorBadge: 'bg-lime-400/20 text-cyber-gumi border-lime-400/30',
+        bpm: '60 - 175',
+        range: 'F2 - A4',
+        provider: 'Megumi Nakajima (中島愛)',
+        description: 'Uma das vozes mais orgânicas e versáteis do universo virtual. Domina com maestria do rock alternativo ao hyperpop moderno.',
+        demoTrack: 'Retro Echoes (Funky Pop)',
+        demoBpm: 124,
+        demoKey: 'G',
+        priceBRL: 849,
+        priceUSD: 159,
+        priceJPY: 24000,
+        badge: 'Expressão Máxima',
+        phonemes: 'V6 AI Neural Japanese + English Phonemes',
+        systemReq: 'VOCALOID6 Editor 6.2+, 8GB RAM, VST3/AU',
+        colorsPack: ['AI Standard', 'Sweet Pop', 'Power Rock', 'Whisper']
+      },
+      {
+        id: 'kaito',
+        code: 'CR-01M',
+        name: 'KAITO V3 Complete',
+        jpName: 'カイト',
+        title: 'Male Baritone & Tenor Library',
+        engine: 'VOCALOID 3 / V6 Compatible',
+        category: ['crypton', 'mellow', 'bilingual', 'todos'],
+        color: '#2563eb',
+        colorClass: 'glow-border-kaito',
+        colorBadge: 'bg-blue-500/20 text-cyber-kaito border-blue-500/30',
+        bpm: '65 - 150',
+        range: 'D2 - F4',
+        provider: 'Naoto Fuuga (風雅なおと)',
+        description: 'O tenor barítono de referência para baladas românticas, orquestrações clássicas e duetos sofisticados com o catálogo Crypton.',
+        demoTrack: 'Sapphire Horizon (Orchestral Synth)',
+        demoBpm: 100,
+        demoKey: 'C',
+        priceBRL: 799,
+        priceUSD: 149,
+        priceJPY: 22500,
+        badge: 'Lenda Masculina',
+        phonemes: 'Japanese Straight/Soft/Whisper + English Native',
+        systemReq: 'Piapro Studio ou VOCALOID Editor, 8GB RAM, VST3/AU',
+        colorsPack: ['Straight', 'Soft', 'Whisper', 'English']
+      },
+      {
+        id: 'vflower',
+        code: 'FL-01',
+        name: 'vFlower V4 Rock Specialist',
+        jpName: 'ブイフラワ',
+        title: 'Aggressive Rock & Metal Lead',
+        engine: 'VOCALOID 4',
+        category: ['rock', 'todos'],
+        color: '#9333ea',
+        colorClass: 'glow-border-flower',
+        colorBadge: 'bg-purple-500/20 text-cyber-flower border-purple-500/30',
+        bpm: '80 - 200',
+        range: 'F#2 - F#4',
+        provider: 'vFlower Team',
+        description: 'A voz mais cortante e rebelde do mercado. Projetada para atravessar guitarras distorcidas com parâmetro Growl agressivo.',
+        demoTrack: 'Abyss Overdrive (Industrial Rock)',
+        demoBpm: 150,
+        demoKey: 'Dm',
+        priceBRL: 799,
+        priceUSD: 149,
+        priceJPY: 22500,
+        badge: 'Especialista Rock',
+        phonemes: 'JP Hiragana + Advanced Growl Modeling',
+        systemReq: 'VOCALOID 4/5/6 Editor, 8GB RAM, VST3/AU',
+        colorsPack: ['Standard Heavy', 'Growl Boost', 'Dark Emo']
+      }
+    ];
+
+    // --- 2. MOTOR DE ÁUDIO WEB AUDIO API (SÍNTESE VOCAL REAL EM TEMPO REAL) ---
+    class VocalSynthEngine {
+      constructor() {
+        this.ctx = null;
+        this.masterGain = null;
+        this.analyser = null;
+        this.isPlayingDemo = false;
+        this.currentDemoChar = null;
+        this.demoTimer = null;
+        this.demoStep = 0;
+        this.demoSequence = [];
+        this.isLooping = true;
+        this.activeNodes = [];
+        this.currentVowel = 'A';
+        this.currentChar = 'miku';
+        this.params = {
+          vibrato: 0.45,
+          brightness: 0.70,
+          breath: 0.25,
+          gender: 0
+        };
+        // Formantes das vogais humanas aproximadas em Hz (F1, F2, Ganho relativo)
+        this.vowelFormants = {
+          'A': { f1: 800, f2: 1250, q1: 6, q2: 7 }, // [あ]
+          'I': { f1: 300, f2: 2400, q1: 7, q2: 8 }, // [い]
+          'U': { f1: 350, f2: 950,  q1: 6, q2: 6 }, // [う]
+          'E': { f1: 500, f2: 1900, q1: 6, q2: 7 }, // [え]
+          'O': { f1: 500, f2: 900,  q1: 6, q2: 6 }  // [お]
+        };
+      }
+
+      initContext() {
+        if (!this.ctx) {
+          const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioContextClass();
+          
+          this.masterGain = this.ctx.createGain();
+          this.masterGain.gain.setValueAtTime(0.8, this.ctx.currentTime);
+
+          // Compressor para polimento sonoro
+          this.compressor = this.ctx.createDynamicsCompressor();
+          this.compressor.threshold.setValueAtTime(-16, this.ctx.currentTime);
+          this.compressor.knee.setValueAtTime(10, this.ctx.currentTime);
+          this.compressor.ratio.setValueAtTime(4, this.ctx.currentTime);
+
+          this.analyser = this.ctx.createAnalyser();
+          this.analyser.fftSize = 64;
+
+          this.masterGain.connect(this.compressor);
+          this.compressor.connect(this.analyser);
+          this.analyser.connect(this.ctx.destination);
+        }
+        if (this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+      }
+
+      // Converte nota (ex: C4, A4) em Hertz
+      noteToFreq(note) {
+        const notes = {
+          'C4': 261.63, 'Cs4': 277.18, 'D4': 293.66, 'Ds4': 311.13,
+          'E4': 329.63, 'F4': 349.23, 'Fs4': 369.99, 'G4': 392.00,
+          'Gs4': 415.30, 'A4': 440.00, 'As4': 466.16, 'B4': 493.88,
+          'C5': 523.25, 'Cs5': 554.37, 'D5': 587.33
+        };
+        return notes[note] || 440.0;
+      }
+
+      // Toca uma nota vocal com formantes (usado pelo teclado virtual e frases)
+      playVocalNote(freq, duration = 0.5, charId = null, vowelKey = null) {
+        this.initContext();
+        const now = this.ctx.currentTime;
+        const char = charId || this.currentChar;
+        const vowel = vowelKey || this.currentVowel;
+        const formant = this.vowelFormants[vowel] || this.vowelFormants['A'];
+
+        // Ajuste de timbre baseado no personagem e gender factor
+        let genderShift = 1.0;
+        let mainType = 'sawtooth';
+        if (char === 'miku') { genderShift = 1.08; mainType = 'sawtooth'; }
+        else if (char === 'rin') { genderShift = 1.12; mainType = 'sawtooth'; }
+        else if (char === 'luka') { genderShift = 0.94; mainType = 'sawtooth'; }
+        else if (char === 'teto') { genderShift = 1.15; mainType = 'square'; }
+        else if (char === 'ia') { genderShift = 1.02; mainType = 'sawtooth'; }
+        else if (char === 'kaito') { genderShift = 0.80; freq *= 0.5; }
+
+        genderShift += (this.params.gender / 200);
+
+        // 1. Oscilador Principal da Voz
+        const osc = this.ctx.createOscillator();
+        osc.type = mainType;
+        osc.frequency.setValueAtTime(freq, now);
+
+        // 2. LFO de Vibrato Vocal Realista
+        const lfo = this.ctx.createOscillator();
+        const lfoGain = this.ctx.createGain();
+        lfo.frequency.setValueAtTime(5.4, now); // 5.4 Hz vibrato humano
+        const vibratoAmount = freq * 0.02 * this.params.vibrato;
+        lfoGain.gain.setValueAtTime(0, now);
+        // Ramp de entrada de vibrato natural após 100ms
+        lfoGain.gain.linearRampToValueAtTime(vibratoAmount, now + 0.15);
+        lfo.connect(osc.frequency);
+        lfo.start(now);
+        lfo.stop(now + duration + 0.1);
+
+        // 3. Filtros Biquad em Paralelo para Formantes F1 e F2 (Boca/Garganta)
+        const filterF1 = this.ctx.createBiquadFilter();
+        filterF1.type = 'bandpass';
+        filterF1.frequency.setValueAtTime(formant.f1 * genderShift, now);
+        filterF1.Q.setValueAtTime(formant.q1, now);
+
+        const filterF2 = this.ctx.createBiquadFilter();
+        filterF2.type = 'bandpass';
+        filterF2.frequency.setValueAtTime(formant.f2 * genderShift, now);
+        filterF2.Q.setValueAtTime(formant.q2, now);
+
+        // 4. Filtro Lowpass de Brilho Geral
+        const brightnessFilter = this.ctx.createBiquadFilter();
+        brightnessFilter.type = 'lowpass';
+        brightnessFilter.frequency.setValueAtTime(2000 + (this.params.brightness * 6000), now);
+
+        // 5. Envelope de Volume Vocal (Attack / Decay / Sustain / Release)
+        const vocalGain = this.ctx.createGain();
+        vocalGain.gain.setValueAtTime(0.0001, now);
+        vocalGain.gain.linearRampToValueAtTime(0.35, now + 0.04);
+        vocalGain.gain.setValueAtTime(0.30, now + duration * 0.7);
+        vocalGain.gain.exponentialRampToValueAtTime(0.0001, now + duration + 0.12);
+
+        // Conexão dos nós
+        osc.connect(filterF1);
+        osc.connect(filterF2);
+        filterF1.connect(brightnessFilter);
+        filterF2.connect(brightnessFilter);
+        brightnessFilter.connect(vocalGain);
+        vocalGain.connect(this.masterGain);
+
+        osc.start(now);
+        osc.stop(now + duration + 0.12);
+
+        return { osc, vocalGain };
+      }
+
+      // Toca um bumbo sintético para a batida da demo
+      playKick(time) {
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.frequency.setValueAtTime(140, time);
+        osc.frequency.exponentialRampToValueAtTime(38, time + 0.08);
+        gain.gain.setValueAtTime(0.5, time);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.12);
+        osc.connect(gain);
+        gain.connect(this.masterGain);
+        osc.start(time);
+        osc.stop(time + 0.12);
+      }
+
+      // Toca uma caixa sintética (snare noise)
+      playSnare(time) {
+        const noiseBuffer = this.ctx.createBuffer(1, this.ctx.sampleRate * 0.1, this.ctx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < noiseBuffer.length; i++) {
+          output[i] = Math.random() * 2 - 1;
+        }
+        const whiteNoise = this.ctx.createBufferSource();
+        whiteNoise.buffer = noiseBuffer;
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(1400, time);
+        const gain = this.ctx.createGain();
+        gain.gain.setValueAtTime(0.25, time);
+        gain.gain.exponentialRampToValueAtTime(0.001, time + 0.1);
+        whiteNoise.connect(filter);
+        filter.connect(gain);
+        gain.connect(this.masterGain);
+        whiteNoise.start(time);
+        whiteNoise.stop(time + 0.1);
+      }
+
+      // Gera arranjo melódico completo para demonstração de cada personagem
+      startDemo(charId) {
+        this.initContext();
+        this.stopDemo();
+        this.isPlayingDemo = true;
+        this.currentDemoChar = charId;
+
+        // Composição melódica única para cada personagem
+        const melodies = {
+          miku: [
+            { note: 'D4', dur: 0.25, vowel: 'A' },
+            { note: 'F4', dur: 0.25, vowel: 'I' },
+            { note: 'G4', dur: 0.25, vowel: 'E' },
+            { note: 'A4', dur: 0.5,  vowel: 'A' },
+            { note: 'C5', dur: 0.35, vowel: 'O' },
+            { note: 'D5', dur: 0.6,  vowel: 'A' },
+            { note: 'C5', dur: 0.25, vowel: 'I' },
+            { note: 'A4', dur: 0.45, vowel: 'U' }
+          ],
+          'rin-len': [
+            { note: 'E4', dur: 0.2, vowel: 'E' },
+            { note: 'E4', dur: 0.2, vowel: 'E' },
+            { note: 'G4', dur: 0.3, vowel: 'A' },
+            { note: 'A4', dur: 0.3, vowel: 'O' },
+            { note: 'B4', dur: 0.6, vowel: 'A' },
+            { note: 'A4', dur: 0.3, vowel: 'I' },
+            { note: 'G4', dur: 0.5, vowel: 'E' }
+          ],
+          luka: [
+            { note: 'A4', dur: 0.5, vowel: 'O' },
+            { note: 'C5', dur: 0.5, vowel: 'U' },
+            { note: 'B4', dur: 0.6, vowel: 'A' },
+            { note: 'G4', dur: 0.4, vowel: 'E' },
+            { note: 'E4', dur: 0.8, vowel: 'I' }
+          ],
+          teto: [
+            { note: 'C4', dur: 0.15, vowel: 'A' },
+            { note: 'E4', dur: 0.15, vowel: 'A' },
+            { note: 'G4', dur: 0.15, vowel: 'A' },
+            { note: 'C5', dur: 0.3,  vowel: 'I' },
+            { note: 'B4', dur: 0.15, vowel: 'E' },
+            { note: 'G4', dur: 0.15, vowel: 'O' },
+            { note: 'A4', dur: 0.4,  vowel: 'A' }
+          ],
+          ia: [
+            { note: 'F4', dur: 0.6, vowel: 'A' },
+            { note: 'A4', dur: 0.6, vowel: 'I' },
+            { note: 'C5', dur: 0.8, vowel: 'U' },
+            { note: 'E5', dur: 1.0, vowel: 'A' }
+          ],
+          gumi: [
+            { note: 'G4', dur: 0.3, vowel: 'A' },
+            { note: 'B4', dur: 0.3, vowel: 'I' },
+            { note: 'D5', dur: 0.5, vowel: 'O' },
+            { note: 'C5', dur: 0.4, vowel: 'E' },
+            { note: 'A4', dur: 0.5, vowel: 'A' }
+          ],
+          kaito: [
+            { note: 'C4', dur: 0.6, vowel: 'O' },
+            { note: 'E4', dur: 0.6, vowel: 'U' },
+            { note: 'G4', dur: 0.8, vowel: 'A' },
+            { note: 'F4', dur: 0.7, vowel: 'E' }
+          ],
+          vflower: [
+            { note: 'D4', dur: 0.25, vowel: 'A' },
+            { note: 'D4', dur: 0.25, vowel: 'A' },
+            { note: 'F4', dur: 0.35, vowel: 'O' },
+            { note: 'G4', dur: 0.4,  vowel: 'E' },
+            { note: 'A4', dur: 0.7,  vowel: 'A' }
+          ]
+        };
+
+        const sequence = melodies[charId] || melodies.miku;
+        let step = 0;
+        let stepCount = 0;
+
+        const loopMusic = () => {
+          if (!this.isPlayingDemo) return;
+          const current = sequence[step % sequence.length];
+          const freq = this.noteToFreq(current.note);
+          
+          // Toca nota da voz
+          this.playVocalNote(freq, current.dur, charId, current.vowel);
+
+          // Toca bateria rítmica de acompanhamento
+          const now = this.ctx.currentTime;
+          if (stepCount % 2 === 0) {
+            this.playKick(now);
+          } else {
+            this.playSnare(now);
+          }
+
+          step++;
+          stepCount++;
+          const nextInterval = current.dur * 1000 * 0.9;
+          this.demoTimer = setTimeout(loopMusic, nextInterval);
+        };
+
+        loopMusic();
+      }
+
+      stopDemo() {
+        this.isPlayingDemo = false;
+        if (this.demoTimer) {
+          clearTimeout(this.demoTimer);
+          this.demoTimer = null;
+        }
+      }
+    }
+
+    // --- 3. CONTROLE GERAL DA APLICAÇÃO (STORE FRONTEND) ---
+    class VocalVaultStore {
+      constructor() {
+        this.synth = new VocalSynthEngine();
+        this.cart = [];
+        this.currency = 'BRL';
+        this.currentFilter = 'todos';
+        this.searchQuery = '';
+        this.activeDemoId = null;
+        this.appliedDiscount = 0; // 0.39 para 39%
+        this.isLoop = true;
+        this.currencyRates = {
+          BRL: { symbol: 'R$', rate: 1, suffix: ',00' },
+          USD: { symbol: '$', rate: 0.188, suffix: '.00' },
+          JPY: { symbol: '¥', rate: 28.3, suffix: '' }
+        };
+      }
+
+
+      // Sistema de Scroll, Progress Bar & Reveal Transitions (Forma Style)
+      setupScrollTransitions() {
+        document.documentElement.classList.add('js');
+        const progressBar = document.getElementById('page-progress');
+        const headerEl = document.querySelector('header.sticky');
+
+        window.addEventListener('scroll', () => {
+          const scrollY = window.scrollY || window.pageYOffset;
+          const total = document.documentElement.scrollHeight - window.innerHeight;
+          if (progressBar) {
+            const p = Math.max(0, Math.min(1, scrollY / Math.max(1, total)));
+            progressBar.style.transform = 'scaleX(' + p + ')';
+          }
+          if (headerEl) {
+            if (scrollY > 30) {
+              headerEl.classList.add('scrolled');
+            } else {
+              headerEl.classList.remove('scrolled');
+            }
+          }
+        }, { passive: true });
+
+        if ('IntersectionObserver' in window) {
+          window.revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                window.revealObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.08 });
+
+          document.querySelectorAll('[data-reveal]').forEach(el => window.revealObserver.observe(el));
+        } else {
+          document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
+        }
+      }
+
+      init() {
+        this.setupScrollTransitions();
+        this.renderCatalog();
+        this.setupVisualizerCanvases();
+        this.setupKeyboardListeners();
+        this.setupCountdown();
+        this.updateCartUI();
+        lucide.createIcons();
+      }
+
+      // Renderiza os Cards no Grid do Catálogo
+      renderCatalog() {
+        const grid = document.getElementById('character-grid');
+        const noResults = document.getElementById('no-results');
+        if (!grid) return;
+
+        const filtered = VOCAL_CHARACTERS.filter(item => {
+          const matchCat = this.currentFilter === 'todos' || item.category.includes(this.currentFilter);
+          const matchSearch = !this.searchQuery || 
+            item.name.toLowerCase().includes(this.searchQuery) ||
+            item.jpName.toLowerCase().includes(this.searchQuery) ||
+            item.engine.toLowerCase().includes(this.searchQuery) ||
+            item.description.toLowerCase().includes(this.searchQuery);
+          return matchCat && matchSearch;
+        });
+
+        if (filtered.length === 0) {
+          grid.innerHTML = '';
+          noResults.classList.remove('hidden');
+          return;
+        } else {
+          noResults.classList.add('hidden');
+        }
+
+        grid.innerHTML = filtered.map((c, index) => {
+          const priceFormatted = this.formatPrice(c.priceBRL);
+          const isPlayingThis = this.activeDemoId === c.id;
+
+          return `
+            <div data-reveal data-reveal-delay="${(index % 6) + 1}" class="cyber-panel rounded-2xl p-5 border-white/10 hover:border-cyan-400/50 flex flex-col justify-between group hover:-translate-y-1 relative" style="border-top: 3px solid ${c.color};">
+              
+              <!-- Tag Superior & Código -->
+              <div class="flex items-center justify-between mb-3 text-xs font-mono">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${c.colorBadge}">
+                  ${c.code}
+                </span>
+                <span class="text-[10px] text-slate-400 bg-white/5 px-2 py-0.5 rounded">
+                  ${c.engine}
+                </span>
+              </div>
+
+              <!-- Arte Minimalista do Personagem com Sigla -->
+              <div class="relative h-32 rounded-xl bg-gradient-to-b from-slate-900 to-black p-3 mb-4 flex items-center justify-center overflow-hidden border border-white/5">
+                <div class="absolute inset-0 opacity-20 pointer-events-none" style="background: radial-gradient(circle at center, ${c.color} 0%, transparent 70%);"></div>
+                
+                <div class="text-center space-y-1 relative z-10">
+                  <div class="font-cyber font-black text-3xl tracking-widest text-white/90 group-hover:scale-110 transition-transform duration-300">
+                    ${c.code}
+                  </div>
+                  <div class="font-jp text-xs text-slate-400">${c.jpName}</div>
+                </div>
+
+                <!-- Botão Flutuante de Play Rápido da Demo -->
+                <button 
+                  onclick="window.vocalStore.togglePreview('${c.id}')"
+                  class="absolute bottom-2.5 right-2.5 w-10 h-10 rounded-full flex items-center justify-center transition-all ${isPlayingThis ? 'bg-cyber-miku text-slate-950 scale-105 shadow-lg shadow-cyan-400/50' : 'bg-white/10 hover:bg-white/20 text-white'}"
+                  title="Ouvir Demo"
+                >
+                  <i data-lucide="${isPlayingThis ? 'pause' : 'play'}" class="w-4 h-4 fill-current"></i>
+                </button>
+              </div>
+
+              <!-- Informações Textuais -->
+              <div class="space-y-1.5 flex-1">
+                <div class="flex items-center justify-between">
+                  <h3 class="text-base font-bold text-white font-display group-hover:text-cyan-300 transition-colors">${c.name}</h3>
+                </div>
+                <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">
+                  ${c.description}
+                </p>
+                
+                <div class="pt-2 flex items-center justify-between text-[11px] font-mono text-slate-400 border-t border-white/5 mt-2">
+                  <span>Alcance: <strong class="text-slate-200">${c.range}</strong></span>
+                  <span>BPM: <strong class="text-slate-200">${c.bpm}</strong></span>
+                </div>
+              </div>
+
+              <!-- Ações e Preço Inferior -->
+              <div class="pt-4 mt-3 border-t border-white/10 flex items-center justify-between">
+                <div>
+                  <div class="text-[9px] uppercase font-mono text-slate-500">Acesso Antecipado</div>
+                  <div class="text-base font-mono font-bold text-white">${priceFormatted}</div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                  <button onclick="window.vocalStore.openSpecModal('${c.id}')" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors" title="Ficha Técnica">
+                    <i data-lucide="info" class="w-4 h-4"></i>
+                  </button>
+
+                  <button onclick="window.vocalStore.addToCart('${c.id}')" class="px-3 py-2 rounded-xl bg-cyan-400/20 hover:bg-cyan-400 hover:text-slate-950 text-cyan-300 font-mono text-xs font-bold border border-cyan-400/30 transition-all flex items-center gap-1 shadow-sm">
+                    <i data-lucide="plus" class="w-3.5 h-3.5"></i>
+                    Reservar
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          `;
+        }).join('');
+
+        lucide.createIcons();
+        if (window.revealObserver) {
+          grid.querySelectorAll('[data-reveal]').forEach(el => window.revealObserver.observe(el));
+        } else {
+          grid.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
+        }
+      }
+
+      // Alterna categoria de filtro
+      filterCategory(cat) {
+        this.currentFilter = cat;
+        document.querySelectorAll('.filter-tab').forEach(btn => {
+          if (btn.dataset.category === cat) {
+            btn.className = 'filter-tab active pill copper text-xs font-bold transition-all shadow-md';
+          } else {
+            btn.className = 'filter-tab pill text-xs text-slate-300 hover:text-white transition-all border border-white/10';
+          }
+        });
+        this.renderCatalog();
+      }
+
+      // Busca em tempo real
+      handleSearch(query) {
+        this.searchQuery = query.toLowerCase().trim();
+        this.renderCatalog();
+      }
+
+      // Formatação dinâmica de preços por moeda selecionada
+      formatPrice(baseBRL) {
+        const cur = this.currencyRates[this.currency];
+        if (this.currency === 'BRL') {
+          return `R$ ${baseBRL}${cur.suffix}`;
+        } else if (this.currency === 'USD') {
+          const val = Math.round(baseBRL * cur.rate);
+          return `$ ${val}${cur.suffix}`;
+        } else if (this.currency === 'JPY') {
+          const val = Math.round(baseBRL * cur.rate);
+          return `¥ ${val.toLocaleString()}`;
+        }
+      }
+
+      changeCurrency(newCur) {
+        this.currency = newCur;
+        this.renderCatalog();
+        this.updateCartUI();
+        const heroTag = document.getElementById('hero-price-tag');
+        if (heroTag) {
+          heroTag.innerText = this.formatPrice(899);
+        }
+        this.showToast(`Moeda alterada para ${newCur}`);
+      }
+
+      // Toca ou pausa a demonstração sonora do Voicebank
+      togglePreview(charId) {
+        if (this.activeDemoId === charId && this.synth.isPlayingDemo) {
+          this.stopPreview();
+        } else {
+          this.playPreview(charId);
+        }
+      }
+
+      playPreview(charId) {
+        const char = VOCAL_CHARACTERS.find(c => c.id === charId);
+        if (!char) return;
+
+        this.activeDemoId = charId;
+        this.synth.startDemo(charId);
+
+        // Atualiza Hero Player se for Miku
+        const heroPlayBtn = document.getElementById('hero-play-btn');
+        const heroPlayText = document.getElementById('hero-play-text');
+        const heroStatus = document.getElementById('hero-audio-status');
+        if (charId === 'miku') {
+          if (heroPlayText) heroPlayText.innerText = 'Pausar Demo "Starlight"';
+          if (heroStatus) heroStatus.innerText = 'Reproduzindo V6 AI';
+        }
+
+        // Abre o dock de áudio inferior
+        this.updateBottomPlayer(char);
+        this.renderCatalog();
+        this.showToast(`Tocando demo de ${char.name}`);
+      }
+
+      stopPreview() {
+        this.synth.stopDemo();
+        this.activeDemoId = null;
+
+        const heroPlayText = document.getElementById('hero-play-text');
+        const heroStatus = document.getElementById('hero-audio-status');
+        if (heroPlayText) heroPlayText.innerText = 'Ouvir Demo "Starlight Pop"';
+        if (heroStatus) heroStatus.innerText = 'Pronto para Tocar';
+
+        const bottomPlayer = document.getElementById('bottom-player');
+        if (bottomPlayer) {
+          const icon = document.getElementById('player-play-icon');
+          if (icon) icon.setAttribute('data-lucide', 'play');
+          lucide.createIcons();
+        }
+        this.renderCatalog();
+      }
+
+      // Dock de áudio global inferior
+      updateBottomPlayer(char) {
+        const bottom = document.getElementById('bottom-player');
+        if (!bottom) return;
+
+        bottom.classList.remove('translate-y-full');
+        document.getElementById('player-char-name').innerText = char.name;
+        document.getElementById('player-badge').innerText = char.code;
+        document.getElementById('player-track-name').innerText = `Demo: "${char.demoTrack}"`;
+        document.getElementById('player-avatar').innerHTML = `
+          <span class="font-cyber font-bold text-xs" style="color: ${char.color}">${char.code}</span>
+        `;
+        const icon = document.getElementById('player-play-icon');
+        if (icon) icon.setAttribute('data-lucide', 'pause');
+        lucide.createIcons();
+      }
+
+      toggleBottomPlay() {
+        if (this.synth.isPlayingDemo) {
+          this.stopPreview();
+        } else if (this.activeDemoId) {
+          this.playPreview(this.activeDemoId);
+        } else {
+          this.playPreview('miku');
+        }
+      }
+
+      closeBottomPlayer() {
+        this.stopPreview();
+        const bottom = document.getElementById('bottom-player');
+        if (bottom) bottom.classList.add('translate-y-full');
+      }
+
+      previousTrack() {
+        const index = VOCAL_CHARACTERS.findIndex(c => c.id === this.activeDemoId);
+        const nextIndex = (index <= 0) ? VOCAL_CHARACTERS.length - 1 : index - 1;
+        this.playPreview(VOCAL_CHARACTERS[nextIndex].id);
+      }
+
+      nextTrack() {
+        const index = VOCAL_CHARACTERS.findIndex(c => c.id === this.activeDemoId);
+        const nextIndex = (index >= VOCAL_CHARACTERS.length - 1) ? 0 : index + 1;
+        this.playPreview(VOCAL_CHARACTERS[nextIndex].id);
+      }
+
+      toggleLoop() {
+        this.isLoop = !this.isLoop;
+        const btn = document.getElementById('player-loop-btn');
+        if (this.isLoop) {
+          btn.className = 'text-cyan-300 hover:text-white transition-colors text-xs font-mono flex items-center gap-1 ml-2';
+          this.showToast('Modo Loop ATIVADO');
+        } else {
+          btn.className = 'text-slate-500 hover:text-white transition-colors text-xs font-mono flex items-center gap-1 ml-2';
+          this.showToast('Modo Loop DESATIVADO');
+        }
+      }
+
+      setMasterVolume(val) {
+        if (this.synth.masterGain) {
+          this.synth.masterGain.gain.setValueAtTime(val / 100, this.synth.ctx.currentTime);
+        }
+      }
+
+      seekAudio(event) {
+        this.showToast('Sincronização MIDI neural em tempo real!');
+      }
+
+      // --- MINI-STUDIO INTERATIVO (TECLADO DE PIANO) ---
+      setSynthCharacter(charId) {
+        this.synth.currentChar = charId;
+        document.querySelectorAll('.synth-char-btn').forEach(btn => {
+          if (btn.dataset.char === charId) {
+            btn.className = 'synth-char-btn active px-2.5 py-2 rounded-xl text-xs font-bold bg-cyan-400 text-slate-950 flex flex-col items-center gap-1 border border-cyan-400 shadow-md transition-all';
+          } else {
+            btn.className = 'synth-char-btn px-2.5 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 flex flex-col items-center gap-1 border border-white/10 transition-all';
+          }
+        });
+        const charObj = VOCAL_CHARACTERS.find(c => c.id === charId) || { name: charId.toUpperCase() };
+        document.getElementById('synth-char-badge').innerText = `${charObj.name.toUpperCase()}`;
+        this.synth.playVocalNote(this.synth.noteToFreq('A4'), 0.3);
+      }
+
+      setSynthVowel(vowelKey) {
+        this.synth.currentVowel = vowelKey;
+        document.querySelectorAll('.synth-vowel-btn').forEach(btn => {
+          if (btn.dataset.vowel === vowelKey) {
+            btn.className = 'synth-vowel-btn active py-2 rounded-xl text-xs font-bold font-mono bg-fuchsia-500 text-white border border-fuchsia-400 shadow-md transition-all';
+          } else {
+            btn.className = 'synth-vowel-btn py-2 rounded-xl text-xs font-bold font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all';
+          }
+        });
+        const labels = { 'A': 'あ [A]', 'I': 'い [I]', 'U': 'う [U]', 'E': 'え [E]', 'O': 'お [O]' };
+        document.getElementById('synth-vowel-badge').innerText = labels[vowelKey] || vowelKey;
+        this.synth.playVocalNote(this.synth.noteToFreq('C4'), 0.3);
+      }
+
+      updateSynthParam(param, value) {
+        if (param === 'vibrato') {
+          this.synth.params.vibrato = value / 100;
+          document.getElementById('label-vibrato').innerText = `${value}%`;
+        } else if (param === 'brightness') {
+          this.synth.params.brightness = value / 100;
+          document.getElementById('label-brightness').innerText = `${value}%`;
+        } else if (param === 'breath') {
+          this.synth.params.breath = value / 100;
+          document.getElementById('label-breath').innerText = `${value}%`;
+        } else if (param === 'gender') {
+          this.synth.params.gender = parseInt(value);
+          const text = value > 0 ? `+${value} (Feminino)` : value < 0 ? `${value} (Masculino)` : 'Padrão';
+          document.getElementById('label-gender').innerText = text;
+        }
+      }
+
+      triggerKey(note) {
+        const freq = this.synth.noteToFreq(note);
+        this.synth.playVocalNote(freq, 0.45);
+        
+        // Efeito visual na tecla
+        const keyEl = document.querySelector(`[data-note="${note}"]`);
+        if (keyEl) {
+          keyEl.classList.add('active');
+          setTimeout(() => keyEl.classList.remove('active'), 250);
+        }
+
+        const hzDisplay = document.getElementById('synth-hz-display');
+        if (hzDisplay) {
+          hzDisplay.innerText = `${note} (${Math.round(freq)} Hz)`;
+        }
+      }
+
+      playDemoPhrase() {
+        const phrase = [
+          { note: 'C4', dur: 0.25, v: 'A' },
+          { note: 'E4', dur: 0.25, v: 'I' },
+          { note: 'G4', dur: 0.25, v: 'U' },
+          { note: 'C5', dur: 0.5,  v: 'A' },
+          { note: 'B4', dur: 0.25, v: 'E' },
+          { note: 'G4', dur: 0.4,  v: 'O' }
+        ];
+        let delay = 0;
+        phrase.forEach(item => {
+          setTimeout(() => {
+            this.setSynthVowel(item.v);
+            this.triggerKey(item.note);
+          }, delay);
+          delay += item.dur * 1000;
+        });
+      }
+
+      setupKeyboardListeners() {
+        const keyMap = {
+          'a': 'C4', 'w': 'Cs4', 's': 'D4', 'e': 'Ds4', 'd': 'E4',
+          'f': 'F4', 't': 'Fs4', 'g': 'G4', 'y': 'Gs4', 'h': 'A4',
+          'u': 'As4', 'j': 'B4', 'k': 'C5'
+        };
+
+        window.addEventListener('keydown', (e) => {
+          // Evita tocar piano se estiver digitando em um input
+          if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) return;
+          const note = keyMap[e.key.toLowerCase()];
+          if (note) {
+            e.preventDefault();
+            this.triggerKey(note);
+          }
+        });
+      }
+
+      // --- VISUALIZADORES CANVAS (ESPECTROGRAMA & OSCILOSCÓPIO) ---
+      setupVisualizerCanvases() {
+        const heroCanvas = document.getElementById('hero-spectrogram');
+        const synthCanvas = document.getElementById('synth-oscilloscope');
+        const miniCanvas = document.getElementById('mini-player-spectrogram');
+
+        const drawLoop = () => {
+          requestAnimationFrame(drawLoop);
+
+          // Dados do Analyser se o áudio estiver iniciado
+          let freqData = new Uint8Array(32);
+          if (this.synth.analyser) {
+            this.synth.analyser.getByteFrequencyData(freqData);
+          } else {
+            // Standby noise sutil
+            for (let i = 0; i < 32; i++) {
+              freqData[i] = Math.sin(Date.now() * 0.003 + i * 0.5) * 8 + 10;
+            }
+          }
+
+          // 1. Renderiza Hero Spectrogram
+          if (heroCanvas) {
+            const ctx = heroCanvas.getContext('2d');
+            ctx.clearRect(0, 0, heroCanvas.width, heroCanvas.height);
+            const barWidth = (heroCanvas.width / 24);
+            for (let i = 0; i < 24; i++) {
+              const val = freqData[i] || 10;
+              const barHeight = (val / 255) * (heroCanvas.height * 0.85);
+              const grad = ctx.createLinearGradient(0, heroCanvas.height, 0, 0);
+              grad.addColorStop(0, '#e8ab7e');
+              grad.addColorStop(0.7, '#f2c49f');
+              grad.addColorStop(1, '#d88e56');
+              ctx.fillStyle = grad;
+              ctx.fillRect(i * barWidth + 2, heroCanvas.height - barHeight - 4, barWidth - 3, barHeight + 4);
+            }
+          }
+
+          // 2. Renderiza Synth Oscilloscope
+          if (synthCanvas) {
+            const ctx = synthCanvas.getContext('2d');
+            ctx.clearRect(0, 0, synthCanvas.width, synthCanvas.height);
+            ctx.beginPath();
+            ctx.strokeStyle = '#e8ab7e';
+            ctx.lineWidth = 2;
+            const slice = synthCanvas.width / 32;
+            for (let i = 0; i < 32; i++) {
+              const val = (freqData[i] / 255) * 40;
+              const y = (synthCanvas.height / 2) + Math.sin(i * 0.4 + Date.now() * 0.01) * (val + 2);
+              if (i === 0) ctx.moveTo(0, y);
+              else ctx.lineTo(i * slice, y);
+            }
+            ctx.stroke();
+          }
+
+          // 3. Renderiza Mini Player Spectrogram
+          if (miniCanvas) {
+            const ctx = miniCanvas.getContext('2d');
+            ctx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
+            ctx.fillStyle = '#e8ab7e';
+            for (let i = 0; i < 16; i++) {
+              const h = (freqData[i] / 255) * miniCanvas.height;
+              ctx.fillRect(i * 7, miniCanvas.height - h, 5, h);
+            }
+          }
+        };
+
+        drawLoop();
+      }
+
+      // --- CARRINHO DE PRÉ-VENDA & CHECKOUT ---
+      addToCart(charId) {
+        const char = VOCAL_CHARACTERS.find(c => c.id === charId);
+        if (!char) return;
+
+        const exists = this.cart.find(i => i.id === charId);
+        if (exists) {
+          this.showToast(`${char.name} já está no seu carrinho!`);
+          this.toggleCart(true);
+          return;
+        }
+
+        this.cart.push({
+          id: char.id,
+          name: char.name,
+          code: char.code,
+          engine: char.engine,
+          priceBRL: char.priceBRL,
+          color: char.color
+        });
+
+        this.updateCartUI();
+        this.showToast(`Adicionado: ${char.name}`);
+        this.toggleCart(true);
+      }
+
+      addCurrentPlayingToCart() {
+        if (this.activeDemoId) {
+          this.addToCart(this.activeDemoId);
+        } else {
+          this.addToCart('miku');
+        }
+      }
+
+      removeFromCart(charId) {
+        this.cart = this.cart.filter(i => i.id !== charId);
+        this.updateCartUI();
+        this.showToast('Item removido do carrinho');
+      }
+
+      toggleCart(open) {
+        const drawer = document.getElementById('cart-drawer');
+        const backdrop = document.getElementById('cart-backdrop');
+        const content = document.getElementById('cart-content');
+        if (!drawer) return;
+
+        if (open) {
+          drawer.classList.remove('pointer-events-none');
+          backdrop.classList.remove('opacity-0', 'pointer-events-none');
+          backdrop.classList.add('opacity-100', 'pointer-events-auto');
+          content.classList.remove('translate-x-full');
+        } else {
+          backdrop.classList.remove('opacity-100', 'pointer-events-auto');
+          backdrop.classList.add('opacity-0', 'pointer-events-none');
+          content.classList.add('translate-x-full');
+          setTimeout(() => drawer.classList.add('pointer-events-none'), 300);
+        }
+      }
+
+      updateCartUI() {
+        const badge = document.getElementById('cart-badge');
+        const headerTotal = document.getElementById('cart-total-header');
+        const itemsCount = document.getElementById('cart-items-count');
+        const container = document.getElementById('cart-items-container');
+        const subtotalEl = document.getElementById('cart-subtotal');
+        const discountRow = document.getElementById('cart-discount-row');
+        const discountEl = document.getElementById('cart-discount');
+        const totalEl = document.getElementById('cart-total');
+
+        if (badge) badge.innerText = this.cart.length;
+        if (itemsCount) itemsCount.innerText = `${this.cart.length} itens`;
+
+        // Cálculo de Subtotal em BRL
+        const subtotalBRL = this.cart.reduce((sum, item) => sum + item.priceBRL, 0);
+        const discountBRL = subtotalBRL * this.appliedDiscount;
+        const totalBRL = Math.max(0, subtotalBRL - discountBRL);
+
+        if (headerTotal) headerTotal.innerText = this.formatPrice(totalBRL);
+        if (subtotalEl) subtotalEl.innerText = this.formatPrice(subtotalBRL);
+
+        if (this.appliedDiscount > 0 && discountRow && discountEl) {
+          discountRow.classList.remove('hidden');
+          discountEl.innerText = `- ${this.formatPrice(discountBRL)}`;
+        } else if (discountRow) {
+          discountRow.classList.add('hidden');
+        }
+
+        if (totalEl) totalEl.innerText = this.formatPrice(totalBRL);
+
+        // Lista de Itens no Carrinho
+        if (!container) return;
+        if (this.cart.length === 0) {
+          container.innerHTML = `
+            <div class="text-center py-12 text-slate-500 space-y-2">
+              <i data-lucide="shopping-bag" class="w-10 h-10 mx-auto text-slate-600"></i>
+              <p class="text-xs font-mono">Seu carrinho de pré-venda está vazio.</p>
+            </div>
+          `;
+        } else {
+          container.innerHTML = this.cart.map(item => `
+            <div class="bg-black/40 border border-white/10 rounded-xl p-3.5 flex items-center justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-lg bg-slate-900 border border-white/15 flex items-center justify-center font-cyber font-bold text-xs" style="color: ${item.color}">
+                  ${item.code}
+                </div>
+                <div>
+                  <div class="text-xs font-bold text-white">${item.name}</div>
+                  <div class="text-[10px] text-slate-400 font-mono">${item.engine} • Licença Digital VIP</div>
+                </div>
+              </div>
+              <div class="text-right">
+                <div class="text-xs font-bold font-mono text-cyan-300">${this.formatPrice(item.priceBRL)}</div>
+                <button onclick="window.vocalStore.removeFromCart('${item.id}')" class="text-[10px] text-rose-400 hover:underline">
+                  Remover
+                </button>
+              </div>
+            </div>
+          `).join('');
+        }
+        lucide.createIcons();
+      }
+
+      applyCoupon() {
+        const input = document.getElementById('coupon-input');
+        const alertBox = document.getElementById('coupon-alert');
+        if (!input) return;
+
+        const code = input.value.trim().toUpperCase();
+        if (code === 'MIKU39') {
+          this.appliedDiscount = 0.39; // 39% de desconto (39 = San-Kyuu / Miku)
+          if (alertBox) alertBox.classList.remove('hidden');
+          this.updateCartUI();
+          this.showToast('🎉 Parabéns! 39% de desconto MIKU39 aplicado!');
+        } else {
+          this.showToast('Cupom inválido. Tente usar MIKU39');
+        }
+      }
+
+      checkout() {
+        if (this.cart.length === 0) {
+          this.showToast('Adicione ao menos 1 Voicebank para reservar!');
+          return;
+        }
+
+        // Abre modal de confirmação de sucesso
+        this.toggleCart(false);
+        const modal = document.getElementById('success-modal');
+        const itemsList = document.getElementById('success-items-list');
+        const serialEl = document.getElementById('generated-serial-key');
+
+        if (itemsList) {
+          itemsList.innerText = this.cart.map(i => i.name).join(', ');
+        }
+        if (serialEl) {
+          const randHex = Math.random().toString(36).substring(2, 7).toUpperCase();
+          serialEl.innerText = `VOCAL-V6AI-${randHex}-VIP39`;
+        }
+
+        if (modal) modal.classList.remove('hidden');
+      }
+
+      closeSuccessModal() {
+        const modal = document.getElementById('success-modal');
+        if (modal) modal.classList.add('hidden');
+        this.cart = [];
+        this.updateCartUI();
+        this.showToast('Reserva concluída! Verifique seu e-mail.');
+      }
+
+      // --- MODAL DE FICHA TÉCNICA (ESPECIFICAÇÕES) ---
+      openSpecModal(charId) {
+        const char = VOCAL_CHARACTERS.find(c => c.id === charId);
+        if (!char) return;
+
+        const content = document.getElementById('spec-modal-content');
+        if (!content) return;
+
+        content.innerHTML = `
+          <div class="space-y-6">
+            <div class="flex items-center gap-4 pb-4 border-b border-white/10">
+              <div class="w-16 h-16 rounded-2xl bg-slate-900 border border-white/20 flex items-center justify-center font-cyber font-black text-xl" style="color: ${char.color}">
+                ${char.code}
+              </div>
+              <div>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded ${char.colorBadge}">${char.engine}</span>
+                <h3 class="text-xl font-bold text-white font-display mt-1">${char.name}</h3>
+                <p class="text-xs text-slate-400 font-jp">${char.jpName} • Voice Provider: ${char.provider}</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
+              <div class="bg-black/40 p-3 rounded-xl border border-white/10">
+                <div class="text-[10px] text-slate-400 font-mono">BPM Sugerido</div>
+                <div class="text-sm font-bold text-white font-mono mt-0.5">${char.bpm}</div>
+              </div>
+              <div class="bg-black/40 p-3 rounded-xl border border-white/10">
+                <div class="text-[10px] text-slate-400 font-mono">Alcance Vocal</div>
+                <div class="text-sm font-bold text-white font-mono mt-0.5">${char.range}</div>
+              </div>
+              <div class="bg-black/40 p-3 rounded-xl border border-white/10">
+                <div class="text-[10px] text-slate-400 font-mono">Motor Principal</div>
+                <div class="text-sm font-bold text-cyan-300 font-mono mt-0.5">${char.engine.split(' ')[0]}</div>
+              </div>
+              <div class="bg-black/40 p-3 rounded-xl border border-white/10">
+                <div class="text-[10px] text-slate-400 font-mono">Reserva Prévia</div>
+                <div class="text-sm font-bold text-emerald-400 font-mono mt-0.5">${this.formatPrice(char.priceBRL)}</div>
+              </div>
+            </div>
+
+            <div class="space-y-2">
+              <h4 class="text-xs font-bold text-white uppercase font-mono tracking-wider">Cores Vocais Inclusas no Banco:</h4>
+              <div class="flex flex-wrap gap-2">
+                ${char.colorsPack.map(c => `<span class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs text-slate-300 font-mono">✓ ${c}</span>`).join('')}
+              </div>
+            </div>
+
+            <div class="space-y-2 text-xs font-mono">
+              <h4 class="font-bold text-white uppercase tracking-wider">Dicionário de Fonemas:</h4>
+              <p class="text-slate-400 bg-black/40 p-3 rounded-xl border border-white/10">${char.phonemes}</p>
+            </div>
+
+            <div class="space-y-2 text-xs font-mono">
+              <h4 class="font-bold text-white uppercase tracking-wider">Requisitos Mínimos de Sistema:</h4>
+              <p class="text-slate-400 bg-black/40 p-3 rounded-xl border border-white/10">${char.systemReq}</p>
+            </div>
+
+            <div class="pt-4 flex items-center justify-between border-t border-white/10">
+              <button onclick="window.vocalStore.togglePreview('${char.id}')" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold flex items-center gap-2">
+                <i data-lucide="play" class="w-4 h-4"></i>
+                Ouvir Demonstração
+              </button>
+
+              <button onclick="window.vocalStore.addToCart('${char.id}'); window.vocalStore.closeSpecModal();" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyber-miku to-teal-400 text-slate-950 font-mono text-xs font-bold hover:scale-105 transition-all">
+                Reservar Acesso Antecipado
+              </button>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('spec-modal').classList.remove('hidden');
+        lucide.createIcons();
+      }
+
+      closeSpecModal() {
+        const modal = document.getElementById('spec-modal');
+        if (modal) modal.classList.add('hidden');
+      }
+
+      // Newsletter
+      handleNewsletter(e) {
+        e.preventDefault();
+        const email = document.getElementById('newsletter-email').value;
+        this.showToast(`✨ Bônus VIP vinculado ao e-mail ${email}!`);
+        e.target.reset();
+      }
+
+      // Contador de Lançamento
+      setupCountdown() {
+        const targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 4);
+        targetDate.setHours(targetDate.getHours() + 18);
+
+        setInterval(() => {
+          const now = new Date().getTime();
+          const distance = targetDate.getTime() - now;
+          if (distance < 0) return;
+
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          const el = document.getElementById('top-countdown');
+          if (el) {
+            el.innerText = `${String(days).padStart(2, '0')}d ${String(hours).padStart(2, '0')}h ${String(minutes).padStart(2, '0')}m ${String(seconds).padStart(2, '0')}s`;
+          }
+        }, 1000);
+      }
+
+      // Sistema de Toasts Notificações
+      showToast(message) {
+        const container = document.getElementById('toast-container');
+        if (!container) return;
+
+        const toast = document.createElement('div');
+        toast.className = 'bg-cyber-card border border-cyan-400/50 shadow-lg shadow-cyan-400/20 text-white font-mono text-xs py-2.5 px-4 rounded-xl flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto';
+        toast.innerHTML = `
+          <span class="w-2 h-2 rounded-full bg-cyber-miku animate-ping"></span>
+          <span>${message}</span>
+        `;
+        container.appendChild(toast);
+
+        setTimeout(() => {
+          toast.classList.remove('translate-y-2', 'opacity-0');
+        }, 10);
+
+        setTimeout(() => {
+          toast.classList.add('opacity-0', 'translate-y-2');
+          setTimeout(() => toast.remove(), 300);
+        }, 3200);
+      }
+    }
+
+    // Inicialização da Loja Global
+    window.addEventListener('DOMContentLoaded', () => {
+      window.vocalStore = new VocalVaultStore();
+      window.vocalStore.init();
+    });
+  </script>
+
+<script>
+
+    // =========================================================
+    // FORMA ANIMATION ENGINE (3D SCULPTURE & 3D WORD CHOREOGRAPHY)
+    // =========================================================
+    (function initFormaAnimations() {
+      // 1. Text Word Splitter (Forma exact implementation)
+      function splitWords(el, cls) {
+        const walk = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        const nodes = [];
+        while (walk.nextNode()) nodes.push(walk.currentNode);
+        let index = 0;
+        nodes.forEach(node => {
+          const text = node.textContent;
+          if (!text.trim()) return;
+          const frag = document.createDocumentFragment();
+          text.split(/(\s+)/).forEach(word => {
+            if (!word.trim()) {
+              frag.appendChild(document.createTextNode(word));
+            } else {
+              const span = document.createElement('span');
+              span.className = cls;
+              span.style.setProperty('--word-i', index++);
+              span.textContent = word;
+              frag.appendChild(span);
+            }
+          });
+          node.replaceWith(frag);
+        });
+      }
+
+      function setupHeadingTransitions() {
+        const headings = document.querySelectorAll('h1, h2, .section-heading');
+        headings.forEach(el => {
+          el.classList.add('split-enter');
+          splitWords(el, 'reveal-word');
+          // Fix bg-clip-text spans: inherit gradient onto each reveal-word inside them
+          el.querySelectorAll('.reveal-word').forEach(span => {
+            const parent = span.parentElement;
+            if (parent && parent !== el && (parent.style.backgroundImage || parent.classList.contains('bg-gradient-to-r') || parent.classList.toString().includes('bg-gradient'))) {
+              // Copy gradient styles down so bg-clip-text still works
+              const cs = getComputedStyle(parent);
+              span.style.backgroundImage = cs.backgroundImage;
+              span.style.webkitBackgroundClip = 'text';
+              span.style.backgroundClip = 'text';
+              span.style.webkitTextFillColor = 'transparent';
+              span.style.color = 'transparent';
+            }
+          });
+        });
+
+        if ('IntersectionObserver' in window) {
+          const revealObs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                revealObs.unobserve(e.target);
+              }
+            });
+          }, { threshold: 0.12 });
+          headings.forEach(el => revealObs.observe(el));
+        } else {
+          headings.forEach(el => el.classList.add('visible'));
+        }
+      }
+
+      // 2. Interactive 3D Particle Sculpture Canvas (Forma exact math)
+      function setupSculptureCanvas() {
+        const hero = document.querySelector('.hero');
+        const heroStage = document.querySelector('.hero-stage');
+        const canvas = document.getElementById('sculpture');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        if (!ctx) return;
+        // If hero section not found, fall back to canvas parent chain
+        const heroEl = hero || canvas.closest('section') || canvas.parentElement;
+
+        let cw = 0, ch = 0, dpr = 1, heroVisible = true, frame = 0, time = 0, lastTime = 0, heroProgress = 0, heroTarget = 0;
+        const mix = (a, b, t) => a + (b - a) * t;
+        const smooth = t => t * t * (3 - 2 * t);
+        const clamp = (n, a = 0, b = 1) => Math.max(a, Math.min(b, n));
+        const isMobile = () => matchMedia('(max-width: 760px)').matches;
+
+        // Schematic lines for website wireframe target
+        const heroLines = [
+          [0,0,1,0],[1,0,1,1],[1,1,0,1],[0,1,0,0],[0,.105,1,.105],[.19,.105,.19,1],
+          [.035,.05,.105,.05],[.39,.05,.62,.05],[.035,.20,.14,.20],[.035,.28,.13,.28],
+          [.035,.36,.14,.36],[.035,.44,.12,.44],[.035,.60,.14,.60],[.035,.68,.12,.68],
+          [.245,.20,.36,.20],[.73,.20,.93,.20],[.245,.33,.65,.33],[.245,.38,.65,.38],
+          [.245,.47,.59,.47],[.245,.52,.59,.52],[.245,.62,.52,.62],[.245,.67,.48,.67],
+          [.245,.76,.43,.76],[.43,.76,.43,.83],[.43,.83,.245,.83],[.245,.83,.245,.76],
+          [.245,.91,.94,.91],[.245,.95,.42,.95],[.49,.95,.66,.95],[.74,.95,.92,.95]
+        ];
+        for (let i = 0; i < 58; i++) {
+          const a = (i / 58) * Math.PI * 2, b = ((i + 1) / 58) * Math.PI * 2;
+          heroLines.push([.80 + Math.cos(a) * .125, .55 + Math.sin(a) * .235, .80 + Math.cos(b) * .125, .55 + Math.sin(b) * .235]);
+        }
+
+        const heroLengths = heroLines.map(s => Math.hypot(s[2] - s[0], s[3] - s[1]));
+        const heroLength = heroLengths.reduce((a, b) => a + b, 0);
+        const heroPoints = [];
+        const heroCount = isMobile() ? 750 : 1450;
+
+        for (let i = 0; i < heroCount; i++) {
+          let distance = (i + .5) / heroCount * heroLength;
+          let index = 0;
+          while (index < heroLines.length - 1 && distance > heroLengths[index]) {
+            distance -= heroLengths[index];
+            index++;
+          }
+          const line = heroLines[index];
+          const u = distance / heroLengths[index];
+          const a = i * 2.39996323;
+          const z = 1 - 2 * (i + .5) / heroCount;
+          const r = Math.sqrt(1 - z * z);
+          const seed = (Math.sin(i * 93.13) + 1) / 2;
+          const shell = .68 + .32 * seed;
+          heroPoints.push({
+            x: Math.cos(a) * r * shell,
+            y: Math.sin(a) * r * shell,
+            z: z * shell,
+            tx: mix(line[0], line[2], u),
+            ty: mix(line[1], line[3], u),
+            seed: seed,
+            size: i % 17 === 0 ? 1.7 : i % 4 === 0 ? 1.1 : 0.75
+          });
+        }
+
+        function readHeroScroll() {
+          if (!heroEl) return;
+          const rect = heroEl.getBoundingClientRect();
+          const denom = heroEl.offsetHeight - (heroStage ? heroStage.offsetHeight : 0);
+          heroTarget = clamp(-rect.top / Math.max(1, denom || 400));
+          resumeCanvas();
+        }
+
+        function sizeCanvas() {
+          const rect = canvas.getBoundingClientRect();
+          cw = rect.width || window.innerWidth;
+          ch = rect.height || 600;
+          dpr = Math.min(window.devicePixelRatio || 1, 2);
+          canvas.width = Math.round(cw * dpr);
+          canvas.height = Math.round(ch * dpr);
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          readHeroScroll();
+          drawHeroParticles(time);
+        }
+
+        function drawHeroParticles(t) {
+          if (!ctx || !cw || !ch) return;
+          ctx.clearRect(0, 0, cw, ch);
+          const mobile = isMobile();
+          const p = heroProgress;
+          const converge = smooth(clamp((p - .12) / .70));
+          const centerX = cw * (mobile ? .55 : .72);
+          const centerY = ch * (mobile ? .65 : .48);
+          const radius = Math.min(cw * (mobile ? .42 : .23), ch * .42);
+          const bounds = mobile ? { x: cw * .1, y: ch * .6, w: cw * .8, h: ch * .25 } : { x: cw * .52, y: ch * .24, w: cw * .44, h: ch * .48 };
+          const angle = t * .065 + p * 1.15;
+          const ca = Math.cos(angle);
+          const sa = Math.sin(angle);
+
+          // Radial glow in warm copper
+          const glow = ctx.createRadialGradient(centerX, centerY, 0, centerX, centerY, radius * 1.35);
+          glow.addColorStop(0, 'rgba(232, 171, 126, 0.08)');
+          glow.addColorStop(0.5, 'rgba(216, 142, 86, 0.03)');
+          glow.addColorStop(1, 'rgba(17, 17, 16, 0)');
+          ctx.fillStyle = glow;
+          ctx.fillRect(0, 0, cw, ch);
+
+          for (let i = 0; i < heroPoints.length; i += (mobile && heroPoints.length > 800 ? 2 : 1)) {
+            const pt = heroPoints[i];
+            const rx = pt.x * ca - pt.z * sa;
+            const rz = pt.x * sa + pt.z * ca;
+            const perspective = 2.8 / (2.8 + rz * .65);
+            const jitter = Math.sin(t * .8 + pt.seed * 15) * 3;
+            const startX = centerX + rx * radius * perspective;
+            const startY = centerY + pt.y * radius * .82 * perspective + jitter;
+            const blend = smooth(clamp((converge - pt.seed * .16) / .84));
+            const x = mix(startX, bounds.x + pt.tx * bounds.w, blend);
+            const y = mix(startY, bounds.y + pt.ty * bounds.h, blend);
+
+            const leftFade = mobile ? 1 : clamp((x / cw - .38) / .22);
+            const alpha = (.35 + (1 - rz) * .28) * (.18 + .82 * leftFade);
+
+            if (i % 6 === 0) {
+              ctx.fillStyle = 'rgba(242, 196, 159, ' + Math.min(0.95, alpha + 0.15) + ')';
+            } else if (i % 3 === 0) {
+              ctx.fillStyle = 'rgba(232, 171, 126, ' + alpha + ')';
+            } else {
+              ctx.fillStyle = 'rgba(216, 142, 86, ' + (alpha * 0.75) + ')';
+            }
+
+            ctx.beginPath();
+            ctx.arc(x, y, (pt.size + .15) * (1 - blend * .18), 0, Math.PI * 2);
+            ctx.fill();
+
+            if (i % 22 === 0 && blend < .97) {
+              ctx.strokeStyle = 'rgba(232, 171, 126, ' + (alpha * .25) + ')';
+              ctx.lineWidth = .6;
+              ctx.beginPath();
+              ctx.moveTo(x, y);
+              ctx.lineTo(x - (1 - blend) * 10, y + (1 - blend) * 5);
+              ctx.stroke();
+            }
+          }
+        }
+
+        function animate(now) {
+          frame = 0;
+          if (!heroVisible || document.hidden) {
+            lastTime = 0;
+            return;
+          }
+          const dt = lastTime ? Math.min(now - lastTime, 65) : 33;
+          time += dt / 1000;
+          lastTime = now;
+          heroProgress = mix(heroProgress, heroTarget, 1 - Math.exp(-dt / 75));
+          if (Math.abs(heroProgress - heroTarget) < .0001) heroProgress = heroTarget;
+          drawHeroParticles(time);
+          frame = requestAnimationFrame(animate);
+        }
+
+        function resumeCanvas() {
+          if (!frame && heroVisible && !document.hidden) {
+            frame = requestAnimationFrame(animate);
+          }
+        }
+
+        sizeCanvas();
+        window.addEventListener('resize', sizeCanvas);
+        window.addEventListener('scroll', readHeroScroll, { passive: true });
+        if ('IntersectionObserver' in window && heroEl) {
+          new IntersectionObserver(entries => {
+            heroVisible = entries[0].isIntersecting;
+            if (!heroVisible) {
+              cancelAnimationFrame(frame);
+              frame = 0;
+              lastTime = 0;
+            } else {
+              readHeroScroll();
+              resumeCanvas();
+            }
+          }).observe(heroEl);
+        }
+        document.addEventListener('visibilitychange', () => {
+          lastTime = 0;
+          resumeCanvas();
+        });
+        resumeCanvas();
+      }
+
+      window.addEventListener('DOMContentLoaded', () => {
+        setupHeadingTransitions();
+        setupSculptureCanvas();
+      });
+      // In case DOM is already loaded:
+      if (document.readyState !== 'loading') {
+        setupHeadingTransitions();
+        setupSculptureCanvas();
+      }
+    })();
+</script>
+</body>
+</html>

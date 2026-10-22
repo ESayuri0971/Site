@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#080c14">
+  <meta name="theme-color" content="#090a0b">
   <title>VOCAL//VAULT — Prévia Oficial da Loja de Voicebanks & Motores AI</title>
   <meta name="description" content="A maior loja e vitrine de bancos de voz virtuais do mundo. Teste demos em tempo real, experimente o mini-sintetizador vocal e garanta acesso antecipado às edições Hatsune Miku V6 AI, Kasane Teto, Kagamine Rin/Len e mais.">
 
@@ -24,76 +24,76 @@
         extend: {
           colors: {
             forma: {
-              bg: '#111110',
-              panel: '#191918',
-              card: '#191918',
-              cardHover: '#222220',
-              border: 'rgba(244, 236, 222, 0.12)',
-              ink: '#f2f0e9',
-              muted: '#96948d',
-              copper: '#e8ab7e',
+              bg: '#090a0b',
+              panel: '#121315',
+              card: '#121315',
+              cardHover: '#171715',
+              border: 'rgba(255, 255, 255, 0.1)',
+              ink: '#f1f2f3',
+              muted: '#929399',
+              copper: '#e7b691',
               copperLight: '#f2c49f',
               copperDark: '#d88e56',
-              line: 'rgba(244, 236, 222, 0.13)'
+              line: 'rgba(255, 255, 255, 0.1)'
             },
             cyan: {
               50: '#fdf8f5',
               100: '#fbeee6',
               200: '#f7dccb',
-              300: '#f2c49f',
-              400: '#e8ab7e',
+              300: '#929399',
+              400: '#e7b691',
               500: '#d88e56',
               600: '#c5773e',
               700: '#9d582d',
               800: '#733f24',
               900: '#432213',
-              950: '#1e140e'
+              950: '#121315'
             },
             teal: {
               300: '#edd5b3',
               400: '#dfbe8e',
               500: '#cca26b',
               600: '#ab814c',
-              950: '#1a1612'
+              950: '#121315'
             },
             fuchsia: {
-              300: '#e8c2b7',
-              400: '#d69e90',
-              500: '#bf7968',
-              600: '#9e5a4a',
-              950: '#1c1312'
+              300: '#929399',
+              400: '#929399',
+              500: '#929399',
+              600: '#929399',
+              950: '#121315'
             },
             pink: {
-              400: '#d69e90',
-              500: '#bf7968'
+              400: '#929399',
+              500: '#929399'
             },
             slate: {
-              950: '#0c0c0b',
-              900: '#141413',
-              800: '#1d1d1b',
-              700: '#2c2c29',
-              600: '#4a4a46',
-              500: '#73726c',
-              400: '#96948d',
-              300: '#c2c0b8',
-              200: '#e5e3dc',
-              100: '#f2f0e9'
+              950: '#090a0b',
+              900: '#121315',
+              800: '#171715',
+              700: '#232428',
+              600: '#45464d',
+              500: '#6f7078',
+              400: '#929399',
+              300: '#c2c3c9',
+              200: '#e1e2e6',
+              100: '#f1f2f3'
             },
             cyber: {
-              bg: '#111110',
-              card: '#191918',
-              cardHover: '#232321',
-              border: 'rgba(244, 236, 222, 0.12)',
-              miku: '#e8ab7e',
+              bg: '#090a0b',
+              card: '#121315',
+              cardHover: '#171715',
+              border: 'rgba(255, 255, 255, 0.1)',
+              miku: '#e7b691',
               rin: '#f2c49f',
               luka: '#d88e56',
-              teto: '#bf7968',
-              ia: '#cca26b',
-              gumi: '#a3b18a',
-              kaito: '#8da4c4',
-              flower: '#ab814c',
-              cyanGlow: 'rgba(232, 171, 126, 0.22)',
-              pinkGlow: 'rgba(216, 142, 86, 0.22)'
+              teto: '#929399',
+              ia: '#929399',
+              gumi: '#929399',
+              kaito: '#929399',
+              flower: '#929399',
+              cyanGlow: 'rgba(231, 182, 145, 0.12)',
+              pinkGlow: 'rgba(216, 142, 86, 0.12)'
             }
           },
           fontFamily: {
@@ -124,39 +124,42 @@
     }
   </script>
 
-    <style>
-    /* Design System Forma - Variáveis & Tokens Visuais */
+  <style>
+    /* Design System Forma - VariÃ¡veis & Tokens Visuais */
     :root {
-      --bg: #111110;
-      --panel: #191918;
-      --ink: #f2f0e9;
-      --muted: #96948d;
-      --copper: #e8ab7e;
+      --bg: #090a0b;
+      --panel: #121315;
+      --ink: #f1f2f3;
+      --muted: #929399;
+      --copper: #e7b691;
       --copper-light: #f2c49f;
       --copper-dark: #d88e56;
-      --line: rgba(244, 236, 222, .13);
+      --line: rgba(255,255,255,.1);
       --font: 'DM Sans', Arial, sans-serif;
       --serif: 'Instrument Serif', Georgia, serif;
-      --ease: cubic-bezier(.22, 1, .36, 1);
+      --ease: cubic-bezier(.22,1,.36,1);
     }
 
     body {
       background-color: var(--bg);
       color: var(--ink);
       font-family: var(--font);
+      font-size: 14px;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
       background-image: 
-        radial-gradient(ellipse at 50% 0%, rgba(232, 171, 126, 0.09) 0%, transparent 60%),
-        radial-gradient(circle at 85% 50%, rgba(216, 142, 86, 0.05) 0%, transparent 50%),
-        radial-gradient(circle at 15% 80%, rgba(242, 196, 159, 0.03) 0%, transparent 45%),
-        linear-gradient(rgba(244, 236, 222, 0.012) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(244, 236, 222, 0.012) 1px, transparent 1px);
+        radial-gradient(ellipse at 50% 0%, rgba(231, 182, 145, 0.05) 0%, transparent 60%),
+        radial-gradient(circle at 85% 50%, rgba(216, 142, 86, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 15% 80%, rgba(242, 196, 159, 0.02) 0%, transparent 45%),
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 100% 100%, 48px 48px, 48px 48px;
     }
 
     ::selection {
       background: var(--copper);
-      color: #111110;
+      color: #090a0b;
     }
 
     /* Custom scrollbar no estilo Forma */
@@ -164,150 +167,165 @@
       width: 7px;
     }
     ::-webkit-scrollbar-track {
-      background: #111110;
+      background: #090a0b;
     }
     ::-webkit-scrollbar-thumb {
-      background: #252523;
+      background: #171715;
       border-radius: 4px;
-      border: 1px solid rgba(244, 236, 222, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.08);
     }
     ::-webkit-scrollbar-thumb:hover {
       background: var(--copper);
     }
 
-    /* Brilhos e bordas no estilo Copper Forma */
-    .glow-border-miku, .glow-border-luka, .glow-border-rin {
-      box-shadow: 0 0 25px rgba(232, 171, 126, 0.15), inset 0 0 15px rgba(232, 171, 126, 0.05);
-      border-color: rgba(232, 171, 126, 0.35);
+    /* UtilitÃ¡rios Forma */
+    .text-muted { color: var(--muted) !important; }
+    .text-copper { color: var(--copper) !important; }
+    .bg-copper { background: var(--copper) !important; }
+    .bg-panel { background: var(--panel) !important; }
+    .border-line { border-color: var(--line) !important; }
+
+    /* Brilhos e bordas no estilo Forma - sem neon, borda sutil */
+    .glow-border-miku, .glow-border-luka, .glow-border-rin, .glow-border-gumi, .glow-border-kaito, .glow-border-flower, [class*="glow-border"] {
+      box-shadow: none !important;
+      border: 1px solid var(--line) !important;
     }
 
-    /* Painéis translúcidos Forma */
+    /* PainÃ©is e Cards Forma (exato Forma price-card) */
     .cyber-panel, .forma-panel {
-      background: rgba(25, 25, 24, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
       border: 1px solid var(--line);
-      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6);
+      background: #171715;
+      border-radius: 11px;
+      box-shadow: none !important;
+    }
+    .cyber-panel:hover, .forma-panel:hover {
+      border-color: rgba(255, 255, 255, .2) !important;
+      transform: translateY(-3px) !important;
+      transition: transform .4s var(--ease), border-color .3s;
+      box-shadow: none !important;
     }
 
-    /* Botões Pill no estilo Forma */
+    /* BotÃµes Pill no estilo Forma */
     .pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
+      gap: 10px;
       border: 1px solid var(--line);
-      padding: 12px 24px;
-      border-radius: 9999px;
+      padding: 10px 22px;
+      border-radius: 8px;
       background: transparent;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 500;
       color: var(--ink);
-      transition: background .25s, transform .35s, border-color .25s, box-shadow .25s;
+      transition: background .2s var(--ease), transform .25s var(--ease), border-color .2s, box-shadow .25s;
       cursor: pointer;
+      text-decoration: none;
     }
     .pill:hover {
       background: rgba(255, 255, 255, 0.05);
-      border-color: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.25);
       transform: translateY(-2px);
     }
     .pill.light {
       background: var(--ink);
       color: #171715;
-      border-color: var(--ink);
-      box-shadow: inset 0 2px 1px #fff;
+      border: 1px solid var(--ink);
+      box-shadow: inset 0 1px 0 #fff;
     }
     .pill.light:hover {
       background: #ffffff;
+      color: #171715;
       transform: translateY(-2px);
     }
     .pill.copper {
       background: linear-gradient(135deg, #f2c49f, #d88e56);
-      border-color: rgba(242, 196, 159, 0.4);
+      border: 1px solid #f2c49f60;
       color: #2a1e16;
-      box-shadow: inset 0 1px 0 #ffe4c7, 0 4px 20px rgba(221, 133, 71, 0.25);
+      box-shadow: inset 0 1px 0 #ffe4c7, 0 2px 15px #dd85471c;
     }
     .pill.copper:hover {
-      box-shadow: inset 0 1px 0 #fff2e0, 0 6px 30px rgba(221, 133, 71, 0.4);
+      box-shadow: inset 0 1px 0 #fff2e0, 0 4px 20px rgba(221, 133, 71, 0.35);
       transform: translateY(-2px);
     }
 
-    /* Eyebrows com bullet Forma Copper */
+    /* Eyebrows com bullet Forma Copper (exato Forma) */
     .eyebrow {
-      font-size: 10px;
-      letter-spacing: .18em;
+      font: 9px ui-monospace, monospace;
+      letter-spacing: .12em;
+      color: #94959e;
       text-transform: uppercase;
-      font-weight: 600;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--copper);
     }
     .eyebrow::before {
       content: '';
-      width: 5px;
-      height: 5px;
+      border-radius: 2px;
+      width: 6px;
+      height: 6px;
       background: var(--copper);
-      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
     }
 
     /* Teclado sintetizador sofisticado */
     .piano-key-white {
-      background: linear-gradient(180deg, #242422 0%, #191918 100%);
-      border: 1px solid rgba(244, 236, 222, 0.08);
-      color: #f2f0e9;
+      background: linear-gradient(180deg, #1f2023 0%, #121315 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #f1f2f3;
       transition: all 0.12s ease;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
     .piano-key-white:active, .piano-key-white.active {
-      background: linear-gradient(180deg, #f2c49f 0%, #e8ab7e 100%);
+      background: linear-gradient(180deg, #f2c49f 0%, #e7b691 100%);
       color: #2a1e16;
-      transform: translateY(3px);
-      box-shadow: 0 0 25px rgba(232, 171, 126, 0.7);
+      transform: translateY(2px);
+      box-shadow: 0 0 15px rgba(231, 182, 145, 0.5);
     }
     .piano-key-black {
-      background: linear-gradient(180deg, #161615 0%, #0d0d0c 100%);
-      border: 1px solid rgba(244, 236, 222, 0.05);
-      color: #96948d;
+      background: linear-gradient(180deg, #141517 0%, #090a0b 100%);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: #929399;
       transition: all 0.12s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
     .piano-key-black:active, .piano-key-black.active {
-      background: linear-gradient(180deg, #e8ab7e 0%, #d88e56 100%);
+      background: linear-gradient(180deg, #e7b691 0%, #d88e56 100%);
       color: #1a120c;
-      transform: translateY(3px);
-      box-shadow: 0 0 25px rgba(216, 142, 86, 0.8);
+      transform: translateY(2px);
+      box-shadow: 0 0 15px rgba(216, 142, 86, 0.6);
     }
 
     /* Range slider customizado com estilo Forma Copper */
     input[type=range] {
       -webkit-appearance: none;
-      background: #252523;
+      background: #1c1d20;
       border-radius: 9999px;
-      height: 5px;
+      height: 4px;
     }
     input[type=range]::-webkit-slider-thumb {
       -webkit-appearance: none;
-      height: 16px;
-      width: 16px;
+      height: 14px;
+      width: 14px;
       border-radius: 50%;
       background: var(--copper);
       cursor: pointer;
-      box-shadow: 0 0 10px rgba(232, 171, 126, 0.6);
-      border: 2px solid #111110;
+      box-shadow: 0 0 8px rgba(231, 182, 145, 0.5);
+      border: 2px solid #090a0b;
     }
-    /* --- SISTEMA DE TRANSIÇÕES & CHOREOGRAPHY (FORMA STYLE) --- */
+
+    /* Page progress bar */
     .page-progress {
       position: fixed;
       top: 0;
       left: 0;
-      height: 3px;
+      height: 2px;
       width: 100%;
       transform: scaleX(0);
       transform-origin: left;
-      background: linear-gradient(90deg, var(--copper-dark), var(--copper), var(--copper-light));
-      box-shadow: 0 0 12px rgba(232, 171, 126, 0.8);
-      z-index: 100;
+      background: var(--copper);
+      z-index: 80;
       pointer-events: none;
       transition: transform 0.08s ease-out;
     }
@@ -315,8 +333,8 @@
     /* Scroll Reveal progressivo */
     .js [data-reveal] {
       opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.85s var(--ease), transform 0.85s var(--ease), border-color 0.3s ease, box-shadow 0.5s var(--ease);
+      transform: translateY(25px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
       will-change: opacity, transform;
     }
     .js [data-reveal].visible {
@@ -377,17 +395,7 @@
       }
     }
 
-    /* Cards com elevação física suave */
-    .cyber-panel, .forma-panel {
-      transition: transform 0.6s var(--ease), border-color 0.35s ease, box-shadow 0.6s var(--ease) !important;
-    }
-    .cyber-panel:hover, .forma-panel:hover {
-      transform: translateY(-6px) !important;
-      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 35px rgba(232, 171, 126, 0.14) !important;
-      border-color: rgba(232, 171, 126, 0.45) !important;
-    }
-
-    /* Transição de ícones em botões */
+    /* TransiÃ§Ã£o de Ã­cones em botÃµes */
     .pill svg, .pill [data-lucide], a.group:hover [data-lucide="arrow-right"] {
       transition: transform 0.3s var(--ease);
     }
@@ -395,57 +403,65 @@
       transform: translateX(4px);
     }
 
-    /* Navbar scroll transition */
+    /* Header e Nav (exato Forma 02) */
     header.sticky {
-      transition: background-color 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+      position: fixed;
+      height: 72px;
+      background: rgba(9,10,11,.73);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid #ffffff08;
+      transition: background .3s, border-color .3s;
     }
     header.sticky.scrolled {
-      background-color: rgba(17, 17, 16, 0.96) !important;
-      border-bottom-color: rgba(244, 236, 222, 0.18) !important;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+      background: rgba(9,10,11,.95) !important;
+      border-bottom-color: rgba(255,255,255,.1) !important;
+      box-shadow: none !important;
     }
 
-    /* --- ANIMAÇÃO DE REVELAÇÃO 3D PALAVRA-POR-PALAVRA (ESTILO FORMA) --- */
-    .split-enter {
-      perspective: 1000px;
-    }
-    .split-enter .reveal-word {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(24px) rotateX(-35deg);
-      filter: blur(6px);
-      transition: transform 0.85s var(--ease), opacity 0.85s ease, filter 0.85s ease;
-      transition-delay: calc(var(--word-i, 0) * 45ms);
-      will-change: transform, opacity, filter;
-    }
-    /* Fix: spans com bg-clip-text precisam que os filhos preserve o gradiente */
-    .split-enter span[class*="bg-gradient"] .reveal-word,
-    .split-enter span[style*="bg-clip-text"] .reveal-word {
-      display: inline-block;
-    }
-    .split-enter.visible .reveal-word {
-      opacity: 1 !important;
-      transform: none !important;
-      filter: none !important;
-    }
-    /* Hero h1 aparece logo ao carregar (está no viewport) */
-    .hero .split-enter {
-      animation: none;
-    }
-
-    /* Canvas 3D Sculpture Hero */
+    /* Headings (exato Forma 02) */
     .hero {
       position: relative;
-      min-height: 600px;
+      padding-top: 158px;
+      min-height: 870px;
     }
+    .hero h1 {
+      font-size: clamp(64px, 6.7vw, 96px);
+      letter-spacing: -.065em;
+      line-height: 1.04;
+      font-weight: 400;
+    }
+    .hero h1 em {
+      color: #a6a7ae;
+      font: inherit;
+      font-style: italic;
+      font-family: var(--serif);
+    }
+    .section-head h2, h2.section-heading, section h2 {
+      font-weight: 400;
+      font-size: clamp(36px, 4vw, 56px);
+      letter-spacing: -.055em;
+      line-height: 1.08;
+    }
+    h2 em, .section-heading em {
+      color: #85868f;
+      font: inherit;
+      font-style: italic;
+      font-family: var(--serif);
+    }
+
+    /* Canvas 3D Sculpture Hero (exato Forma 02) */
     #sculpture {
       position: absolute;
-      inset: 0;
-      display: block;
-      width: 100%;
-      height: 100%;
+      inset: 140px -11% auto auto;
+      width: 72%;
+      height: 620px;
+      opacity: .65;
+      mask-image: linear-gradient(90deg, transparent, #000 25%, #000 90%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 25%, #000 90%, transparent);
       pointer-events: none;
       z-index: 0;
+      display: block;
     }
     .hero-stage {
       position: absolute;
@@ -459,29 +475,76 @@
       inset: 0;
       pointer-events: none;
       z-index: 1;
-      background: radial-gradient(ellipse 700px 450px at 70% 40%, rgba(232, 171, 126, 0.08) 0%, transparent 70%),
-                  linear-gradient(180deg, rgba(17, 17, 16, 0.4) 0%, transparent 20%, transparent 80%, #111110 100%);
+      background: linear-gradient(180deg, #090a0b 0%, transparent 28%, transparent 75%, #090a0b 100%);
+    }
+
+    /* Split text word-by-word reveal */
+    .split-enter {
+      perspective: 1000px;
+    }
+    .split-enter .reveal-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(24px) rotateX(-35deg);
+      filter: blur(6px);
+      transition: transform 0.85s var(--ease), opacity 0.85s ease, filter 0.85s ease;
+      transition-delay: calc(var(--word-i, 0) * 45ms);
+      will-change: transform, opacity, filter;
+    }
+    .split-enter span[class*="bg-gradient"] .reveal-word,
+    .split-enter span[style*="bg-clip-text"] .reveal-word {
+      display: inline-block;
+    }
+    .split-enter.visible .reveal-word {
+      opacity: 1 !important;
+      transform: none !important;
+      filter: none !important;
+    }
+    .hero .split-enter {
+      animation: none;
+    }
+
+    /* Footer Forma Style */
+    footer {
+      background: var(--bg) !important;
+      border-top: 1px solid var(--line) !important;
+    }
+    .footer-large {
+      font-size: clamp(48px, 9vw, 130px);
+      font-weight: 400;
+      letter-spacing: -.06em;
+      line-height: .9;
+      color: #171715;
+      user-select: none;
+      pointer-events: none;
+      text-align: center;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    .footer-bottom {
+      color: #6f6d64;
+      font-size: 11px;
     }
   </style>
 </head>
-<body class="selection:bg-cyber-miku selection:text-black antialiased text-slate-200">
+<body class="selection:bg-copper selection:text-black antialiased text-slate-200">
   <!-- Barra de Progresso de Leitura Superior no Estilo Forma -->
   <div class="page-progress" id="page-progress" aria-hidden="true"></div>
 
   <!-- Barra de Notificação Superior com Contador de Lançamento -->
-  <aside aria-label="Aviso de Lançamento" class="relative z-50 bg-gradient-to-r from-cyan-950 via-slate-900 to-fuchsia-950 border-b border-cyan-500/30 text-xs py-2 px-4">
+  <aside aria-label="Aviso de Lançamento" class="relative z-50 bg-[#0c0d0e] border-b border-white/10 text-xs py-2 px-4">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-center sm:text-left">
       <div class="flex items-center gap-2 mx-auto sm:mx-0">
-        <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-400 text-slate-950 tracking-wider animate-pulse">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-copper text-[#171715] tracking-wider font-semibold">
           PREVIEW V6.0
         </span>
         <span class="text-slate-300">
-          Pré-venda global aberta! Use o cupom <strong class="text-cyber-miku font-mono font-bold">MIKU39</strong> para <strong>39% OFF</strong> na finalização.
+          Pré-venda global aberta! Use o cupom <strong class="text-copper font-mono font-bold">MIKU39</strong> para <strong>39% OFF</strong> na finalização.
         </span>
       </div>
       
       <div class="flex items-center gap-3 mx-auto sm:mx-0 text-slate-400 font-mono text-[11px]">
-        <span class="flex items-center gap-1.5 text-cyan-300">
+        <span class="flex items-center gap-1.5 text-muted">
           <i data-lucide="clock" class="w-3.5 h-3.5"></i>
           Acesso Geral em:
         </span>
@@ -493,42 +556,42 @@
   </aside>
 
   <!-- Cabeçalho Principal Fixo -->
-  <header class="sticky top-0 z-40 bg-cyber-bg/90 backdrop-blur-xl border-b border-white/10 transition-all duration-200">
+  <header class="sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
       
       <!-- Logotipo & Tag -->
       <a href="#" class="flex items-center gap-3 group">
-        <div class="relative w-11 h-11 rounded-xl bg-gradient-to-br from-cyan-400 via-teal-500 to-fuchsia-500 p-0.5 shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-all">
+        <div class="relative w-10 h-10 rounded-lg bg-white/5 border border-white/10 p-0.5 group-hover:border-white/20 transition-all">
           <div class="w-full h-full bg-cyber-bg rounded-[10px] flex items-center justify-center relative overflow-hidden">
-            <span class="font-cyber font-black text-transparent bg-clip-text bg-gradient-to-tr from-cyan-300 to-fuchsia-400 text-lg">01</span>
-            <div class="absolute inset-0 bg-cyan-400/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            <span class="font-cyber font-black text-copper text-sm font-mono">01</span>
+            <div class="absolute inset-0 bg-copper/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
           </div>
         </div>
         <div>
           <div class="flex items-center gap-1.5">
-            <span class="font-cyber font-black tracking-wider text-lg text-white group-hover:text-cyber-miku transition-colors">VOCAL<span class="text-cyber-miku">//</span>VAULT</span>
-            <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 bg-fuchsia-500/20 text-fuchsia-300 border border-fuchsia-500/30 rounded">STORE PREVIEW</span>
+            <span class="font-sans font-medium tracking-[-1.3px] text-[22px] text-white">VOCAL<span class="text-copper">//</span>VAULT</span>
+            <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 bg-white/5 text-muted border border-white/10 rounded">STORE PREVIEW</span>
           </div>
           <p class="text-[10px] text-slate-400 font-jp tracking-wider">ボーカロイド・公式ストア体験版</p>
         </div>
       </a>
 
       <!-- Menu Central de Navegação -->
-      <nav class="hidden lg:flex items-center gap-1 bg-white/5 border border-white/10 p-1.5 rounded-full text-xs font-medium">
+      <nav class="hidden lg:flex items-center gap-[27px] text-[12px] text-muted font-medium">
         <a href="#catalogo" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
-          <i data-lucide="music-2" class="w-3.5 h-3.5 text-cyber-miku"></i>
+          <i data-lucide="music-2" class="w-3.5 h-3.5 text-copper"></i>
           Catálogo de Vozes
         </a>
         <a href="#mini-studio" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
-          <i data-lucide="piano" class="w-3.5 h-3.5 text-cyber-luka"></i>
+          <i data-lucide="piano" class="w-3.5 h-3.5 text-muted"></i>
           Mini-Studio Sintetizador
         </a>
         <a href="#comparativo" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
-          <i data-lucide="cpu" class="w-3.5 h-3.5 text-cyber-rin"></i>
+          <i data-lucide="cpu" class="w-3.5 h-3.5 text-muted"></i>
           Comparativo de Motores
         </a>
         <a href="#comunidade" class="px-4 py-1.5 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors flex items-center gap-1.5">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyber-ia"></i>
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-muted"></i>
           Produtores & Demos
         </a>
       </nav>
@@ -550,9 +613,9 @@
         </button>
 
         <!-- Botão Carrinho de Compras -->
-        <button onclick="window.vocalStore.toggleCart(true)" class="relative flex items-center gap-2.5 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 border border-cyan-400/40 hover:border-cyan-400 py-2 px-3.5 rounded-xl text-white font-medium text-xs shadow-lg shadow-cyan-500/10 hover:shadow-cyan-500/25 transition-all">
+        <button onclick="window.vocalStore.toggleCart(true)" class="relative flex items-center gap-2.5 bg-white/5 border border-white/10 hover:border-white/20 py-2 px-3.5 rounded-lg text-white font-medium text-xs transition-all">
           <div class="relative">
-            <i data-lucide="shopping-bag" class="w-4 h-4 text-cyber-miku"></i>
+            <i data-lucide="shopping-bag" class="w-4 h-4 text-copper"></i>
             <span id="cart-badge" class="absolute -top-2 -right-2 bg-cyber-teto text-white font-mono font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center">0</span>
           </div>
           <span class="hidden md:inline font-mono" id="cart-total-header">R$ 0</span>
@@ -570,7 +633,7 @@
       <div class="hero-shade"></div>
     </div>
     <!-- Elementos de Iluminação Holográfica de Fundo -->
-    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-tr from-cyan-500/15 via-fuchsia-500/10 to-transparent blur-[120px] pointer-events-none rounded-full"></div>
+    
     
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -578,16 +641,15 @@
         <!-- Coluna Esquerda: Texto de Impacto e Chamadas -->
         <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
           
-          <div class="hero-fade-1 inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-950/70 border border-cyan-400/30 text-xs font-mono text-cyan-300 shadow-inner">
-            <span class="w-2 h-2 rounded-full bg-cyber-miku animate-ping"></span>
+          <div class="hero-fade-1 eyebrow">
             MOTOR VOCAL DE REDES NEURAIS PROFUNDAS
           </div>
 
-          <h1 class="text-5xl sm:text-6xl lg:text-7xl font-normal font-display tracking-tight leading-[1.05]">
+          <h1 class="font-normal font-display tracking-tight leading-[1.04]">
             A Próxima Geração de <br>
-            <span class="italic text-transparent bg-clip-text bg-gradient-to-r from-forma-copperLight via-forma-copper to-forma-copperDark">
+            <em style="font-family: var(--serif); font-style: italic; color: #a6a7ae; letter-spacing: -.035em;">
               Síntese Vocal Virtual.
-            </span>
+            </em>
           </h1>
 
           <p class="hero-fade-2 text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0">
@@ -598,15 +660,15 @@
           <!-- Badges Tecnológicos -->
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2 text-xs font-mono text-slate-300">
             <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-cyber-miku"></i>
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-copper"></i>
               VST3 / AU / ARA2
             </div>
             <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyber-luka"></i>
+              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-muted"></i>
               Piapro Studio NT 2.0
             </div>
             <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg">
-              <i data-lucide="zap" class="w-3.5 h-3.5 text-cyber-rin"></i>
+              <i data-lucide="zap" class="w-3.5 h-3.5 text-muted"></i>
               Latência Neural &lt; 2.5ms
             </div>
           </div>
@@ -628,9 +690,9 @@
           <div class="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 font-mono">
             <div class="flex items-center gap-2">
               <div class="flex -space-x-2">
-                <span class="w-7 h-7 rounded-full bg-cyan-500/30 border border-cyan-400 flex items-center justify-center text-[10px] text-cyan-200 font-bold">M</span>
-                <span class="w-7 h-7 rounded-full bg-pink-500/30 border border-pink-400 flex items-center justify-center text-[10px] text-pink-200 font-bold">L</span>
-                <span class="w-7 h-7 rounded-full bg-yellow-500/30 border border-yellow-400 flex items-center justify-center text-[10px] text-yellow-200 font-bold">R</span>
+                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">M</span>
+                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">L</span>
+                <span class="w-7 h-7 rounded-full bg-white/10 border border-white/10 flex items-center justify-center text-[10px] text-white font-bold">R</span>
               </div>
               <span>+52.400 produtores na lista VIP</span>
             </div>
@@ -645,15 +707,15 @@
           <div class="relative mx-auto max-w-md lg:max-w-none">
             
             <!-- Anel de Brilho Exterior -->
-            <div class="absolute -inset-1 bg-gradient-to-r from-cyber-miku via-teal-500 to-cyber-luka rounded-3xl blur-xl opacity-30 group-hover:opacity-60 transition duration-1000"></div>
+            
 
             <!-- Card Principal Hero -->
-            <div class="relative cyber-panel rounded-2xl p-6 border-cyan-500/40 glow-border-miku">
+            <div class="relative cyber-panel rounded-xl p-6">
               
               <!-- Cabeçalho do Card com Status "Destaque da Prévia" -->
               <div class="flex items-center justify-between pb-4 border-b border-white/10">
                 <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-cyan-400/20 text-cyber-miku border border-cyan-400/40">
+                  <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-copper/20 text-copper border border-copper/30">
                     CV01 • ED. DEFINITIVA
                   </span>
                   <span class="text-xs text-slate-400 font-mono">CRYPT-AI V6</span>
@@ -665,11 +727,11 @@
               </div>
 
               <!-- Arte e Visualizador Holográfico da Miku -->
-              <div class="relative my-5 rounded-xl overflow-hidden bg-gradient-to-b from-slate-900 to-black p-4 border border-cyan-500/20">
+              <div class="relative my-5 rounded-xl overflow-hidden bg-[#121315] p-4 border border-white/10">
                 
                                 <!-- Arte Oficial da Hatsune Miku -->
                 <div class="flex items-center gap-4">
-                  <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-[#242422] via-[#1a1a18] to-[#111110] p-1.5 flex-shrink-0 border border-forma-copper/40 shadow-inner overflow-hidden flex items-center justify-center group">
+                  <div class="relative w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-gradient-to-br from-[#242422] via-[#1a1a18] to-[#111110] p-1.5 flex-shrink-0 border border-white/10 overflow-hidden flex items-center justify-center group">
                     <div class="absolute inset-0 bg-radial from-forma-copper/10 via-transparent to-transparent pointer-events-none"></div>
                     <img 
                       src="assets/miku-transparent.png" 
@@ -679,15 +741,15 @@
                   </div>
 
                   <div class="space-y-1">
-                    <span class="text-xs font-mono font-bold text-cyber-miku flex items-center gap-1">
-                      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                    <span class="text-xs font-mono font-bold text-copper flex items-center gap-1">
+                      <span class="w-1.5 h-1.5 rounded-full bg-copper animate-ping"></span>
                       HATSUNE MIKU V6 AI
                     </span>
                     <h2 class="text-lg font-bold text-white font-display leading-tight">Original & Sweet Dual Pack</h2>
                     <p class="text-xs text-slate-400 line-clamp-2">
                       A diva virtual mais reverenciada do planeta, reconstruída com síntese neural de altíssima fidelidade.
                     </p>
-                    <div class="pt-1 flex items-center gap-2 text-[11px] font-mono text-cyan-300">
+                    <div class="pt-1 flex items-center gap-2 text-[11px] font-mono text-muted">
                       <span>BPM: 70-180</span>
                       <span>•</span>
                       <span>Alcance: A2-E4</span>
@@ -699,12 +761,12 @@
                 <div class="mt-4 pt-3 border-t border-white/10">
                   <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-1.5">
                     <span class="flex items-center gap-1">
-                      <i data-lucide="activity" class="w-3.5 h-3.5 text-cyber-miku"></i>
+                      <i data-lucide="activity" class="w-3.5 h-3.5 text-copper"></i>
                       ESPECTROGRAMA EM TEMPO REAL
                     </span>
-                    <span id="hero-audio-status" class="text-cyber-miku font-semibold">Pronto para Tocar</span>
+                    <span id="hero-audio-status" class="text-copper font-semibold">Pronto para Tocar</span>
                   </div>
-                  <canvas id="hero-spectrogram" width="400" height="75" class="w-full h-[75px] bg-slate-950/80 rounded-lg border border-cyan-500/20"></canvas>
+                  <canvas id="hero-spectrogram" width="400" height="75" class="w-full h-[75px] bg-[#090a0b] rounded-lg border border-white/10"></canvas>
                 </div>
 
               </div>
@@ -712,12 +774,12 @@
               <!-- Controles Interativos de Reprodução da Amostra -->
               <div class="space-y-3">
                 <div class="flex items-center gap-3">
-                  <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="flex-1 bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 font-bold py-3 px-4 rounded-xl flex items-center justify-center gap-2.5 shadow-lg shadow-cyan-400/20 transition-all active:scale-[0.98]">
+                  <button id="hero-play-btn" onclick="window.vocalStore.togglePreview('miku')" class="flex-1 pill copper flex-1 py-3 px-4 font-semibold text-xs">
                     <i data-lucide="play" id="hero-play-icon" class="w-5 h-5 fill-current"></i>
                     <span id="hero-play-text">Ouvir Demo "Starlight Pop"</span>
                   </button>
 
-                  <button onclick="window.vocalStore.openSpecModal('miku')" class="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400 text-slate-300 hover:text-white transition-colors" title="Ver Especificações Completas">
+                  <button onclick="window.vocalStore.openSpecModal('miku')" class="p-3 rounded-xl bg-white/5 border border-white/10 hover:border-white/10 text-slate-300 hover:text-white transition-colors" title="Ver Especificações Completas">
                     <i data-lucide="file-text" class="w-5 h-5"></i>
                   </button>
                 </div>
@@ -728,7 +790,7 @@
                     <span class="text-[10px] uppercase font-mono text-slate-400">Preço de Lançamento</span>
                     <div class="text-xl font-black font-mono text-white" id="hero-price-tag">R$ 899,00</div>
                   </div>
-                  <button onclick="window.vocalStore.addToCart('miku')" class="px-4 py-2 bg-white/10 hover:bg-cyber-miku hover:text-slate-950 text-white border border-white/20 hover:border-cyber-miku rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
+                  <button onclick="window.vocalStore.addToCart('miku')" class="px-4 py-2 bg-white/10 hover:bg-copper hover:text-slate-950 text-white border border-white/20 hover:border-cyber-miku rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shadow-sm">
                     <i data-lucide="plus" class="w-4 h-4"></i>
                     Reservar Voicebank
                   </button>
@@ -748,19 +810,19 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
         <div class="space-y-1">
-          <div class="text-cyber-miku font-cyber font-bold text-xl sm:text-2xl">96 kHz</div>
+          <div class="text-copper font-cyber font-bold text-xl sm:text-2xl">96 kHz</div>
           <div class="text-xs text-slate-400 font-mono">Amostragem Float 32-bit</div>
         </div>
         <div class="space-y-1">
-          <div class="text-cyber-rin font-cyber font-bold text-xl sm:text-2xl">V6 AI</div>
+          <div class="text-muted font-cyber font-bold text-xl sm:text-2xl">V6 AI</div>
           <div class="text-xs text-slate-400 font-mono">Redes Neurais com Atenção</div>
         </div>
         <div class="space-y-1">
-          <div class="text-cyber-luka font-cyber font-bold text-xl sm:text-2xl">100% VST3</div>
+          <div class="text-muted font-cyber font-bold text-xl sm:text-2xl">100% VST3</div>
           <div class="text-xs text-slate-400 font-mono">Compatível com Todas DAWs</div>
         </div>
         <div class="space-y-1">
-          <div class="text-cyber-teto font-cyber font-bold text-xl sm:text-2xl">X-SAMPA</div>
+          <div class="text-muted font-cyber font-bold text-xl sm:text-2xl">X-SAMPA</div>
           <div class="text-xs text-slate-400 font-mono">Dicionário Fonético Global</div>
         </div>
       </div>
@@ -774,11 +836,10 @@
       <!-- Cabeçalho da Seção -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
         <div>
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-950/80 border border-cyan-500/30 text-xs font-mono text-cyan-300 mb-2">
-            <i data-lucide="layers" class="w-3.5 h-3.5"></i>
+          <div class="eyebrow mb-3">
             BANCOS DE VOZ EM PRÉ-VENDA
           </div>
-          <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+          <h2 class="text-3xl sm:text-4xl font-normal font-display text-white">
             Catálogo Oficial de Voicebanks
           </h2>
           <p class="text-slate-400 text-sm mt-1 max-w-xl">
@@ -833,7 +894,7 @@
         <i data-lucide="music" class="w-12 h-12 text-slate-600 mx-auto mb-3"></i>
         <h3 class="text-lg font-bold text-white">Nenhum Voicebank encontrado</h3>
         <p class="text-sm text-slate-400 max-w-sm mx-auto mt-1">Tente buscar por termos como "Miku", "Luka", "AI", "Rock" ou limpe a busca.</p>
-        <button onclick="document.getElementById('search-input').value=''; window.vocalStore.handleSearch('')" class="mt-4 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-mono text-cyan-300 transition-colors">
+        <button onclick="document.getElementById('search-input').value=''; window.vocalStore.handleSearch('')" class="mt-4 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-xl text-xs font-mono text-muted transition-colors">
           Limpar Filtros
         </button>
       </div>
@@ -842,15 +903,14 @@
   </section>
 
   <!-- SEÇÃO 2: MINI-STUDIO INTERATIVO — TECLADO SINTETIZADOR DE VOZ (Web Audio API) -->
-  <section id="mini-studio" data-reveal class="py-20 relative bg-slate-950/70 border-t border-white/10">
+  <section id="mini-studio" data-reveal class="py-20 relative border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-fuchsia-950/80 border border-fuchsia-500/30 text-xs font-mono text-fuchsia-300 mb-2">
-          <i data-lucide="radio" class="w-3.5 h-3.5"></i>
+        <div class="eyebrow mb-3">
           LABORATÓRIO INTERATIVO NO SEU NAVEGADOR
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+        <h2 class="text-3xl sm:text-4xl font-normal font-display text-white">
           Mini-Studio Sintetizador de Voz
         </h2>
         <p class="text-slate-400 text-sm mt-2">
@@ -860,7 +920,7 @@
       </div>
 
       <!-- Painel Principal do Mini-Studio -->
-      <div data-reveal class="cyber-panel rounded-3xl p-6 sm:p-8 border-cyan-500/30 shadow-2xl relative overflow-hidden">
+      <div data-reveal class="cyber-panel rounded-2xl p-6 sm:p-8 relative overflow-hidden">
         
         <!-- Controles Superiores: Seletor de Personagem Ativo & Vogal Fonética -->
         <div class="grid grid-cols-1 md:grid-cols-12 gap-6 pb-6 border-b border-white/10 items-center">
@@ -869,10 +929,10 @@
           <div class="md:col-span-6 space-y-2">
             <label class="text-xs font-mono text-slate-400 flex items-center justify-between">
               <span>PERSONAGEM SELECIONADO:</span>
-              <span id="synth-char-badge" class="text-cyber-miku font-bold font-mono">HATSUNE MIKU (AGUDO/POP)</span>
+              <span id="synth-char-badge" class="text-copper font-bold font-mono">HATSUNE MIKU (AGUDO/POP)</span>
             </label>
             <div class="grid grid-cols-3 sm:grid-cols-5 gap-2">
-              <button onclick="window.vocalStore.setSynthCharacter('miku')" class="synth-char-btn active px-2.5 py-2 rounded-xl text-xs font-bold bg-cyan-400 text-slate-950 flex flex-col items-center gap-1 border border-cyan-400 shadow-md transition-all" data-char="miku">
+              <button onclick="window.vocalStore.setSynthCharacter('miku')" class="synth-char-btn active px-2.5 py-2 rounded-xl text-xs font-bold bg-copper text-[#171715] flex flex-col items-center gap-1 border border-copper font-semibold transition-all" data-char="miku">
                 <span>01 MIKU</span>
               </button>
               <button onclick="window.vocalStore.setSynthCharacter('rin')" class="synth-char-btn px-2.5 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 flex flex-col items-center gap-1 border border-white/10 transition-all" data-char="rin">
@@ -894,10 +954,10 @@
           <div class="md:col-span-6 space-y-2">
             <label class="text-xs font-mono text-slate-400 flex items-center justify-between">
               <span>FONEMA VOGAL ATIVO (FILTRO DE FORMANTES):</span>
-              <span id="synth-vowel-badge" class="text-fuchsia-400 font-bold font-jp">あ [A] (Aberto)</span>
+              <span id="synth-vowel-badge" class="text-copper font-bold font-jp">あ [A] (Aberto)</span>
             </label>
             <div class="grid grid-cols-5 gap-2">
-              <button onclick="window.vocalStore.setSynthVowel('A')" class="synth-vowel-btn active py-2 rounded-xl text-xs font-bold font-mono bg-fuchsia-500 text-white border border-fuchsia-400 shadow-md transition-all" data-vowel="A">
+              <button onclick="window.vocalStore.setSynthVowel('A')" class="synth-vowel-btn active py-2 rounded-xl text-xs font-bold font-mono bg-copper text-[#171715] border border-copper font-semibold transition-all" data-vowel="A">
                 A [あ]
               </button>
               <button onclick="window.vocalStore.setSynthVowel('I')" class="synth-vowel-btn py-2 rounded-xl text-xs font-bold font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all" data-vowel="I">
@@ -927,7 +987,7 @@
             <div class="bg-black/30 p-3.5 rounded-xl border border-white/10 space-y-1.5">
               <div class="flex justify-between text-xs font-mono">
                 <span class="text-slate-400">Profundidade Vibrato</span>
-                <span id="label-vibrato" class="text-cyber-miku">45%</span>
+                <span id="label-vibrato" class="text-copper">45%</span>
               </div>
               <input type="range" id="param-vibrato" min="0" max="100" value="45" oninput="window.vocalStore.updateSynthParam('vibrato', this.value)" class="w-full">
             </div>
@@ -936,7 +996,7 @@
             <div class="bg-black/30 p-3.5 rounded-xl border border-white/10 space-y-1.5">
               <div class="flex justify-between text-xs font-mono">
                 <span class="text-slate-400">Brilho dos Formantes</span>
-                <span id="label-brightness" class="text-cyber-rin">70%</span>
+                <span id="label-brightness" class="text-muted">70%</span>
               </div>
               <input type="range" id="param-brightness" min="20" max="100" value="70" oninput="window.vocalStore.updateSynthParam('brightness', this.value)" class="w-full">
             </div>
@@ -945,7 +1005,7 @@
             <div class="bg-black/30 p-3.5 rounded-xl border border-white/10 space-y-1.5">
               <div class="flex justify-between text-xs font-mono">
                 <span class="text-slate-400">Breathiness (Ar / Sussurro)</span>
-                <span id="label-breath" class="text-cyber-luka">25%</span>
+                <span id="label-breath" class="text-muted">25%</span>
               </div>
               <input type="range" id="param-breath" min="0" max="100" value="25" oninput="window.vocalStore.updateSynthParam('breath', this.value)" class="w-full">
             </div>
@@ -954,7 +1014,7 @@
             <div class="bg-black/30 p-3.5 rounded-xl border border-white/10 space-y-1.5">
               <div class="flex justify-between text-xs font-mono">
                 <span class="text-slate-400">Fator de Gênero (Corpo)</span>
-                <span id="label-gender" class="text-cyber-ia">Padrao</span>
+                <span id="label-gender" class="text-muted">Padrao</span>
               </div>
               <input type="range" id="param-gender" min="-50" max="50" value="0" oninput="window.vocalStore.updateSynthParam('gender', this.value)" class="w-full">
             </div>
@@ -964,7 +1024,7 @@
           <!-- Canvas Osciloscópio / Monitor de Ondas Vocais -->
           <div class="lg:col-span-5 bg-black/50 p-4 rounded-2xl border border-white/10 relative">
             <div class="flex items-center justify-between text-[11px] font-mono text-slate-400 mb-2">
-              <span class="flex items-center gap-1.5 text-cyber-miku">
+              <span class="flex items-center gap-1.5 text-copper">
                 <i data-lucide="waveform" class="w-3.5 h-3.5"></i>
                 OSCILOSCÓPIO SINTÉTICO (FFT)
               </span>
@@ -973,7 +1033,7 @@
             <canvas id="synth-oscilloscope" width="350" height="90" class="w-full h-[90px] rounded-lg bg-slate-950 border border-white/5"></canvas>
             
             <div class="mt-2 flex items-center justify-between">
-              <button onclick="window.vocalStore.playDemoPhrase()" class="text-[11px] font-mono text-cyan-300 hover:text-cyan-200 flex items-center gap-1">
+              <button onclick="window.vocalStore.playDemoPhrase()" class="text-[11px] font-mono text-muted hover:text-copper flex items-center gap-1">
                 <i data-lucide="sparkles" class="w-3 h-3"></i> Tocar Frase Automática "Miku Song"
               </button>
               <span class="text-[10px] text-slate-500 font-mono">Teclado PC Ativo</span>
@@ -1150,11 +1210,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-yellow-950/80 border border-yellow-500/30 text-xs font-mono text-yellow-300 mb-2">
-          <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+        <div class="eyebrow mb-3">
           GUIA DE ARQUITETURA
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+        <h2 class="text-3xl sm:text-4xl font-normal font-display text-white">
           Qual Motor de Voz Escolher?
         </h2>
         <p class="text-slate-400 text-sm mt-2">
@@ -1169,15 +1228,15 @@
             <thead class="bg-black/60 text-slate-300 border-b border-white/10 uppercase tracking-wider text-[11px]">
               <tr>
                 <th class="py-4 px-6 font-bold">Recurso / Capacidade</th>
-                <th class="py-4 px-6 text-cyber-miku font-bold">VOCALOID 6 AI</th>
-                <th class="py-4 px-6 text-cyber-teto font-bold">Synthesizer V Studio Pro</th>
-                <th class="py-4 px-6 text-cyber-luka font-bold">Piapro Studio 2.0</th>
+                <th class="py-4 px-6 text-copper font-bold">VOCALOID 6 AI</th>
+                <th class="py-4 px-6 text-muted font-bold">Synthesizer V Studio Pro</th>
+                <th class="py-4 px-6 text-muted font-bold">Piapro Studio 2.0</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-white/5">
               <tr class="hover:bg-white/5 transition-colors">
                 <td class="py-4 px-6 font-sans font-medium text-white">Tecnologia de Síntese</td>
-                <td class="py-4 px-6 text-cyan-300">Rede Neural Profunda (DNN + V6 AI)</td>
+                <td class="py-4 px-6 text-muted">Rede Neural Profunda (DNN + V6 AI)</td>
                 <td class="py-4 px-6 text-pink-300">Dreamtonics Deep AI Engine</td>
                 <td class="py-4 px-6 text-slate-300">Híbrido Concatenação + NT</td>
               </tr>
@@ -1189,7 +1248,7 @@
               </tr>
               <tr class="hover:bg-white/5 transition-colors">
                 <td class="py-4 px-6 font-sans font-medium text-white">Síntese Polifônica / Duetos</td>
-                <td class="py-4 px-6 text-cyan-300">Pistas Múltiplas com Cross-Track</td>
+                <td class="py-4 px-6 text-muted">Pistas Múltiplas com Cross-Track</td>
                 <td class="py-4 px-6 text-pink-300">Pistas de Harmonia Automatizadas</td>
                 <td class="py-4 px-6 text-slate-300">Múltiplos Bancos Simultâneos</td>
               </tr>
@@ -1207,7 +1266,7 @@
               </tr>
               <tr class="hover:bg-white/5 transition-colors">
                 <td class="py-4 px-6 font-sans font-medium text-white">Personagens Principais</td>
-                <td class="py-4 px-6 text-cyan-300 font-bold">Miku, Rin/Len, Gumi, Flower</td>
+                <td class="py-4 px-6 text-muted font-bold">Miku, Rin/Len, Gumi, Flower</td>
                 <td class="py-4 px-6 text-pink-300 font-bold">Kasane Teto, Solaria, Asterian</td>
                 <td class="py-4 px-6 text-rose-300 font-bold">Crypton Future Media 6</td>
               </tr>
@@ -1220,15 +1279,14 @@
   </section>
 
   <!-- SEÇÃO 4: PRODUTORES & DEPOIMENTOS DA COMUNIDADE -->
-  <section id="comunidade" data-reveal class="py-20 relative bg-slate-950/80 border-t border-white/10">
+  <section id="comunidade" data-reveal class="py-20 relative border-t border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <div class="text-center max-w-2xl mx-auto mb-14">
-        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-950/80 border border-purple-500/30 text-xs font-mono text-purple-300 mb-2">
-          <i data-lucide="award" class="w-3.5 h-3.5"></i>
+        <div class="eyebrow mb-3">
           APROVADO POR PRODUTORES DE SUCESSO
         </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white">
+        <h2 class="text-3xl sm:text-4xl font-normal font-display text-white">
           A Opinião de Quem Cria Músicas
         </h2>
         <p class="text-slate-400 text-sm mt-2">
@@ -1239,7 +1297,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         
         <!-- Depoimento 1 -->
-        <div data-reveal data-reveal-delay="1" class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-cyan-400/40 transition-all flex flex-col justify-between">
+        <div data-reveal data-reveal-delay="1" class="cyber-panel rounded-2xl p-6 border-white/10 hover:border-white/10 transition-all flex flex-col justify-between">
           <div class="space-y-4">
             <div class="flex items-center gap-1 text-amber-400">
               ★★★★★
@@ -1249,7 +1307,7 @@
             </p>
           </div>
           <div class="pt-6 border-t border-white/10 flex items-center gap-3 mt-4">
-            <div class="w-10 h-10 rounded-full bg-cyan-950 border border-cyan-400 flex items-center justify-center font-bold text-cyber-miku text-xs">
+            <div class="w-10 h-10 rounded-full bg-panel border border-white/10 flex items-center justify-center font-bold text-copper text-xs">
               RX
             </div>
             <div>
@@ -1270,7 +1328,7 @@
             </p>
           </div>
           <div class="pt-6 border-t border-white/10 flex items-center gap-3 mt-4">
-            <div class="w-10 h-10 rounded-full bg-pink-950 border border-pink-400 flex items-center justify-center font-bold text-cyber-teto text-xs">
+            <div class="w-10 h-10 rounded-full bg-pink-950 border border-pink-400 flex items-center justify-center font-bold text-muted text-xs">
               SD
             </div>
             <div>
@@ -1291,7 +1349,7 @@
             </p>
           </div>
           <div class="pt-6 border-t border-white/10 flex items-center gap-3 mt-4">
-            <div class="w-10 h-10 rounded-full bg-purple-950 border border-purple-400 flex items-center justify-center font-bold text-cyber-ia text-xs">
+            <div class="w-10 h-10 rounded-full bg-purple-950 border border-purple-400 flex items-center justify-center font-bold text-muted text-xs">
               NL
             </div>
             <div>
@@ -1308,17 +1366,17 @@
 
   <!-- SEÇÃO 5: NEWSLETTER VIP & PRÉ-RESERVA COM BÔNUS EXCLUSIVOS -->
   <section class="py-20 relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-r from-cyan-950/40 via-slate-900 to-fuchsia-950/40 pointer-events-none"></div>
+    
 
     <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
-      <div data-reveal class="cyber-panel rounded-3xl p-8 sm:p-12 border-cyan-400/40 glow-border-miku">
+      <div data-reveal class="cyber-panel rounded-2xl p-8 sm:p-12">
         
-        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-400/20 text-cyber-miku border border-cyan-400/40 text-xs font-mono font-bold mb-4">
-          ★ ACESSO ANTECIPADO EXCLUSIVO
-        </span>
+        <div class="eyebrow mb-4">
+          ACESSO ANTECIPADO EXCLUSIVO
+        </div>
 
-        <h2 class="text-3xl sm:text-4xl font-extrabold font-display text-white mb-3">
-          Garanta o Pacote Grátis <span class="text-cyber-miku">Append Whisper Pack</span>
+        <h2 class="text-3xl sm:text-4xl font-normal font-display text-white mb-3">
+          Garanta o Pacote Grátis <em style="font-family: var(--serif); font-style: italic; color: #a6a7ae;">Append Whisper Pack</em>
         </h2>
 
         <p class="text-slate-300 text-sm max-w-xl mx-auto mb-8">
@@ -1334,7 +1392,7 @@
             placeholder="Seu melhor e-mail de produtor..." 
             class="flex-1 bg-black/60 border border-white/20 focus:border-cyber-miku focus:ring-1 focus:ring-cyber-miku px-4 py-3 rounded-xl text-xs text-white placeholder-slate-500 font-mono focus:outline-none transition-all"
           >
-          <button type="submit" class="bg-gradient-to-r from-cyber-miku to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 font-bold px-6 py-3 rounded-xl text-xs shadow-lg shadow-cyan-400/20 transition-all flex items-center justify-center gap-2 active:scale-95">
+          <button type="submit" class="pill copper px-6 py-3 text-xs font-semibold flex items-center justify-center gap-2">
             <span>Garantir Bônus VIP</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </button>
@@ -1349,14 +1407,15 @@
   </section>
 
   <!-- RODAPÉ DA LOJA (ESTILO CRYPTON / YAMAHA) -->
-  <footer data-reveal class="bg-black border-t border-white/10 pt-16 pb-28 text-slate-400 text-xs font-mono">
+  <footer data-reveal class="border-t border-white/10 pt-16 pb-28 text-slate-400 text-xs font-mono" style="background: var(--bg);">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="footer-large">VOCAL//VAULT</div>
       <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
         
         <div class="space-y-3">
           <div class="flex items-center gap-2">
-            <span class="font-cyber font-black tracking-wider text-base text-white">VOCAL<span class="text-cyber-miku">//</span>VAULT</span>
-            <span class="text-[9px] px-1.5 py-0.5 bg-cyan-400/20 text-cyber-miku rounded">V6 PREVIEW</span>
+            <span class="font-cyber font-black tracking-wider text-base text-white">VOCAL<span class="text-copper">//</span>VAULT</span>
+            <span class="text-[9px] px-1.5 py-0.5 bg-copper/20 text-copper rounded border border-copper/30">V6 PREVIEW</span>
           </div>
           <p class="text-slate-400 leading-relaxed font-sans text-xs">
             Portal internacional de demonstração e pré-venda de voicebanks de síntese de canto virtual. Desenvolvido para produtores musicais, entusiastas de anime e compositores digitais.
@@ -1366,20 +1425,20 @@
         <div>
           <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs">Navegação Rápida</h4>
           <ul class="space-y-2">
-            <li><a href="#catalogo" class="hover:text-cyber-miku transition-colors">Todos os Voicebanks</a></li>
-            <li><a href="#mini-studio" class="hover:text-cyber-miku transition-colors">Laboratório Mini-Synth</a></li>
-            <li><a href="#comparativo" class="hover:text-cyber-miku transition-colors">Matriz de Motores (V6 vs SV)</a></li>
-            <li><a href="#comunidade" class="hover:text-cyber-miku transition-colors">Avaliações da Comunidade</a></li>
+            <li><a href="#catalogo" class="hover:text-copper transition-colors">Todos os Voicebanks</a></li>
+            <li><a href="#mini-studio" class="hover:text-copper transition-colors">Laboratório Mini-Synth</a></li>
+            <li><a href="#comparativo" class="hover:text-copper transition-colors">Matriz de Motores (V6 vs SV)</a></li>
+            <li><a href="#comunidade" class="hover:text-copper transition-colors">Avaliações da Comunidade</a></li>
           </ul>
         </div>
 
         <div>
           <h4 class="text-white font-bold mb-3 uppercase tracking-wider text-xs">Suporte Técnico</h4>
           <ul class="space-y-2">
-            <li><a href="#" onclick="alert('Manual em PDF de Instalação do Voicebank V6 em elaboração!')" class="hover:text-cyber-miku transition-colors">Guia de Instalação VST3</a></li>
-            <li><a href="#" onclick="alert('Compatível com Windows 10/11 64-bit e macOS Monterey ou superior (Apple Silicon nativo).')" class="hover:text-cyber-miku transition-colors">Requisitos de Sistema</a></li>
-            <li><a href="#" onclick="alert('Atendimento ao cliente 24/7 via Discord e e-mail de suporte.')" class="hover:text-cyber-miku transition-colors">Central de Ajuda</a></li>
-            <li><a href="#" onclick="alert('Cupom de lançamento: MIKU39 dá 39% de desconto no carrinho!')" class="hover:text-cyber-miku transition-colors">Cupons e Promoções</a></li>
+            <li><a href="#" onclick="alert('Manual em PDF de Instalação do Voicebank V6 em elaboração!')" class="hover:text-copper transition-colors">Guia de Instalação VST3</a></li>
+            <li><a href="#" onclick="alert('Compatível com Windows 10/11 64-bit e macOS Monterey ou superior (Apple Silicon nativo).')" class="hover:text-copper transition-colors">Requisitos de Sistema</a></li>
+            <li><a href="#" onclick="alert('Atendimento ao cliente 24/7 via Discord e e-mail de suporte.')" class="hover:text-copper transition-colors">Central de Ajuda</a></li>
+            <li><a href="#" onclick="alert('Cupom de lançamento: MIKU39 dá 39% de desconto no carrinho!')" class="hover:text-copper transition-colors">Cupons e Promoções</a></li>
           </ul>
         </div>
 
@@ -1399,7 +1458,7 @@
           © 2026 VOCAL//VAULT Synthesizer Hub. Todos os direitos reservados.
         </div>
         <div class="flex items-center gap-4">
-          <span class="text-cyber-miku">● Servidores de Download Ativos</span>
+          <span class="text-copper">● Servidores de Download Ativos</span>
           <span>SSL 256-bit Verificado</span>
         </div>
       </div>
@@ -1407,18 +1466,18 @@
   </footer>
 
   <!-- DOCK FLUTUANTE DE ÁUDIO GLOBAL (PLAYER PERSISTENTE NA BASE) -->
-  <div id="bottom-player" class="fixed bottom-0 left-0 right-0 z-50 bg-cyber-bg/95 backdrop-blur-xl border-t border-cyan-500/30 px-4 py-3 transform transition-transform duration-300 translate-y-full shadow-2xl">
+  <div id="bottom-player" class="fixed bottom-0 left-0 right-0 z-50 bg-cyber-bg/95 backdrop-blur-xl border-t border-white/10 px-4 py-3 transform transition-transform duration-300 translate-y-full shadow-2xl">
     <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
       
       <!-- Informações do Voicebank em Reprodução -->
       <div class="flex items-center gap-3 min-w-[220px]">
-        <div id="player-avatar" class="w-11 h-11 rounded-xl bg-slate-800 p-0.5 border border-cyan-400 flex items-center justify-center overflow-hidden flex-shrink-0">
-          <span class="font-cyber font-bold text-xs text-cyber-miku">01</span>
+        <div id="player-avatar" class="w-11 h-11 rounded-xl bg-slate-800 p-0.5 border border-white/10 flex items-center justify-center overflow-hidden flex-shrink-0">
+          <span class="font-cyber font-bold text-xs text-copper">01</span>
         </div>
         <div class="space-y-0.5">
           <div class="flex items-center gap-1.5">
             <span id="player-char-name" class="font-bold text-xs text-white">Hatsune Miku V6 AI</span>
-            <span id="player-badge" class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-cyan-400/20 text-cyber-miku border border-cyan-400/30">V6 AI</span>
+            <span id="player-badge" class="px-1.5 py-0.2 rounded text-[9px] font-mono bg-copper/20 text-copper border border-copper/30">V6 AI</span>
           </div>
           <div id="player-track-name" class="text-[11px] text-slate-400 font-mono truncate max-w-[200px]">Demo: "Starlight Pop"</div>
         </div>
@@ -1431,7 +1490,7 @@
             <i data-lucide="skip-back" class="w-4 h-4"></i>
           </button>
           
-          <button id="player-play-btn" onclick="window.vocalStore.toggleBottomPlay()" class="w-10 h-10 rounded-full bg-cyber-miku text-slate-950 flex items-center justify-center hover:scale-105 active:scale-95 shadow-md shadow-cyan-400/30 transition-all">
+          <button id="player-play-btn" onclick="window.vocalStore.toggleBottomPlay()" class="w-10 h-10 rounded-full bg-copper text-slate-950 flex items-center justify-center hover:scale-105 active:scale-95 transition-all">
             <i data-lucide="pause" id="player-play-icon" class="w-5 h-5 fill-current"></i>
           </button>
           
@@ -1440,7 +1499,7 @@
           </button>
 
           <!-- Botão Loop Demo -->
-          <button id="player-loop-btn" onclick="window.vocalStore.toggleLoop()" class="text-cyan-300 hover:text-white transition-colors text-xs font-mono flex items-center gap-1 ml-2" title="Modo Loop Ativo">
+          <button id="player-loop-btn" onclick="window.vocalStore.toggleLoop()" class="text-muted hover:text-white transition-colors text-xs font-mono flex items-center gap-1 ml-2" title="Modo Loop Ativo">
             <i data-lucide="repeat" class="w-3.5 h-3.5"></i>
             <span class="text-[10px]">LOOP</span>
           </button>
@@ -1450,7 +1509,7 @@
         <div class="w-full flex items-center gap-2 text-[10px] font-mono text-slate-400">
           <span id="player-time-current">0:00</span>
           <div class="flex-1 h-1.5 bg-white/10 rounded-full overflow-hidden relative cursor-pointer" onclick="window.vocalStore.seekAudio(event)">
-            <div id="player-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 to-fuchsia-400 w-0 transition-all duration-100"></div>
+            <div id="player-progress-bar" class="h-full bg-copper w-0 transition-all duration-100"></div>
           </div>
           <span id="player-time-total">0:15</span>
         </div>
@@ -1466,7 +1525,7 @@
           <input type="range" min="0" max="100" value="80" oninput="window.vocalStore.setMasterVolume(this.value)" class="w-16">
         </div>
 
-        <button onclick="window.vocalStore.addCurrentPlayingToCart()" class="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-400/20 hover:bg-cyan-400 hover:text-slate-950 text-cyan-300 font-mono text-xs font-bold border border-cyan-400/40 transition-all">
+        <button onclick="window.vocalStore.addCurrentPlayingToCart()" class="hidden md:inline-flex pill copper !py-1.5 !px-3 !text-xs items-center gap-1.5">
           <i data-lucide="plus" class="w-3.5 h-3.5"></i>
           Reservar
         </button>
@@ -1490,9 +1549,9 @@
       <!-- Cabeçalho do Carrinho -->
       <div class="flex items-center justify-between pb-4 border-b border-white/10">
         <div class="flex items-center gap-2">
-          <i data-lucide="shopping-bag" class="w-5 h-5 text-cyber-miku"></i>
+          <i data-lucide="shopping-bag" class="w-5 h-5 text-copper"></i>
           <h3 class="text-base font-bold text-white font-display">Carrinho de Pré-Venda</h3>
-          <span id="cart-items-count" class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-white/10 text-cyan-300">0 itens</span>
+          <span id="cart-items-count" class="px-2 py-0.5 rounded-full text-xs font-mono font-bold bg-white/10 text-muted">0 itens</span>
         </div>
         <button onclick="window.vocalStore.toggleCart(false)" class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors">
           <i data-lucide="x" class="w-5 h-5"></i>
@@ -1515,7 +1574,7 @@
               type="text" 
               id="coupon-input" 
               placeholder="Cupom (tente MIKU39)" 
-              class="w-full uppercase font-mono text-xs bg-black/40 border border-white/15 rounded-xl pl-9 pr-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400"
+              class="w-full uppercase font-mono text-xs bg-black/40 border border-white/15 rounded-xl pl-9 pr-3 py-2 text-white placeholder-slate-500 focus:outline-none focus:border-white/10"
             >
           </div>
           <button onclick="window.vocalStore.applyCoupon()" class="px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-bold rounded-xl border border-white/15 transition-all">
@@ -1540,12 +1599,12 @@
           </div>
           <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-white/10">
             <span>Total da Reserva:</span>
-            <span id="cart-total" class="text-cyber-miku font-mono text-base">R$ 0,00</span>
+            <span id="cart-total" class="text-copper font-mono text-base">R$ 0,00</span>
           </div>
         </div>
 
         <!-- Botão Finalizar Reserva / Simulação de Compra -->
-        <button onclick="window.vocalStore.checkout()" id="cart-checkout-btn" class="w-full py-3.5 rounded-xl font-bold text-xs font-mono uppercase tracking-wider bg-gradient-to-r from-cyber-miku via-teal-400 to-cyber-luka text-slate-950 shadow-lg shadow-cyan-400/20 hover:shadow-cyan-400/40 hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+        <button onclick="window.vocalStore.checkout()" id="cart-checkout-btn" class="pill copper w-full py-3.5 text-xs font-semibold uppercase tracking-wider flex items-center justify-center gap-2">
           <i data-lucide="lock" class="w-4 h-4"></i>
           Garantir Chave de Licença VIP
         </button>
@@ -1563,7 +1622,7 @@
   <div id="spec-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
     <div onclick="window.vocalStore.closeSpecModal()" class="absolute inset-0 bg-black/80 backdrop-blur-md"></div>
     
-    <div class="relative w-full max-w-2xl cyber-panel rounded-3xl p-6 sm:p-8 border-cyan-400/40 shadow-2xl z-10 max-h-[90vh] overflow-y-auto no-scrollbar">
+    <div class="relative w-full max-w-2xl cyber-panel rounded-3xl p-6 sm:p-8 border-white/10 shadow-2xl z-10 max-h-[90vh] overflow-y-auto no-scrollbar">
       <button onclick="window.vocalStore.closeSpecModal()" class="absolute top-6 right-6 text-slate-400 hover:text-white p-1 rounded-lg">
         <i data-lucide="x" class="w-5 h-5"></i>
       </button>
@@ -1578,8 +1637,8 @@
   <div id="success-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
     <div onclick="window.vocalStore.closeSuccessModal()" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
     
-    <div class="relative w-full max-w-lg cyber-panel rounded-3xl p-6 sm:p-8 border-cyan-400 text-center z-10 glow-border-miku">
-      <div class="w-16 h-16 rounded-2xl bg-cyan-400/20 border border-cyan-400 text-cyber-miku flex items-center justify-center mx-auto mb-4">
+    <div class="relative w-full max-w-lg cyber-panel rounded-3xl p-6 sm:p-8 border-white/10 text-center z-10 ">
+      <div class="w-16 h-16 rounded-2xl bg-copper/20 border border-copper/30 text-copper flex items-center justify-center mx-auto mb-4">
         <i data-lucide="sparkles" class="w-8 h-8"></i>
       </div>
 
@@ -1593,7 +1652,7 @@
       </p>
 
       <!-- Serial Key Box -->
-      <div class="bg-black/60 border border-cyan-400/40 rounded-xl p-3.5 mb-6 font-mono text-xs text-cyber-miku font-bold flex items-center justify-between">
+      <div class="bg-black/60 border border-white/10 rounded-xl p-3.5 mb-6 font-mono text-xs text-copper font-bold flex items-center justify-between">
         <span id="generated-serial-key">VOCAL-V6AI-3939-MIKU-PRO</span>
         <button onclick="navigator.clipboard.writeText(document.getElementById('generated-serial-key').innerText); window.vocalStore.showToast('Serial copiado!')" class="text-slate-400 hover:text-white text-[11px] underline">
           Copiar
@@ -1606,7 +1665,7 @@
         <div>• <strong>Instalador:</strong> O link de download será liberado no lançamento global.</div>
       </div>
 
-      <button onclick="window.vocalStore.closeSuccessModal()" class="w-full py-3 bg-gradient-to-r from-cyber-miku to-teal-400 text-slate-950 font-bold rounded-xl text-xs font-mono uppercase tracking-wider hover:scale-[1.02] transition-all">
+      <button onclick="window.vocalStore.closeSuccessModal()" class="pill copper w-full py-3 text-xs font-semibold uppercase tracking-wider">
         Voltar à Loja
       </button>
     </div>
@@ -1630,8 +1689,8 @@
         engine: 'VOCALOID 6 AI',
         category: ['crypton', 'ai', 'todos'],
         color: '#00f0d6',
-        colorClass: 'glow-border-miku',
-        colorBadge: 'bg-cyan-400/20 text-cyber-miku border-cyan-400/30',
+        colorClass: '',
+        colorBadge: 'bg-copper/20 text-copper border border-copper/30',
         bpm: '70 - 180',
         range: 'A2 - E4',
         provider: 'Saki Fujita (藤田咲)',
@@ -1656,8 +1715,8 @@
         engine: 'VOCALOID 4X / V6 Compatible',
         category: ['crypton', 'rock', 'todos'],
         color: '#ffb703',
-        colorClass: 'glow-border-rin',
-        colorBadge: 'bg-amber-400/20 text-cyber-rin border-amber-400/30',
+        colorClass: '',
+        colorBadge: 'bg-amber-400/20 text-muted border-amber-400/30',
         bpm: '85 - 195',
         range: 'F2 - C5',
         provider: 'Asami Shimoda (下田麻美)',
@@ -1682,8 +1741,8 @@
         engine: 'VOCALOID 4X Bilingual',
         category: ['crypton', 'mellow', 'bilingual', 'todos'],
         color: '#ff2a85',
-        colorClass: 'glow-border-luka',
-        colorBadge: 'bg-pink-400/20 text-cyber-luka border-pink-400/30',
+        colorClass: '',
+        colorBadge: 'bg-pink-400/20 text-muted border-pink-400/30',
         bpm: '65 - 150',
         range: 'D3 - F4',
         provider: 'Yuu Asakawa (浅川悠)',
@@ -1708,8 +1767,8 @@
         engine: 'Synthesizer V AI',
         category: ['ai', 'rock', 'todos'],
         color: '#ff0055',
-        colorClass: 'glow-border-teto',
-        colorBadge: 'bg-rose-500/20 text-cyber-teto border-rose-500/30',
+        colorClass: '',
+        colorBadge: 'bg-rose-500/20 text-muted border-rose-500/30',
         bpm: '80 - 200',
         range: 'E3 - A5',
         provider: 'Mayo Oyamano (小山乃舞世)',
@@ -1734,8 +1793,8 @@
         engine: 'CeVIO AI / VOCALOID 4',
         category: ['mellow', 'todos'],
         color: '#c084fc',
-        colorClass: 'glow-border-ia',
-        colorBadge: 'bg-purple-400/20 text-cyber-ia border-purple-400/30',
+        colorClass: '',
+        colorBadge: 'bg-purple-400/20 text-muted border-purple-400/30',
         bpm: '90 - 185',
         range: 'B2 - A4',
         provider: 'Lia (Cantora de Tori no Uta)',
@@ -1761,7 +1820,7 @@
         category: ['ai', 'todos'],
         color: '#84cc16',
         colorClass: 'glow-border-gumi',
-        colorBadge: 'bg-lime-400/20 text-cyber-gumi border-lime-400/30',
+        colorBadge: 'bg-lime-400/20 text-muted border-lime-400/30',
         bpm: '60 - 175',
         range: 'F2 - A4',
         provider: 'Megumi Nakajima (中島愛)',
@@ -1787,7 +1846,7 @@
         category: ['crypton', 'mellow', 'bilingual', 'todos'],
         color: '#2563eb',
         colorClass: 'glow-border-kaito',
-        colorBadge: 'bg-blue-500/20 text-cyber-kaito border-blue-500/30',
+        colorBadge: 'bg-blue-500/20 text-muted border-blue-500/30',
         bpm: '65 - 150',
         range: 'D2 - F4',
         provider: 'Naoto Fuuga (風雅なおと)',
@@ -2215,7 +2274,7 @@
           const isPlayingThis = this.activeDemoId === c.id;
 
           return `
-            <div data-reveal data-reveal-delay="${(index % 6) + 1}" class="cyber-panel rounded-2xl p-5 border-white/10 hover:border-cyan-400/50 flex flex-col justify-between group hover:-translate-y-1 relative" style="border-top: 3px solid ${c.color};">
+            <div data-reveal data-reveal-delay="${(index % 6) + 1}" class="cyber-panel rounded-2xl p-5 border-white/10 hover:border-white/10 flex flex-col justify-between group hover:-translate-y-1 relative" style="border-top: 3px solid ${c.color};">
               
               <!-- Tag Superior & Código -->
               <div class="flex items-center justify-between mb-3 text-xs font-mono">
@@ -2241,7 +2300,7 @@
                 <!-- Botão Flutuante de Play Rápido da Demo -->
                 <button 
                   onclick="window.vocalStore.togglePreview('${c.id}')"
-                  class="absolute bottom-2.5 right-2.5 w-10 h-10 rounded-full flex items-center justify-center transition-all ${isPlayingThis ? 'bg-cyber-miku text-slate-950 scale-105 shadow-lg shadow-cyan-400/50' : 'bg-white/10 hover:bg-white/20 text-white'}"
+                  class="absolute bottom-2.5 right-2.5 w-10 h-10 rounded-full flex items-center justify-center transition-all ${isPlayingThis ? 'bg-copper text-slate-950 scale-105' : 'bg-white/10 hover:bg-white/20 text-white'}"
                   title="Ouvir Demo"
                 >
                   <i data-lucide="${isPlayingThis ? 'pause' : 'play'}" class="w-4 h-4 fill-current"></i>
@@ -2251,7 +2310,7 @@
               <!-- Informações Textuais -->
               <div class="space-y-1.5 flex-1">
                 <div class="flex items-center justify-between">
-                  <h3 class="text-base font-bold text-white font-display group-hover:text-cyan-300 transition-colors">${c.name}</h3>
+                  <h3 class="text-base font-bold text-white font-display group-hover:text-copper transition-colors">${c.name}</h3>
                 </div>
                 <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">
                   ${c.description}
@@ -2271,11 +2330,11 @@
                 </div>
 
                 <div class="flex items-center gap-2">
-                  <button onclick="window.vocalStore.openSpecModal('${c.id}')" class="p-2 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors" title="Ficha Técnica">
+                  <button onclick="window.vocalStore.openSpecModal('${c.id}')" class="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white transition-colors" title="Ficha Técnica">
                     <i data-lucide="info" class="w-4 h-4"></i>
                   </button>
 
-                  <button onclick="window.vocalStore.addToCart('${c.id}')" class="px-3 py-2 rounded-xl bg-cyan-400/20 hover:bg-cyan-400 hover:text-slate-950 text-cyan-300 font-mono text-xs font-bold border border-cyan-400/30 transition-all flex items-center gap-1 shadow-sm">
+                  <button onclick="window.vocalStore.addToCart('${c.id}')" class="px-3 py-2 rounded-lg bg-white/10 hover:bg-copper hover:text-slate-950 text-white font-mono text-xs font-semibold border border-white/10 transition-all flex items-center gap-1">
                     <i data-lucide="plus" class="w-3.5 h-3.5"></i>
                     Reservar
                   </button>
@@ -2436,7 +2495,7 @@
         this.isLoop = !this.isLoop;
         const btn = document.getElementById('player-loop-btn');
         if (this.isLoop) {
-          btn.className = 'text-cyan-300 hover:text-white transition-colors text-xs font-mono flex items-center gap-1 ml-2';
+          btn.className = 'text-muted hover:text-white transition-colors text-xs font-mono flex items-center gap-1 ml-2';
           this.showToast('Modo Loop ATIVADO');
         } else {
           btn.className = 'text-slate-500 hover:text-white transition-colors text-xs font-mono flex items-center gap-1 ml-2';
@@ -2459,7 +2518,7 @@
         this.synth.currentChar = charId;
         document.querySelectorAll('.synth-char-btn').forEach(btn => {
           if (btn.dataset.char === charId) {
-            btn.className = 'synth-char-btn active px-2.5 py-2 rounded-xl text-xs font-bold bg-cyan-400 text-slate-950 flex flex-col items-center gap-1 border border-cyan-400 shadow-md transition-all';
+            btn.className = 'synth-char-btn active px-2.5 py-2 rounded-xl text-xs font-bold bg-copper text-[#171715] flex flex-col items-center gap-1 border border-copper font-semibold transition-all';
           } else {
             btn.className = 'synth-char-btn px-2.5 py-2 rounded-xl text-xs font-bold bg-white/5 hover:bg-white/10 text-slate-300 flex flex-col items-center gap-1 border border-white/10 transition-all';
           }
@@ -2473,7 +2532,7 @@
         this.synth.currentVowel = vowelKey;
         document.querySelectorAll('.synth-vowel-btn').forEach(btn => {
           if (btn.dataset.vowel === vowelKey) {
-            btn.className = 'synth-vowel-btn active py-2 rounded-xl text-xs font-bold font-mono bg-fuchsia-500 text-white border border-fuchsia-400 shadow-md transition-all';
+            btn.className = 'synth-vowel-btn active py-2 rounded-xl text-xs font-bold font-mono bg-copper text-[#171715] border border-copper font-semibold transition-all';
           } else {
             btn.className = 'synth-vowel-btn py-2 rounded-xl text-xs font-bold font-mono bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10 transition-all';
           }
@@ -2734,7 +2793,7 @@
                 </div>
               </div>
               <div class="text-right">
-                <div class="text-xs font-bold font-mono text-cyan-300">${this.formatPrice(item.priceBRL)}</div>
+                <div class="text-xs font-bold font-mono text-muted">${this.formatPrice(item.priceBRL)}</div>
                 <button onclick="window.vocalStore.removeFromCart('${item.id}')" class="text-[10px] text-rose-400 hover:underline">
                   Remover
                 </button>
@@ -2824,7 +2883,7 @@
               </div>
               <div class="bg-black/40 p-3 rounded-xl border border-white/10">
                 <div class="text-[10px] text-slate-400 font-mono">Motor Principal</div>
-                <div class="text-sm font-bold text-cyan-300 font-mono mt-0.5">${char.engine.split(' ')[0]}</div>
+                <div class="text-sm font-bold text-muted font-mono mt-0.5">${char.engine.split(' ')[0]}</div>
               </div>
               <div class="bg-black/40 p-3 rounded-xl border border-white/10">
                 <div class="text-[10px] text-slate-400 font-mono">Reserva Prévia</div>
@@ -2855,7 +2914,7 @@
                 Ouvir Demonstração
               </button>
 
-              <button onclick="window.vocalStore.addToCart('${char.id}'); window.vocalStore.closeSpecModal();" class="px-6 py-2.5 rounded-xl bg-gradient-to-r from-cyber-miku to-teal-400 text-slate-950 font-mono text-xs font-bold hover:scale-105 transition-all">
+              <button onclick="window.vocalStore.addToCart('${char.id}'); window.vocalStore.closeSpecModal();" class="pill copper px-6 py-2.5 text-xs font-semibold">
                 Reservar Acesso Antecipado
               </button>
             </div>
@@ -2908,9 +2967,9 @@
         if (!container) return;
 
         const toast = document.createElement('div');
-        toast.className = 'bg-cyber-card border border-cyan-400/50 shadow-lg shadow-cyan-400/20 text-white font-mono text-xs py-2.5 px-4 rounded-xl flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto';
+        toast.className = 'bg-cyber-card border border-white/10 shadow-xl text-white font-mono text-xs py-2.5 px-4 rounded-xl flex items-center gap-2 transform transition-all duration-300 translate-y-2 opacity-0 pointer-events-auto';
         toast.innerHTML = `
-          <span class="w-2 h-2 rounded-full bg-cyber-miku animate-ping"></span>
+          <span class="w-2 h-2 rounded-full bg-copper animate-ping"></span>
           <span>${message}</span>
         `;
         container.appendChild(toast);
